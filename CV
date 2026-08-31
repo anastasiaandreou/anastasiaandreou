@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alex Smith — Frontend Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --espresso-dark: #2E1810;
+    --espresso-mid: #5A2E17;
+    --clay: #7A3B1E;
+    --cream: #FDF8F3;
+    --cream-dim: #F4EAE0;
+    --burnt-orange: #E8672F;
+    --burnt-orange-hover: #D2571F;
+    --terracotta: #F2A65A;
+    --ink: #241611;
+    --ink-soft: #6B5548;
+    --line: #E9DCCC;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #C9BCAE;
+    color: var(--ink);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .card { animation: rise 0.6s ease-out; }
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .card {
+    width: 100%;
+    max-width: 900px;
+    height: 480px;
+    background: var(--cream);
+    border-radius: 18px;
+    display: grid;
+    grid-template-columns: 240px 1fr 56px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px -20px rgba(46, 24, 16, 0.45);
+  }
+
+  /* ---------- LEFT SIDEBAR ---------- */
+  .sidebar {
+    background: linear-gradient(165deg, var(--espresso-dark) 0%, var(--clay) 100%);
+    color: var(--cream);
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  .lang-toggle {
+    position: absolute;
+    top: 22px;
+    right: 20px;
+    display: flex;
+    background: rgba(253, 248, 243, 0.12);
+    border-radius: 20px;
+    padding: 3px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .lang-toggle span {
+    padding: 3px 9px;
+    border-radius: 16px;
+    color: rgba(253, 248, 243, 0.6);
+  }
+  .lang-toggle span.active {
+    background: var(--burnt-orange);
+    color: var(--cream);
+  }
+
+  .avatar {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    margin-top: 26px;
+    background: linear-gradient(150deg, var(--terracotta), var(--burnt-orange));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--espresso-dark);
+    border: 3px solid rgba(253, 248, 243, 0.25);
+  }
+
+  .sidebar h1 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    margin-top: 16px;
+    letter-spacing: 0.2px;
+  }
+
+  .sidebar .role {
+    font-size: 13px;
+    color: var(--terracotta);
+    margin-top: 4px;
+    font-weight: 500;
+  }
+
+  .socials {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+  }
+  .socials a {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(253, 248, 243, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cream);
+    text-decoration: none;
+    transition: background 0.15s ease;
+  }
+  .socials a:hover { background: var(--burnt-orange); }
+  .socials svg { width: 14px; height: 14px; fill: currentColor; }
+
+  .contact {
+    margin-top: auto;
+    width: 100%;
+    font-size: 12.5px;
+    color: rgba(253, 248, 243, 0.75);
+    line-height: 1.9;
+  }
+
+  .btn-download {
+    margin-top: 16px;
+    width: 100%;
+    padding: 11px;
+    border-radius: 9px;
+    border: 1.5px solid rgba(253, 248, 243, 0.4);
+    background: transparent;
+    color: var(--cream);
+    font-family: 'Inter', sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+  .btn-download:hover {
+    background: rgba(253, 248, 243, 0.1);
+    border-color: var(--terracotta);
+  }
+
+  .rights {
+    margin-top: 14px;
+    font-size: 10px;
+    color: rgba(253, 248, 243, 0.4);
+  }
+
+  /* ---------- MAIN PANEL ---------- */
+  .main {
+    display: flex;
+    align-items: center;
+    padding: 0 20px 0 44px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .main-content {
+    position: relative;
+    z-index: 2;
+    max-width: 300px;
+  }
+
+  .eyebrow {
+    font-size: 13px;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+
+  .main h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1.05;
+    margin-top: 8px;
+    color: var(--ink);
+  }
+
+  .main p {
+    margin-top: 16px;
+    font-size: 13.5px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    max-width: 260px;
+  }
+
+  .cta-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 22px;
+  }
+
+  .btn-primary {
+    padding: 11px 20px;
+    border-radius: 9px;
+    border: none;
+    background: var(--burnt-orange);
+    color: var(--cream);
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.1s ease;
+  }
+  .btn-primary:hover { background: var(--burnt-orange-hover); }
+  .btn-primary:active { transform: scale(0.98); }
+
+  .btn-secondary {
+    padding: 11px 20px;
+    border-radius: 9px;
+    border: 1.5px solid var(--line);
+    background: transparent;
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .btn-secondary:hover {
+    border-color: var(--burnt-orange);
+    background: var(--cream-dim);
+  }
+
+  /* Portrait arc */
+  .portrait-frame {
+    position: absolute;
+    right: -40px;
+    top: 0;
+    bottom: 0;
+    width: 62%;
+    background: radial-gradient(ellipse at 65% 50%, var(--terracotta) 0%, var(--burnt-orange) 55%, var(--clay) 100%);
+    border-radius: 50% 0 0 50% / 55% 0 0 45%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .portrait-silhouette {
+    width: 100%;
+    height: 92%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  .portrait-silhouette svg {
+    height: 100%;
+    width: auto;
+  }
+
+  /* ---------- RIGHT ICON RAIL ---------- */
+  .rail {
+    background: var(--cream-dim);
+    border-left: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    padding: 20px 0;
+  }
+  .rail .icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .rail .icon:hover {
+    background: var(--burnt-orange);
+    color: var(--cream);
+  }
+  .rail .icon.active {
+    background: var(--burnt-orange);
+    color: var(--cream);
+  }
+  .rail svg { width: 15px; height: 15px; fill: currentColor; }
+
+  @media (max-width: 720px) {
+    .card {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto;
+      height: auto;
+    }
+    .rail { display: none; }
+    .portrait-frame { display: none; }
+    .main { padding: 32px 28px; }
+    .main-content { max-width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="lang-toggle"><span class="active">En</span><span>Fr</span></div>
+
+    <div class="avatar">AS</div>
+    <h1>Alex Smith</h1>
+    <div class="role">Web Designer</div>
+
+    <div class="socials" aria-label="Social links">
+      <a href="#" aria-label="Twitter">
+        <svg viewBox="0 0 24 24"><path d="M23 4.5c-.8.4-1.7.6-2.6.8a4.6 4.6 0 0 0 2-2.5c-.9.5-1.8.9-2.9 1.1a4.5 4.5 0 0 0-7.7 4.1A12.9 12.9 0 0 1 2.4 3.4a4.5 4.5 0 0 0 1.4 6 4.5 4.5 0 0 1-2-.6v.1a4.5 4.5 0 0 0 3.6 4.4 4.5 4.5 0 0 1-2 .1 4.5 4.5 0 0 0 4.2 3.1A9 9 0 0 1 1 19a12.8 12.8 0 0 0 7 2c8.3 0 12.9-7 12.9-13v-.6c.9-.6 1.6-1.4 2.1-2.3z"/></svg>
+      </a>
+      <a href="#" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2 3.77-2 4 0 4.75 2.6 4.75 6.1V21h-4v-5.6c0-1.3 0-3-1.85-3s-2.13 1.4-2.13 2.9V21h-4V9z"/></svg>
+      </a>
+      <a href="#" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5H17V3.6c-.28-.04-1.24-.12-2.36-.12-2.34 0-3.94 1.43-3.94 4.05V10H8v3.1h2.7V21h2.8z"/></svg>
+      </a>
+    </div>
+
+    <div class="contact">
+      +0123 123 456 789<br>
+      alex@smith.com
+    </div>
+
+    <button class="btn-download">Download CV</button>
+    <div class="rights">© 2026 All rights reserved.</div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+    <div class="main-content">
+      <div class="eyebrow">Frontend developer</div>
+      <h2>Alex Smith</h2>
+      <p>
+        I design and build clean, fast interfaces — from early concept
+        through to a polished, working product. I care about the small
+        details that make software feel considered.
+      </p>
+      <div class="cta-row">
+        <button class="btn-primary">Download CV</button>
+        <button class="btn-secondary">Contact</button>
+      </div>
+    </div>
+
+    <div class="portrait-frame">
+      <div class="portrait-silhouette">
+        <svg viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="100" cy="90" rx="46" ry="52" fill="#2E1810" opacity="0.85"/>
+          <path d="M40 280 C40 190 60 150 100 150 C140 150 160 190 160 280 Z" fill="#2E1810" opacity="0.85"/>
+        </svg>
+      </div>
+    </div>
+  </main>
+
+  <!-- ICON RAIL -->
+  <nav class="rail" aria-label="Section navigation">
+    <div class="icon active" title="Profile">
+      <svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-4.4 0-8 2.2-8 5v2h16v-2c0-2.8-3.6-5-8-5z"/></svg>
+    </div>
+    <div class="icon" title="Education">
+      <svg viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zM5 13.2V17c0 2 3.1 4 7 4s7-2 7-4v-3.8l-7 3.8-7-3.8z"/></svg>
+    </div>
+    <div class="icon" title="Experience">
+      <svg viewBox="0 0 24 24"><path d="M10 2h4a2 2 0 0 1 2 2v2h4a2 2 0 0 1 2 2v3H2V8a2 2 0 0 1 2-2h4V4a2 2 0 0 1 2-2zm0 4h4V4h-4v2zM2 12h20v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6z"/></svg>
+    </div>
+    <div class="icon" title="Contact">
+      <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+    </div>
+    <div class="icon" title="Mail">
+      <svg viewBox="0 0 24 24"><path d="M12 13.5 2 7v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7l-10 6.5zM12 11 22 4.5A2 2 0 0 0 20 3H4a2 2 0 0 0-2 1.5L12 11z"/></svg>
+    </div>
+  </nav>
+
+</div>
+
+</body>
+</html>
