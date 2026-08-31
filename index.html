@@ -5,486 +5,452 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Anastasia Andreou — Web Developer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --espresso-dark: #2E1810;
-    --espresso-mid: #5A2E17;
-    --clay: #7A3B1E;
-    --cream: #FDF8F3;
-    --cream-dim: #F4EAE0;
-    --burnt-orange: #E8672F;
-    --burnt-orange-hover: #D2571F;
-    --terracotta: #F2A65A;
-    --ink: #241611;
-    --ink-soft: #6B5548;
-    --line: #E9DCCC;
+    --green: #33b679;
+    --green-dark: #2a9c66;
+    --text: #2b2b2b;
+    --heading: #1f1f1f;
+    --muted: #9a9fa6;
+    --border: #ececec;
+    --bg: #ffffff;
+    --bg-soft: #fafafa;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
+  html { scroll-behavior: smooth; }
+
   body {
-    font-family: 'Inter', sans-serif;
-    background: #C9BCAE;
-    color: var(--ink);
-    min-height: 100vh;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .wrap {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---------- NAVBAR ---------- */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: saturate(180%) blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 32px;
+    justify-content: space-between;
+    height: 74px;
   }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .card { animation: rise 0.6s ease-out; }
-  }
-  @keyframes rise {
-    from { opacity: 0; transform: translateY(14px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .card {
-    width: 100%;
-    max-width: 900px;
-    height: 480px;
-    background: var(--cream);
-    border-radius: 18px;
-    display: grid;
-    grid-template-columns: 240px 1fr 56px;
-    overflow: hidden;
-    box-shadow: 0 30px 60px -20px rgba(46, 24, 16, 0.45);
-  }
-
-  /* ---------- LEFT SIDEBAR ---------- */
-  .sidebar {
-    background: linear-gradient(165deg, var(--espresso-dark) 0%, var(--clay) 100%);
-    color: var(--cream);
-    padding: 28px 24px;
+  .brand {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    position: relative;
+    gap: 12px;
+    font-size: 18px;
+    color: var(--heading);
+    font-weight: 500;
   }
-
-  .lang-toggle {
-    position: absolute;
-    top: 22px;
-    right: 20px;
-    display: flex;
-    background: rgba(253, 248, 243, 0.12);
-    border-radius: 20px;
-    padding: 3px;
-    font-size: 11px;
-    font-weight: 600;
-  }
-  .lang-toggle span {
-    padding: 3px 9px;
-    border-radius: 16px;
-    color: rgba(253, 248, 243, 0.6);
-  }
-  .lang-toggle span.active {
-    background: var(--burnt-orange);
-    color: var(--cream);
-  }
-
-  .avatar {
-    width: 88px;
-    height: 88px;
+  .brand .logo {
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
-    margin-top: 26px;
-    background: linear-gradient(150deg, var(--terracotta), var(--burnt-orange));
+    background: var(--green);
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: 'Fraunces', serif;
-    font-size: 30px;
-    font-weight: 500;
-    color: var(--espresso-dark);
-    border: 3px solid rgba(253, 248, 243, 0.25);
+    font-size: 19px;
+    font-weight: 600;
   }
+  .brand strong { font-weight: 600; }
 
-  .sidebar h1 {
-    font-family: 'Fraunces', serif;
-    font-size: 22px;
-    font-weight: 500;
-    margin-top: 16px;
-    letter-spacing: 0.2px;
-  }
-
-  .sidebar .role {
-    font-size: 13px;
-    color: var(--terracotta);
-    margin-top: 4px;
-    font-weight: 500;
-  }
-
-  .socials {
-    display: flex;
-    gap: 10px;
-    margin-top: 18px;
-  }
-  .socials a {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: rgba(253, 248, 243, 0.1);
+  .nav-links {
     display: flex;
     align-items: center;
+    gap: 30px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .nav-links a { transition: color 0.15s ease; }
+  .nav-links a:hover { color: var(--heading); }
+
+  .nav-toggle {
+    display: none;
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: #fff;
+    align-items: center;
     justify-content: center;
-    color: var(--cream);
-    text-decoration: none;
-    transition: background 0.15s ease;
-  }
-  .socials a:hover { background: var(--burnt-orange); }
-  .socials svg { width: 14px; height: 14px; fill: currentColor; }
-
-  .contact {
-    margin-top: auto;
-    width: 100%;
-    font-size: 12.5px;
-    color: rgba(253, 248, 243, 0.75);
-    line-height: 1.9;
-  }
-
-  .btn-download {
-    margin-top: 16px;
-    width: 100%;
-    padding: 11px;
-    border-radius: 9px;
-    border: 1.5px solid rgba(253, 248, 243, 0.4);
-    background: transparent;
-    color: var(--cream);
-    font-family: 'Inter', sans-serif;
-    font-size: 12.5px;
-    font-weight: 600;
     cursor: pointer;
-    transition: background 0.15s ease, border-color 0.15s ease;
   }
-  .btn-download:hover {
-    background: rgba(253, 248, 243, 0.1);
-    border-color: var(--terracotta);
-  }
+  .nav-toggle svg { width: 18px; height: 18px; fill: var(--text); }
 
-  .rights {
-    margin-top: 14px;
-    font-size: 10px;
-    color: rgba(253, 248, 243, 0.4);
-  }
-
-  /* ---------- MAIN PANEL ---------- */
-  .main {
-    display: flex;
+  /* ---------- HERO ---------- */
+  .hero {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 64px;
     align-items: center;
-    padding: 0 20px 0 44px;
-    position: relative;
+    padding: 84px 0 96px;
+  }
+
+  .hero-photo {
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at 60% 40%, #e9e9e9 0%, #cfcfcf 60%, #b9b9b9 100%);
+    box-shadow: 0 0 0 12px #fff, 0 24px 50px -18px rgba(0, 0, 0, 0.28);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
     overflow: hidden;
   }
-
-  .main-content {
-    position: relative;
-    z-index: 2;
-    max-width: 300px;
-  }
+  .hero-photo svg { width: 78%; height: auto; filter: grayscale(1); }
 
   .eyebrow {
-    font-size: 13px;
-    color: var(--ink-soft);
-    font-weight: 500;
+    font-size: 15px;
+    color: var(--muted);
+    font-weight: 400;
   }
-
-  .main h2 {
+  .hero-text h1 {
     font-family: 'Fraunces', serif;
-    font-size: 40px;
+    font-size: 52px;
     font-weight: 500;
-    line-height: 1.05;
-    margin-top: 8px;
-    color: var(--ink);
+    line-height: 1.08;
+    color: var(--heading);
+    margin: 10px 0 20px;
   }
-
-  .main p {
-    margin-top: 16px;
-    font-size: 13.5px;
-    line-height: 1.7;
-    color: var(--ink-soft);
-    max-width: 260px;
+  .hero-text p {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 440px;
   }
 
   .cta-row {
     display: flex;
-    gap: 10px;
-    margin-top: 22px;
+    gap: 16px;
+    margin-top: 30px;
   }
-
-  .btn-primary {
-    padding: 11px 20px;
-    border-radius: 9px;
-    border: none;
-    background: var(--burnt-orange);
-    color: var(--cream);
+  .btn {
+    padding: 13px 30px;
+    border-radius: 30px;
     font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: 500;
     cursor: pointer;
-    transition: background 0.15s ease, transform 0.1s ease;
-  }
-  .btn-primary:hover { background: var(--burnt-orange-hover); }
-  .btn-primary:active { transform: scale(0.98); }
-
-  .btn-secondary {
-    padding: 11px 20px;
-    border-radius: 9px;
-    border: 1.5px solid var(--line);
     background: transparent;
-    color: var(--ink);
-    font-family: 'Inter', sans-serif;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+  .btn-green {
+    border: 1.5px solid var(--green);
+    color: var(--green);
+  }
+  .btn-green:hover { background: var(--green); color: #fff; }
+  .btn-gray {
+    border: 1.5px solid #d7d7d7;
+    color: var(--heading);
+  }
+  .btn-gray:hover { border-color: var(--heading); }
+
+  /* ---------- SECTIONS ---------- */
+  .section { padding: 70px 0; }
+  .section + .section { padding-top: 0; }
+
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--heading);
+    padding-bottom: 14px;
+    position: relative;
+    margin-bottom: 46px;
+  }
+  .section-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 44px;
+    height: 3px;
+    background: var(--green);
+  }
+  .section-title::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 1px;
+    width: 220px;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ---------- WHAT I DO ---------- */
+  .services {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 44px 56px;
+  }
+  .service {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 18px;
+  }
+  .service .ico {
+    width: 40px;
+    height: 40px;
+    color: var(--green);
+  }
+  .service .ico svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.4; }
+  .service h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--heading);
+    margin-bottom: 8px;
+  }
+  .service p {
+    font-size: 13.5px;
+    color: var(--muted);
+  }
+
+  /* ---------- TESTIMONIALS ---------- */
+  .quotes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+  .quote {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px 30px;
+    background: var(--bg-soft);
+  }
+  .quote p {
+    font-size: 14px;
+    color: var(--text);
+    font-style: italic;
+  }
+  .quote .who {
+    margin-top: 16px;
     font-size: 13px;
     font-weight: 600;
-    cursor: pointer;
-    transition: border-color 0.15s ease, background 0.15s ease;
+    color: var(--heading);
+    font-style: normal;
   }
-  .btn-secondary:hover {
-    border-color: var(--burnt-orange);
-    background: var(--cream-dim);
-  }
+  .quote .who span { color: var(--muted); font-weight: 400; }
 
-  /* Portrait arc */
-  .portrait-frame {
-    position: absolute;
-    right: -40px;
-    top: 0;
-    bottom: 0;
-    width: 62%;
-    background: radial-gradient(ellipse at 65% 50%, var(--terracotta) 0%, var(--burnt-orange) 55%, var(--clay) 100%);
-    border-radius: 50% 0 0 50% / 55% 0 0 45%;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    overflow: hidden;
+  /* ---------- FOOTER ---------- */
+  footer {
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+    padding: 32px 0;
   }
-
-  .portrait-silhouette {
-    width: 100%;
-    height: 92%;
+  .footer-inner {
     display: flex;
-    align-items: flex-end;
-    justify-content: center;
-  }
-  .portrait-silhouette svg {
-    height: 100%;
-    width: auto;
-  }
-
-  /* ---------- RIGHT ICON RAIL ---------- */
-  .rail {
-    background: var(--cream-dim);
-    border-left: 1px solid var(--line);
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 22px;
-    padding: 20px 0;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--muted);
   }
-  .rail .icon {
-    width: 30px;
-    height: 30px;
-    border-radius: 8px;
+  .socials { display: flex; gap: 12px; }
+  .socials a {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--ink-soft);
-    cursor: pointer;
-    transition: background 0.15s ease, color 0.15s ease;
+    color: var(--muted);
+    transition: color 0.15s ease, border-color 0.15s ease;
   }
-  .rail .icon:hover {
-    background: var(--burnt-orange);
-    color: var(--cream);
-  }
-  .rail .icon.active {
-    background: var(--burnt-orange);
-    color: var(--cream);
-  }
-  .rail svg { width: 15px; height: 15px; fill: currentColor; }
+  .socials a:hover { color: var(--green); border-color: var(--green); }
+  .socials svg { width: 15px; height: 15px; fill: currentColor; }
 
-  @media (max-width: 720px) {
-    .card {
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 860px) {
+    .nav-links { display: none; }
+    .nav-toggle { display: flex; }
+    .hero {
       grid-template-columns: 1fr;
-      grid-template-rows: auto auto;
-      height: auto;
+      gap: 40px;
+      text-align: center;
+      padding: 56px 0 64px;
     }
-    .rail { display: none; }
-    .portrait-frame { display: none; }
-    .main { padding: 32px 28px; }
-    .main-content { max-width: 100%; }
+    .hero-photo { margin: 0 auto; width: 260px; height: 260px; }
+    .hero-text p { margin: 0 auto; }
+    .cta-row { justify-content: center; flex-wrap: wrap; }
+    .hero-text h1 { font-size: 40px; }
+    .services, .quotes { grid-template-columns: 1fr; }
+    .footer-inner { flex-direction: column; gap: 16px; }
   }
 </style>
 </head>
 <body>
 
-<div class="card">
+<!-- NAVBAR -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <div class="brand">
+      <span class="logo">A</span> <strong>Anastasia</strong>&nbsp;Andreou
+    </div>
+    <nav class="nav-links">
+      <a href="#about">About Me</a>
+      <a href="#services">Resume</a>
+      <a href="#services">Portfolio</a>
+      <a href="#testimonials">Blog</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact">Get it Now</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Menu">
+      <svg viewBox="0 0 24 24"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg>
+    </button>
+  </div>
+</header>
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <div class="lang-toggle"><span class="active">En</span><span>Fr</span></div>
-
-    <div class="avatar">AA</div>
+<!-- HERO -->
+<section class="wrap hero" id="about">
+  <div class="hero-photo">
+    <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="100" cy="78" rx="44" ry="50" fill="#4a4a4a"/>
+      <path d="M34 240 C34 156 56 118 100 118 C144 118 166 156 166 240 Z" fill="#4a4a4a"/>
+    </svg>
+  </div>
+  <div class="hero-text">
+    <div class="eyebrow">Frontend developer</div>
     <h1>Anastasia Andreou</h1>
-    <div class="role">Web Developer</div>
+    <p>
+      I build clean, fast interfaces and enjoy turning ideas into products
+      people actually want to use. Currently focused on React, design systems,
+      and accessible front-end architecture.
+    </p>
+    <div class="cta-row">
+      <button class="btn btn-green" id="downloadCv">Download CV</button>
+      <button class="btn btn-gray" id="contactBtn">Contact</button>
+    </div>
+  </div>
+</section>
 
+<!-- WHAT I DO -->
+<section class="wrap section" id="services">
+  <h2 class="section-title">What I Do</h2>
+  <div class="services">
+    <div class="service">
+      <div class="ico">
+        <svg viewBox="0 0 24 24"><path d="M4 20l4-1L20 7a2 2 0 0 0-3-3L5 16l-1 4z"/><path d="M14 7l3 3"/></svg>
+      </div>
+      <div>
+        <h3>Frontend Development</h3>
+        <p>Component-driven UIs in React and TypeScript, built to be fast, testable, and easy for a team to maintain over time.</p>
+      </div>
+    </div>
+    <div class="service">
+      <div class="ico">
+        <svg viewBox="0 0 24 24"><path d="M4 9h16l-1-5H5L4 9z"/><path d="M5 9v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9"/><path d="M10 20v-5h4v5"/></svg>
+      </div>
+      <div>
+        <h3>Design Systems</h3>
+        <p>Reusable tokens, patterns, and documentation that keep a product visually consistent as it grows across teams.</p>
+      </div>
+    </div>
+    <div class="service">
+      <div class="ico">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 20h8M12 16v4"/></svg>
+      </div>
+      <div>
+        <h3>Web Design</h3>
+        <p>Layouts and interactions that balance clarity with personality, designed mobile-first and refined in the browser.</p>
+      </div>
+    </div>
+    <div class="service">
+      <div class="ico">
+        <svg viewBox="0 0 24 24"><path d="M3 11l14-6v14L3 13v-2z"/><path d="M7 13v5a2 2 0 0 0 4 0v-3"/></svg>
+      </div>
+      <div>
+        <h3>Accessibility</h3>
+        <p>WCAG-aware markup, keyboard flows, and testing so interfaces work for everyone, not just the happy path.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="wrap section" id="testimonials">
+  <h2 class="section-title">Testimonials</h2>
+  <div class="quotes">
+    <div class="quote">
+      <p>“Anastasia shipped our redesign ahead of schedule and left the codebase cleaner than she found it. Rare combination.”</p>
+      <div class="who">Maria K. <span>— Product Lead</span></div>
+    </div>
+    <div class="quote">
+      <p>“Thoughtful about accessibility and performance from day one. Our Lighthouse scores have never looked better.”</p>
+      <div class="who">Daniel R. <span>— Engineering Manager</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="wrap footer-inner">
+    <div>© 2026 Anastasia Andreou · anastasia.andreou99@gmail.com</div>
     <div class="socials" aria-label="Social links">
-      <a href="#" aria-label="Twitter">
+      <a href="https://twitter.com" aria-label="Twitter">
         <svg viewBox="0 0 24 24"><path d="M23 4.5c-.8.4-1.7.6-2.6.8a4.6 4.6 0 0 0 2-2.5c-.9.5-1.8.9-2.9 1.1a4.5 4.5 0 0 0-7.7 4.1A12.9 12.9 0 0 1 2.4 3.4a4.5 4.5 0 0 0 1.4 6 4.5 4.5 0 0 1-2-.6v.1a4.5 4.5 0 0 0 3.6 4.4 4.5 4.5 0 0 1-2 .1 4.5 4.5 0 0 0 4.2 3.1A9 9 0 0 1 1 19a12.8 12.8 0 0 0 7 2c8.3 0 12.9-7 12.9-13v-.6c.9-.6 1.6-1.4 2.1-2.3z"/></svg>
       </a>
-      <a href="#" aria-label="LinkedIn">
+      <a href="https://linkedin.com" aria-label="LinkedIn">
         <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2 3.77-2 4 0 4.75 2.6 4.75 6.1V21h-4v-5.6c0-1.3 0-3-1.85-3s-2.13 1.4-2.13 2.9V21h-4V9z"/></svg>
       </a>
-      <a href="#" aria-label="Facebook">
-        <svg viewBox="0 0 24 24"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5H17V3.6c-.28-.04-1.24-.12-2.36-.12-2.34 0-3.94 1.43-3.94 4.05V10H8v3.1h2.7V21h2.8z"/></svg>
+      <a href="https://github.com" aria-label="GitHub">
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85l-.01 2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>
       </a>
     </div>
-
-    <div class="contact">
-      +357 123 456 789<br>
-      anastasia@andreou.com
-    </div>
-
-    <button class="btn-download">Download CV</button>
-    <div class="rights">© 2026 All rights reserved.</div>
-  </aside>
-
-  <!-- MAIN -->
-  <main class="main">
-    <div class="main-content">
-      <div class="eyebrow">Frontend developer</div>
-      <h2>Anastasia Andreou</h2>
-      <p>
-        I build clean, fast interfaces and enjoy turning ideas into
-        products people actually want to use. Currently focused on
-        React, design systems, and accessible front-end architecture.
-      </p>
-      <div class="cta-row">
-        <button class="btn-primary">Download CV</button>
-        <button class="btn-secondary">Contact</button>
-      </div>
-    </div>
-
-    <div class="portrait-frame">
-      <div class="portrait-silhouette">
-        <svg viewBox="0 0 200 280" xmlns="http://www.w3.org/2000/svg">
-          <ellipse cx="100" cy="90" rx="46" ry="52" fill="#2E1810" opacity="0.85"/>
-          <path d="M40 280 C40 190 60 150 100 150 C140 150 160 190 160 280 Z" fill="#2E1810" opacity="0.85"/>
-        </svg>
-      </div>
-    </div>
-  </main>
-
-  <!-- ICON RAIL -->
-  <nav class="rail" aria-label="Section navigation">
-    <div class="icon active" title="Profile">
-      <svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0 2c-4.4 0-8 2.2-8 5v2h16v-2c0-2.8-3.6-5-8-5z"/></svg>
-    </div>
-    <div class="icon" title="Education">
-      <svg viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zM5 13.2V17c0 2 3.1 4 7 4s7-2 7-4v-3.8l-7 3.8-7-3.8z"/></svg>
-    </div>
-    <div class="icon" title="Experience">
-      <svg viewBox="0 0 24 24"><path d="M10 2h4a2 2 0 0 1 2 2v2h4a2 2 0 0 1 2 2v3H2V8a2 2 0 0 1 2-2h4V4a2 2 0 0 1 2-2zm0 4h4V4h-4v2zM2 12h20v6a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-6z"/></svg>
-    </div>
-    <div class="icon" title="Contact">
-      <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-    </div>
-    <div class="icon" title="Mail">
-      <svg viewBox="0 0 24 24"><path d="M12 13.5 2 7v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7l-10 6.5zM12 11 22 4.5A2 2 0 0 0 20 3H4a2 2 0 0 0-2 1.5L12 11z"/></svg>
-    </div>
-  </nav>
-
-</div>
+  </div>
+</footer>
 
 <script>
-  // Language toggle
-  const langToggles = document.querySelectorAll('.lang-toggle span');
-  const content = {
-    en: {
-      eyebrow: 'Frontend developer',
-      name: 'Anastasia Andreou',
-      description: 'I build clean, fast interfaces and enjoy turning ideas into products people actually want to use. Currently focused on React, design systems, and accessible front-end architecture.',
-      cvBtn: 'Download CV',
-      contactBtn: 'Contact'
-    },
-    fr: {
-      eyebrow: 'Développeuse Front-end',
-      name: 'Anastasia Andreou',
-      description: 'Je crée des interfaces claires et rapides et j\'aime transformer les idées en produits que les gens adorent utiliser. Actuellement concentrée sur React, les systèmes de conception et l\'architecture front-end accessible.',
-      cvBtn: 'Télécharger CV',
-      contactBtn: 'Contact'
-    }
-  };
-
-  let currentLang = 'en';
-
-  langToggles.forEach(toggle => {
-    toggle.addEventListener('click', () => {
-      currentLang = toggle.textContent.trim() === 'En' ? 'en' : 'fr';
-      
-      // Update active toggle
-      langToggles.forEach(t => t.classList.remove('active'));
-      toggle.classList.add('active');
-      
-      // Update content
-      document.querySelector('.eyebrow').textContent = content[currentLang].eyebrow;
-      document.querySelector('.main h2').textContent = content[currentLang].name;
-      document.querySelector('.main p').textContent = content[currentLang].description;
-      
-      // Update buttons
-      const buttons = document.querySelectorAll('.btn-primary, .btn-secondary');
-      buttons[0].textContent = content[currentLang].cvBtn;
-      buttons[1].textContent = content[currentLang].contactBtn;
-      
-      // Update sidebar button
-      document.querySelector('.btn-download').textContent = content[currentLang].cvBtn;
-    });
-  });
-
-  // Download CV button
-  function downloadCV() {
+  // Download CV
+  document.getElementById('downloadCv').addEventListener('click', () => {
     const link = document.createElement('a');
     link.href = 'Anastasia_Andreou_CV2026.pdf';
     link.download = 'Anastasia_Andreou_CV2026.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-  }
-
-  document.querySelectorAll('.btn-download, .btn-primary').forEach(btn => {
-    if (btn.textContent.includes('Download') || btn.textContent.includes('Télécharger')) {
-      btn.addEventListener('click', downloadCV);
-    }
   });
 
-  // Contact button
-  document.querySelectorAll('.btn-secondary').forEach(btn => {
-    btn.addEventListener('click', () => {
-      window.location.href = 'mailto:anastasia@andreou.com';
-    });
+  // Contact
+  document.getElementById('contactBtn').addEventListener('click', () => {
+    window.location.href = 'mailto:anastasia.andreou99@gmail.com';
   });
 
-  // Icon rail navigation
-  document.querySelectorAll('.rail .icon').forEach((icon, index) => {
-    icon.addEventListener('click', () => {
-      document.querySelectorAll('.rail .icon').forEach(i => i.classList.remove('active'));
-      icon.classList.add('active');
-      
-      const titles = ['Profile', 'Education', 'Experience', 'Contact', 'Mail'];
-      console.log('Navigated to:', titles[index]);
-    });
-  });
-
-  // Social links
-  document.querySelectorAll('.socials a').forEach((link, index) => {
-    const socials = {
-      0: 'https://twitter.com',
-      1: 'https://linkedin.com',
-      2: 'https://facebook.com'
-    };
-    link.href = socials[index] || '#';
+  // Mobile menu toggle
+  document.querySelector('.nav-toggle').addEventListener('click', () => {
+    const links = document.querySelector('.nav-links');
+    const open = links.style.display === 'flex';
+    links.style.display = open ? '' : 'flex';
+    links.style.flexDirection = 'column';
+    links.style.position = 'absolute';
+    links.style.top = '74px';
+    links.style.right = '32px';
+    links.style.background = '#fff';
+    links.style.padding = open ? '' : '16px 22px';
+    links.style.border = open ? '' : '1px solid var(--border)';
+    links.style.borderRadius = '10px';
+    links.style.gap = '14px';
   });
 </script>
 
