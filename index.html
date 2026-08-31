@@ -444,12 +444,18 @@
   });
 
   // Download CV button
+  function downloadCV() {
+    const link = document.createElement('a');
+    link.href = 'Anastasia_Andreou_CV2026.pdf';
+    link.download = 'Anastasia_Andreou_CV2026.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
   document.querySelectorAll('.btn-download, .btn-primary').forEach(btn => {
     if (btn.textContent.includes('Download') || btn.textContent.includes('Télécharger')) {
-      btn.addEventListener('click', () => {
-        // Create a simple PDF or document link
-        alert('CV download functionality would be implemented here.\nEmail: anastasia@andreou.com');
-      });
+      btn.addEventListener('click', downloadCV);
     }
   });
 
