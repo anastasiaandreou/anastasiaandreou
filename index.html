@@ -631,7 +631,6 @@
     </p>
     <div class="cta-row">
       <button class="btn btn-green" id="downloadCv" data-i18n="btn.download">Download CV</button>
-      <button class="btn btn-gray" id="contactBtn" data-i18n="btn.contact">Contact</button>
     </div>
   </div>
 </section>
@@ -1011,11 +1010,6 @@
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-  });
-
-  const contactBtn = document.getElementById('contactBtn');
-  if (contactBtn) contactBtn.addEventListener('click', () => {
-    window.location.href = 'mailto:anastasia.andreou99@gmail.com';
   });
 
   /* ---------- mobile menu ---------- */
