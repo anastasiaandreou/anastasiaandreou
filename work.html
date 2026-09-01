@@ -417,20 +417,57 @@
 
   /* ---------- RESPONSIVE ---------- */
   @media (max-width: 860px) {
-    .nav-links { display: none; }
+    .wrap { padding: 0 20px; }
+
+    .nav-inner { height: 62px; }
+    .brand { font-size: 16px; gap: 10px; }
+    .brand .logo { width: 34px; height: 34px; font-size: 17px; }
+    .nav-right { gap: 12px; }
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 16px 30px -16px rgba(0, 0, 0, 0.18);
+      padding: 6px 0;
+      font-size: 15px;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a { padding: 13px 20px; }
+    .nav-links a::after { display: none; }
+
     .nav-toggle { display: flex; }
+
     .hero {
       grid-template-columns: 1fr;
-      gap: 40px;
+      gap: 36px;
       text-align: center;
-      padding: 56px 0 64px;
+      padding: 48px 0 56px;
     }
-    .hero-photo { margin: 0 auto; width: 260px; height: 260px; }
-    .hero-text p { margin: 0 auto; }
+    .hero-photo {
+      margin: 0 auto;
+      width: 240px;
+      height: 240px;
+      box-shadow: 0 0 0 10px #fff, 0 18px 36px -16px rgba(0, 0, 0, 0.28);
+    }
+    .hero-text h1 { font-size: 34px; }
+    .hero-text p { margin: 0 auto; font-size: 14.5px; }
     .cta-row { justify-content: center; flex-wrap: wrap; }
-    .hero-text h1 { font-size: 40px; }
+
+    .section { padding: 48px 0; }
+    .section-title { font-size: 25px; margin-bottom: 32px; }
+    .services { gap: 32px; }
     .services, .quotes, .work-grid { grid-template-columns: 1fr; }
-    .footer-inner { flex-direction: column; gap: 16px; }
+    .quote { padding: 24px 22px; }
+
+    .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
   }
 </style>
 </head>
@@ -445,7 +482,7 @@
       </a>
     </div>
     <div class="nav-right">
-      <nav class="nav-links">
+      <nav class="nav-links" id="primary-nav">
         <a href="index.html#about" data-i18n="nav.about">About Me</a>
         <a href="work.html" data-i18n="nav.work" aria-current="page">My Work</a>
         <a href="index.html#contact" data-i18n="nav.contact">Contact</a>
@@ -454,7 +491,7 @@
         <button type="button" data-lang="en" class="active">EN</button>
         <button type="button" data-lang="el">ΕΛ</button>
       </div>
-      <button class="nav-toggle" aria-label="Menu">
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="primary-nav">
         <svg viewBox="0 0 24 24"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg>
       </button>
     </div>
@@ -644,20 +681,16 @@
 
   /* ---------- mobile menu ---------- */
   const navToggle = document.querySelector('.nav-toggle');
-  if (navToggle) navToggle.addEventListener('click', () => {
-    const links = document.querySelector('.nav-links');
-    const open = links.style.display === 'flex';
-    links.style.display = open ? '' : 'flex';
-    links.style.flexDirection = 'column';
-    links.style.position = 'absolute';
-    links.style.top = '74px';
-    links.style.right = '32px';
-    links.style.background = '#fff';
-    links.style.padding = open ? '' : '16px 22px';
-    links.style.border = open ? '' : '1px solid var(--border)';
-    links.style.borderRadius = '10px';
-    links.style.gap = '14px';
-  });
+  const navLinks = document.querySelector('.nav-links');
+  if (navToggle && navLinks) {
+    const setOpen = (open) => {
+      navLinks.classList.toggle('open', open);
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+    navToggle.addEventListener('click', () => setOpen(!navLinks.classList.contains('open')));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+  }
 </script>
 
 </body>
