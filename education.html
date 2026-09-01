@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anastasia Andreou — Education &amp; Training</title>
+<title>Anastasia Andreou — Education</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -370,6 +370,16 @@
     color: var(--muted);
     margin-top: 8px;
   }
+  .cv-group {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--heading);
+    margin: 0 0 22px;
+  }
+  .cv-list + .cv-group { margin-top: 46px; }
 
   /* ---------- LANGUAGES ---------- */
   .langs {
@@ -591,7 +601,27 @@
 <!-- EDUCATION & TRAINING -->
 <main class="wrap section" id="education">
   <a class="back-link" href="index.html" data-i18n="work.back">← Back to home</a>
-  <h2 class="section-title" data-i18n="edu.title">Education &amp; Training</h2>
+  <h2 class="section-title" data-i18n="edu.title">Education</h2>
+
+  <div class="cv-group" data-i18n="edu.degrees">Degrees</div>
+  <div class="cv-list">
+    <div class="cv-item">
+      <div class="period" data-i18n="edu.2.period">2022 – 2024</div>
+      <div>
+        <h3 data-i18n="edu.2.role">MA, Digital Art and Design</h3>
+        <div class="org" data-i18n="edu.2.org">University of Nicosia · Nicosia, Cyprus</div>
+      </div>
+    </div>
+    <div class="cv-item">
+      <div class="period" data-i18n="edu.4.period">2017 – 2021</div>
+      <div>
+        <h3 data-i18n="edu.4.role">BA, Journalism</h3>
+        <div class="org" data-i18n="edu.4.org">University of Cyprus · Nicosia, Cyprus</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cv-group" data-i18n="edu.programmes">Programmes &amp; Exchanges</div>
   <div class="cv-list">
     <div class="cv-item">
       <div class="period" data-i18n="edu.1.period">Sep – Oct 2025</div>
@@ -602,24 +632,11 @@
       </div>
     </div>
     <div class="cv-item">
-      <div class="period" data-i18n="edu.2.period">2022 – 2024</div>
-      <div>
-        <h3 data-i18n="edu.2.role">MA, Digital Art and Design</h3>
-        <div class="org" data-i18n="edu.2.org">University of Nicosia · Nicosia, Cyprus</div>
-      </div>
-    </div>
-    <div class="cv-item">
       <div class="period" data-i18n="edu.3.period">Sep – Dec 2018</div>
       <div>
         <h3 data-i18n="edu.3.role">Erasmus Exchange Semester</h3>
         <div class="org" data-i18n="edu.3.org">Corvinus University of Budapest · Budapest, Hungary</div>
-      </div>
-    </div>
-    <div class="cv-item">
-      <div class="period" data-i18n="edu.4.period">2017 – 2021</div>
-      <div>
-        <h3 data-i18n="edu.4.role">BA, Journalism</h3>
-        <div class="org" data-i18n="edu.4.org">University of Cyprus · Nicosia, Cyprus</div>
+        <p class="note" data-i18n="edu.3.note">Study-abroad semester during my BA in Journalism.</p>
       </div>
     </div>
   </div>
@@ -692,11 +709,14 @@
       'exp.5.role': 'Journalist — Cyprus Broadcasting Corporation (CyBC)',
       'exp.5.org': 'CyBC · Nicosia, Cyprus',
       'exp.5.b1': 'Wrote web articles, produced TV news reportages and wrote radio news stories.',
-      'edu.title': 'Education & Training',
+      'edu.title': 'Education',
+      'edu.degrees': 'Degrees',
+      'edu.programmes': 'Programmes & Exchanges',
       'edu.1.period': 'Sep – Oct 2025',
       'edu.1.role': '6th ASEF Young Leaders Summit',
       'edu.1.org': 'Asia-Europe Foundation · Osaka, Japan',
       'edu.1.note': 'Youth leadership programme on “Leadership in Society 5.0”.',
+      'edu.3.note': 'Study-abroad semester during my BA in Journalism.',
       'edu.2.period': '2022 – 2024',
       'edu.2.role': 'MA, Digital Art and Design',
       'edu.2.org': 'University of Nicosia · Nicosia, Cyprus',
@@ -797,11 +817,14 @@
       'exp.5.role': 'Δημοσιογράφος — Ραδιοφωνικό Ίδρυμα Κύπρου (ΡΙΚ)',
       'exp.5.org': 'ΡΙΚ · Λευκωσία, Κύπρος',
       'exp.5.b1': 'Έγραψα άρθρα για το web, ετοίμασα ρεπορτάζ για το τηλεοπτικό δελτίο και κείμενα για το ραδιοφωνικό δελτίο ειδήσεων.',
-      'edu.title': 'Εκπαίδευση & Κατάρτιση',
+      'edu.title': 'Εκπαίδευση',
+      'edu.degrees': 'Πτυχία',
+      'edu.programmes': 'Προγράμματα & Ανταλλαγές',
       'edu.1.period': 'Σεπ – Οκτ 2025',
       'edu.1.role': '6ο ASEF Young Leaders Summit',
       'edu.1.org': 'Ίδρυμα Ασίας–Ευρώπης · Οζάκα, Ιαπωνία',
       'edu.1.note': 'Πρόγραμμα ηγεσίας νέων με θέμα «Ηγεσία στην Κοινωνία 5.0».',
+      'edu.3.note': 'Εξάμηνο σπουδών στο εξωτερικό κατά τη διάρκεια του πτυχίου μου στη Δημοσιογραφία.',
       'edu.2.period': '2022 – 2024',
       'edu.2.role': 'MA, Ψηφιακή Τέχνη και Σχεδίαση',
       'edu.2.org': 'Πανεπιστήμιο Λευκωσίας · Λευκωσία, Κύπρος',
