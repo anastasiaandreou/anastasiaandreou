@@ -116,6 +116,7 @@ window.I18N = {
     "footer.rights": "© 2026 Anastasia Andreou",
 
     "work.title": "My Work",
+    "work.seemore": "See more here",
     "work.back": "← Back to home",
     "work.intro": "I create content for youth, education and mobility organisations — social media, short-form video, campaigns and event coverage. Most of it is published on my channels and my full visual portfolio, so the links below go straight to the real work.",
     "work.featured": "Featured",
@@ -269,6 +270,7 @@ window.I18N = {
     "footer.rights": "© 2026 Αναστασία Ανδρέου",
 
     "work.title": "Η Δουλειά μου",
+    "work.seemore": "Δείτε περισσότερα εδώ",
     "work.back": "← Επιστροφή στην αρχική",
     "work.intro": "Δημιουργώ περιεχόμενο για οργανισμούς νεολαίας, εκπαίδευσης και κινητικότητας — μέσα κοινωνικής δικτύωσης, σύντομα βίντεο, καμπάνιες και κάλυψη εκδηλώσεων. Το μεγαλύτερο μέρος δημοσιεύεται στα κανάλια μου και στο πλήρες οπτικό μου πορτφόλιο, οπότε οι παρακάτω σύνδεσμοι οδηγούν κατευθείαν στη δουλειά.",
     "work.featured": "Επιλεγμένα",
