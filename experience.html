@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anastasia Andreou — Professional Experience</title>
+<title>Anastasia Andreou — Experience</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -370,6 +370,16 @@
     color: var(--muted);
     margin-top: 8px;
   }
+  .cv-group {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--heading);
+    margin: 0 0 22px;
+  }
+  .cv-list + .cv-group { margin-top: 46px; }
 
   /* ---------- LANGUAGES ---------- */
   .langs {
@@ -572,11 +582,10 @@
     <div class="nav-right">
       <nav class="nav-links" id="primary-nav">
         <a href="index.html#about" data-i18n="nav.about">About Me</a>
-        <a href="experience.html" data-i18n="nav.experience" aria-current="page">Experience</a>
         <a href="education.html" data-i18n="nav.education">Education</a>
-        <a href="volunteering.html" data-i18n="nav.volunteering">Volunteering</a>
+        <a href="experience.html" data-i18n="nav.experience" aria-current="page">Experience</a>
         <a href="work.html" data-i18n="nav.work">My Work</a>
-        <a href="index.html#contact" data-i18n="nav.contact">Contact</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
       </nav>
       <div class="lang" role="group" aria-label="Language">
         <button type="button" data-lang="en" class="active">EN</button>
@@ -589,10 +598,12 @@
   </div>
 </header>
 
-<!-- PROFESSIONAL EXPERIENCE -->
+<!-- EXPERIENCE (professional + volunteering) -->
 <main class="wrap section" id="experience">
   <a class="back-link" href="index.html" data-i18n="work.back">← Back to home</a>
-  <h2 class="section-title" data-i18n="exp.title">Professional Experience</h2>
+  <h2 class="section-title" data-i18n="exp.title">Experience</h2>
+
+  <div class="cv-group" data-i18n="exp.professional">Professional</div>
   <div class="cv-list">
     <div class="cv-item">
       <div class="period" data-i18n="exp.1.period">Dec 2025 – Present</div>
@@ -648,6 +659,51 @@
       </div>
     </div>
   </div>
+
+  <div class="cv-group" data-i18n="exp.volunteering">Volunteering</div>
+  <div class="cv-list">
+    <div class="cv-item">
+      <div class="period" data-i18n="vol.1.period">Jan 2026 – Present</div>
+      <div>
+        <h3 data-i18n="vol.1.role">International Relations Secretary — Cyprus Youth Council</h3>
+        <div class="org" data-i18n="vol.1.org">Cyprus Youth Council</div>
+        <ul>
+          <li data-i18n="vol.1.b1">Board member holding the International Relations portfolio.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cv-item">
+      <div class="period" data-i18n="vol.2.period">Aug 2024 – Jul 2025</div>
+      <div>
+        <h3 data-i18n="vol.2.role">Communication Community Manager — ESN International</h3>
+        <div class="org" data-i18n="vol.2.org">Erasmus Student Network AISBL</div>
+        <ul>
+          <li data-i18n="vol.2.b1">Connected National Communication Managers, International Team communication officers and the Communication Committee.</li>
+          <li data-i18n="vol.2.b2">Delivered in-person and online communications trainings and organised the two annual Communication Community Meetings end to end.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cv-item">
+      <div class="period" data-i18n="vol.3.period">Oct 2022 – Sep 2024</div>
+      <div>
+        <h3 data-i18n="vol.3.role">President — ESN Cyprus</h3>
+        <div class="org" data-i18n="vol.3.org">Erasmus Student Network Cyprus · Mandates 2022/23 &amp; 2023/24</div>
+        <ul>
+          <li data-i18n="vol.3.b1">Legal representative of the organisation; led its strategic development and its education &amp; advocacy projects (Erasmus in Schools, inclusive mobility, Nicosia — Erasmus Destination of the Year).</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cv-item">
+      <div class="period" data-i18n="vol.4.period">Oct 2021 – Oct 2022</div>
+      <div>
+        <h3 data-i18n="vol.4.role">Communication Manager — ESN Cyprus</h3>
+        <div class="org" data-i18n="vol.4.org">Erasmus Student Network Cyprus</div>
+        <ul>
+          <li data-i18n="vol.4.b1">Owned the organisation's digital presence, set its communication strategy and managed the communication team.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </main>
 
 <!-- FOOTER -->
@@ -693,7 +749,9 @@
       'svc.marketing.text': 'I develop and execute digital marketing strategies, driving growth and brand awareness.',
       'svc.analysis.title': 'Social Media Analysis',
       'svc.analysis.text': 'I analyze social media performance metrics to inform strategy and optimize engagement.',
-      'exp.title': 'Professional Experience',
+      'exp.title': 'Experience',
+      'exp.professional': 'Professional',
+      'exp.volunteering': 'Volunteering',
       'exp.1.period': 'Dec 2025 – Present',
       'exp.1.role': 'Digital Communications Expert — Freelancer',
       'exp.1.org': 'Freelance · Cyprus',
@@ -798,7 +856,9 @@
       'svc.marketing.text': 'Αναπτύσσω και υλοποιώ στρατηγικές ψηφιακού μάρκετινγκ, οδηγώντας σε ανάπτυξη και αναγνωρισιμότητα της μάρκας.',
       'svc.analysis.title': 'Ανάλυση Μέσων Κοινωνικής Δικτύωσης',
       'svc.analysis.text': 'Αναλύω δείκτες απόδοσης στα μέσα κοινωνικής δικτύωσης για να καθοδηγώ τη στρατηγική και να βελτιστοποιώ την αλληλεπίδραση.',
-      'exp.title': 'Επαγγελματική Εμπειρία',
+      'exp.title': 'Εμπειρία',
+      'exp.professional': 'Επαγγελματική',
+      'exp.volunteering': 'Εθελοντική',
       'exp.1.period': 'Δεκ 2025 – Σήμερα',
       'exp.1.role': 'Ειδικός Ψηφιακής Επικοινωνίας — Ελεύθερη Επαγγελματίας',
       'exp.1.org': 'Ελεύθερη επαγγελματίας · Κύπρος',
