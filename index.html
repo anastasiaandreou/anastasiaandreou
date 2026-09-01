@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anastasia Andreou — Web Developer</title>
+<title>Anastasia Andreou — Digital Communications Expert</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -260,6 +260,54 @@
     color: var(--muted);
   }
 
+  /* ---------- MY WORK ---------- */
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .work-card {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--bg-soft);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .work-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px -16px rgba(0, 0, 0, 0.25);
+  }
+  .work-thumb {
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+  }
+  .work-thumb svg { width: 34px; height: 34px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+  .work-thumb.g1 { background: linear-gradient(135deg, #33b679, #237a4e); }
+  .work-thumb.g2 { background: linear-gradient(135deg, #4aa8d8, #2a6f97); }
+  .work-thumb.g3 { background: linear-gradient(135deg, #e0a63e, #b9781f); }
+  .work-body { padding: 20px 22px 24px; }
+  .work-tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--green);
+  }
+  .work-body h3 {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--heading);
+    margin: 8px 0 8px;
+  }
+  .work-body p {
+    font-size: 13.5px;
+    color: var(--muted);
+  }
+
   /* ---------- TESTIMONIALS ---------- */
   .quotes {
     display: grid;
@@ -349,7 +397,7 @@
     .hero-text p { margin: 0 auto; }
     .cta-row { justify-content: center; flex-wrap: wrap; }
     .hero-text h1 { font-size: 40px; }
-    .services, .quotes { grid-template-columns: 1fr; }
+    .services, .quotes, .work-grid { grid-template-columns: 1fr; }
     .footer-inner { flex-direction: column; gap: 16px; }
   }
 </style>
@@ -367,9 +415,8 @@
         <a href="#about" data-i18n="nav.about">About Me</a>
         <a href="#services" data-i18n="nav.resume">Resume</a>
         <a href="#services" data-i18n="nav.What I do">What I do</a>
-        <a href="#references" data-i18n="nav.blog">Blog</a>
+        <a href="#work" data-i18n="nav.work">My Work</a>
         <a href="#contact" data-i18n="nav.contact">Contact</a>
-        <a href="#contact" data-i18n="nav.getitnow">Get it Now</a>
       </nav>
       <div class="lang" role="group" aria-label="Language">
         <button type="button" data-lang="en" class="active">EN</button>
@@ -391,12 +438,10 @@
     </svg>
   </div>
   <div class="hero-text">
-    <div class="eyebrow" data-i18n="hero.eyebrow">Frontend developer</div>
+    <div class="eyebrow" data-i18n="hero.eyebrow">Digital Communications Expert</div>
     <h1 data-i18n="hero.name">Anastasia Andreou</h1>
     <p data-i18n="hero.bio">
-      I build clean, fast interfaces and enjoy turning ideas into products
-      people actually want to use. Currently focused on React, design systems,
-      and accessible front-end architecture.
+      Creative professional with strong communication and storytelling skills. Skilled at exploring diverse topics, identifying compelling ideas, and transforming complex information into clear, engaging, and meaningful narratives. Adaptable to different audiences, environments, and challenges, combining creativity with strategic thinking, problem-solving, and attention to detail. A cooperative team player who values open communication, shared goals, and positive working relationships, while also demonstrating the confidence and initiative to lead, motivate, and support others. Curious and continuously motivated to learn, grow, and turn ideas into impactful stories and successful outcomes.
     </p>
     <div class="cta-row">
       <button class="btn btn-green" id="downloadCv" data-i18n="btn.download">Download CV</button>
@@ -448,6 +493,43 @@
   </div>
 </section>
 
+<!-- MY WORK -->
+<section class="wrap section" id="work">
+  <h2 class="section-title" data-i18n="work.title">My Work</h2>
+  <div class="work-grid">
+    <div class="work-card">
+      <div class="work-thumb g1">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1"/></svg>
+      </div>
+      <div class="work-body">
+        <div class="work-tag" data-i18n="work.1.tag">Social Media · Event Coverage</div>
+        <h3 data-i18n="work.1.title">ESN Erasmus Generation Meeting — Seville 2024</h3>
+        <p data-i18n="work.1.text">Part of the Media Team at the largest student-led conference in Europe, helping grow ESN's TikTok and Instagram reach through original event content.</p>
+      </div>
+    </div>
+    <div class="work-card">
+      <div class="work-thumb g2">
+        <svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg>
+      </div>
+      <div class="work-body">
+        <div class="work-tag" data-i18n="work.2.tag">Video · Content Creation</div>
+        <h3 data-i18n="work.2.title">European Youth Event (EYE) 2025 — Strasbourg</h3>
+        <p data-i18n="work.2.text">Filmed and edited interviews, and covered Eurodesk's GameZone and InfoStand activities live for Instagram and TikTok in front of thousands of attendees.</p>
+      </div>
+    </div>
+    <div class="work-card">
+      <div class="work-thumb g3">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18"/><path d="M8 4v5"/></svg>
+      </div>
+      <div class="work-body">
+        <div class="work-tag" data-i18n="work.3.tag">Web Design · Development</div>
+        <h3 data-i18n="work.3.title">Personal Portfolio Website</h3>
+        <p data-i18n="work.3.text">Designed and built this site from scratch — a responsive, accessible layout with a full English / Greek language switcher.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- REFERENCES -->
 <section class="wrap section" id="references">
   <h2 class="section-title" data-i18n="references.title">References</h2>
@@ -476,14 +558,14 @@
   <div class="wrap footer-inner">
     <div><span data-i18n="footer.rights">© 2026 Anastasia Andreou</span> · <a href="mailto:anastasia.andreou99@gmail.com">anastasia.andreou99@gmail.com</a></div>
     <div class="socials" aria-label="Social links">
-      <a href="https://twitter.com" aria-label="Twitter">
-        <svg viewBox="0 0 24 24"><path d="M23 4.5c-.8.4-1.7.6-2.6.8a4.6 4.6 0 0 0 2-2.5c-.9.5-1.8.9-2.9 1.1a4.5 4.5 0 0 0-7.7 4.1A12.9 12.9 0 0 1 2.4 3.4a4.5 4.5 0 0 0 1.4 6 4.5 4.5 0 0 1-2-.6v.1a4.5 4.5 0 0 0 3.6 4.4 4.5 4.5 0 0 1-2 .1 4.5 4.5 0 0 0 4.2 3.1A9 9 0 0 1 1 19a12.8 12.8 0 0 0 7 2c8.3 0 12.9-7 12.9-13v-.6c.9-.6 1.6-1.4 2.1-2.3z"/></svg>
+      <a href="https://www.instagram.com/anastasiaandreou/" aria-label="Instagram" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.97.24 2.43.4.61.24 1.05.52 1.51.98.46.46.74.9.98 1.51.16.46.35 1.26.4 2.43.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.24 1.97-.4 2.43-.24.61-.52 1.05-.98 1.51-.46.46-.9.74-1.51.98-.46.16-1.26.35-2.43.4-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.97-.24-2.43-.4a4.1 4.1 0 0 1-1.51-.98 4.1 4.1 0 0 1-.98-1.51c-.16-.46-.35-1.26-.4-2.43-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.24-1.97.4-2.43.24-.61.52-1.05.98-1.51.46-.46.9-.74 1.51-.98.46-.16 1.26-.35 2.43-.4C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.39A5.86 5.86 0 0 0 .62 4.15C.32 4.9.12 5.78.06 7.05.01 8.33 0 8.74 0 12s.01 3.67.06 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.39 2.13.67.67 1.34 1.08 2.13 1.39.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.06c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.39.67-.67 1.08-1.34 1.39-2.13.3-.76.5-1.64.56-2.91.05-1.28.06-1.69.06-4.95s-.01-3.67-.06-4.95c-.06-1.27-.26-2.15-.56-2.91a5.86 5.86 0 0 0-1.39-2.13A5.86 5.86 0 0 0 19.86.63C19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4zm6.4-11.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44z"/></svg>
       </a>
-      <a href="https://linkedin.com" aria-label="LinkedIn">
+      <a href="https://www.linkedin.com/in/anastasia-andreou-9b43bb199/" aria-label="LinkedIn" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2 3.77-2 4 0 4.75 2.6 4.75 6.1V21h-4v-5.6c0-1.3 0-3-1.85-3s-2.13 1.4-2.13 2.9V21h-4V9z"/></svg>
       </a>
-      <a href="https://github.com" aria-label="GitHub">
-        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85l-.01 2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>
+      <a href="https://www.tiktok.com/@anastasiaandreou99" aria-label="TikTok" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
       </a>
     </div>
   </div>
@@ -495,11 +577,9 @@
     en: {
       'nav.about': 'About Me',
       'nav.resume': 'Resume',
-      'nav.portfolio': 'Portfolio',
-      'nav.blog': 'Blog',
+      'nav.work': 'My Work',
       'nav.contact': 'Contact',
-      'nav.getitnow': 'Get it Now',
-      'hero.eyebrow': 'Frontend developer',
+      'hero.eyebrow': 'Digital Communications Expert',
       'hero.name': 'Anastasia Andreou',
       'hero.bio': 'I build clean, fast interfaces and enjoy turning ideas into products people actually want to use. Currently focused on React, design systems, and accessible front-end architecture.',
       'btn.download': 'Download CV',
@@ -513,6 +593,16 @@
       'svc.marketing.text': 'I develop and execute digital marketing strategies, driving growth and brand awareness.',
       'svc.analysis.title': 'Social Media Analysis',
       'svc.analysis.text': 'I analyze social media performance metrics to inform strategy and optimize engagement.',
+      'work.title': 'My Work',
+      'work.1.tag': 'Social Media · Event Coverage',
+      'work.1.title': 'ESN Erasmus Generation Meeting — Seville 2024',
+      'work.1.text': "Part of the Media Team at the largest student-led conference in Europe, helping grow ESN's TikTok and Instagram reach through original event content.",
+      'work.2.tag': 'Video · Content Creation',
+      'work.2.title': 'European Youth Event (EYE) 2025 — Strasbourg',
+      'work.2.text': "Filmed and edited interviews, and covered Eurodesk's GameZone and InfoStand activities live for Instagram and TikTok in front of thousands of attendees.",
+      'work.3.tag': 'Web Design · Development',
+      'work.3.title': 'Personal Portfolio Website',
+      'work.3.text': 'Designed and built this site from scratch — a responsive, accessible layout with a full English / Greek language switcher.',
       'references.title': 'References',
       'quote.1.text': '“Anastasia brings a collaborative spirit and strong integrity to the team, with an attention to detail that shows a genuine commitment to high-quality work. I am more than confident she would be an asset to any company or organisation.”',
       'quote.1.role': '— Communications Manager, ESN AISBL',
@@ -525,11 +615,9 @@
     el: {
       'nav.about': 'Σχετικά',
       'nav.resume': 'Βιογραφικό',
-      'nav.portfolio': 'Χαρτοφυλάκιο',
-      'nav.blog': 'Ιστολόγιο',
+      'nav.work': 'Η Δουλειά μου',
       'nav.contact': 'Επικοινωνία',
-      'nav.getitnow': 'Αποκτήστε το',
-      'hero.eyebrow': 'Frontend προγραμματίστρια',
+      'hero.eyebrow': 'Ειδικός Ψηφιακής Επικοινωνίας',
       'hero.name': 'Αναστασία Ανδρέου',
       'hero.bio': 'Φτιάχνω καθαρά, γρήγορα περιβάλλοντα χρήστη και μου αρέσει να μετατρέπω ιδέες σε προϊόντα που ο κόσμος θέλει πραγματικά να χρησιμοποιεί. Αυτή την περίοδο επικεντρώνομαι στο React, στα design systems και στην προσβάσιμη front-end αρχιτεκτονική.',
       'btn.download': 'Λήψη βιογραφικού',
@@ -543,13 +631,23 @@
       'svc.marketing.text': 'Αναπτύσσω και υλοποιώ στρατηγικές ψηφιακού μάρκετινγκ, οδηγώντας σε ανάπτυξη και αναγνωρισιμότητα της μάρκας.',
       'svc.analysis.title': 'Ανάλυση Μέσων Κοινωνικής Δικτύωσης',
       'svc.analysis.text': 'Αναλύω δείκτες απόδοσης στα μέσα κοινωνικής δικτύωσης για να καθοδηγώ τη στρατηγική και να βελτιστοποιώ την αλληλεπίδραση.',
+      'work.title': 'Η Δουλειά μου',
+      'work.1.tag': 'Μέσα Κοινωνικής Δικτύωσης · Κάλυψη Εκδήλωσης',
+      'work.1.title': 'ESN Erasmus Generation Meeting — Σεβίλλη 2024',
+      'work.1.text': 'Μέλος της Media Team στο μεγαλύτερο φοιτητικό συνέδριο της Ευρώπης, συμβάλλοντας στην αύξηση της απήχησης του ESN στο TikTok και το Instagram μέσα από πρωτότυπο περιεχόμενο εκδήλωσης.',
+      'work.2.tag': 'Βίντεο · Δημιουργία Περιεχομένου',
+      'work.2.title': 'European Youth Event (EYE) 2025 — Στρασβούργο',
+      'work.2.text': 'Γύρισα και επεξεργάστηκα συνεντεύξεις και κάλυψα ζωντανά τις δράσεις GameZone και InfoStand του Eurodesk για Instagram και TikTok μπροστά σε χιλιάδες συμμετέχοντες.',
+      'work.3.tag': 'Σχεδίαση Ιστοσελίδων · Ανάπτυξη',
+      'work.3.title': 'Προσωπική Ιστοσελίδα Πορτφόλιο',
+      'work.3.text': 'Σχεδίασα και ανέπτυξα αυτή την ιστοσελίδα από την αρχή — μια responsive, προσβάσιμη διάταξη με πλήρη εναλλαγή γλώσσας Αγγλικά / Ελληνικά.',
       'references.title': 'Συστάσεις',
       'quote.1.text': '“Η Αναστασία έφερε στην ομάδα συνεργατικό πνεύμα και ακεραιότητα, με μια προσοχή στη λεπτομέρεια που αντικατοπτρίζει μια πραγματική δέσμευση για ποιοτική δουλειά. Είμαι απόλυτα σίγουρη ότι θα αποτελούσε πολύτιμο στέλεχος για κάθε εταιρεία ή οργανισμό.”',
       'quote.1.role': '— Υπεύθυνη Επικοινωνίας, ESN AISBL',
-      'quote.1.download': 'Λήψη πλήρους επιστολής',
+      'quote.1.download': 'Λήψη πλήρους συστατικής επιστολής',
       'quote.2.text': '“Η Αναστασία συνδυάζει άρτιες τεχνικές δεξιότητες με επικοινωνιακές ικανότητες που την καθιστούν πολύτιμη προσθήκη σε κάθε ομάδα. Είναι οργανωτική, αυτοπαρακινούμενη και εκπροσώπησε με επαγγελματισμό τον οργανισμό μας σε εξωτερικές εκδηλώσεις.”',
       'quote.2.role': '— Διευθύντρια, Eurodesk Brussels Link',
-      'quote.2.download': 'Λήψη πλήρους επιστολής',
+      'quote.2.download': 'Λήψη πλήρους συστατικής επιστολής',
       'footer.rights': '© 2026 Αναστασία Ανδρέου'
     }
   };
