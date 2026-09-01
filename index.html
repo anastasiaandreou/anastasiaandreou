@@ -227,6 +227,7 @@
   /* ---------- SECTIONS ---------- */
   .section { padding-block: 70px; }
   .section + .section { padding-top: 0; }
+  .hero, .section { scroll-margin-top: 88px; }
 
   .section-title {
     font-family: 'Lato', sans-serif;
@@ -402,6 +403,57 @@
     color: var(--muted);
     margin-top: 8px;
   }
+  .cv-group {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--heading);
+    margin: 0 0 22px;
+  }
+  .cv-list + .cv-group { margin-top: 46px; }
+
+  /* ---------- CONTACT ---------- */
+  .contact-lead {
+    font-size: 15px;
+    color: var(--muted);
+    margin: -30px 0 34px;
+  }
+  .contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    max-width: 460px;
+  }
+  .c-row {
+    display: grid;
+    grid-template-columns: 46px 1fr;
+    gap: 16px;
+    align-items: center;
+  }
+  .c-row .c-ico {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--bg-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--green);
+    transition: border-color 0.15s ease;
+  }
+  .c-row .c-ico svg { width: 18px; height: 18px; fill: currentColor; }
+  a.c-row:hover .c-ico { border-color: var(--green); }
+  .c-label { font-size: 12px; font-weight: 700; color: var(--heading); }
+  .c-value {
+    font-size: 13.5px;
+    color: var(--muted);
+    transition: color 0.15s ease;
+    word-break: break-word;
+  }
+  a.c-row:hover .c-value { color: var(--green); }
 
   /* ---------- LANGUAGES ---------- */
   .langs {
@@ -579,7 +631,9 @@
     .cta-row { justify-content: center; flex-wrap: wrap; }
 
     .section { padding-block: 48px; }
+    .hero, .section { scroll-margin-top: 70px; }
     .section-title { font-size: 25px; margin-bottom: 32px; }
+    .contact-lead { margin: -20px 0 26px; }
     .services { gap: 32px; }
     .services, .quotes, .work-grid { grid-template-columns: 1fr; }
     .quote { padding: 24px 22px; }
@@ -604,10 +658,10 @@
     <div class="nav-right">
       <nav class="nav-links" id="primary-nav">
         <a href="#about" data-i18n="nav.about">About Me</a>
-        <a href="education.html" data-i18n="nav.education">Education</a>
-        <a href="experience.html" data-i18n="nav.experience">Experience</a>
+        <a href="#education" data-i18n="nav.education">Education</a>
+        <a href="#experience" data-i18n="nav.experience">Experience</a>
         <a href="work.html" data-i18n="nav.work">My Work</a>
-        <a href="contact.html" data-i18n="nav.contact">Contact</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
       </nav>
       <div class="lang" role="group" aria-label="Language">
         <button type="button" data-lang="en" class="active">EN</button>
@@ -697,6 +751,165 @@
   </ul>
 </section>
 
+<!-- EDUCATION -->
+<section class="wrap section" id="education">
+  <h2 class="section-title" data-i18n="edu.title">Education</h2>
+
+  <div class="cv-group" data-i18n="edu.degrees">Degrees</div>
+  <div class="cv-list">
+    <div class="cv-item">
+      <div class="period" data-i18n="edu.2.period">2022 – 2024</div>
+      <div>
+        <h3 data-i18n="edu.2.role">MA, Digital Art and Design</h3>
+        <div class="org" data-i18n="edu.2.org">University of Nicosia · Nicosia, Cyprus</div>
+      </div>
+    </div>
+    <div class="cv-item">
+      <div class="period" data-i18n="edu.4.period">2017 – 2021</div>
+      <div>
+        <h3 data-i18n="edu.4.role">BA, Journalism</h3>
+        <div class="org" data-i18n="edu.4.org">University of Cyprus · Nicosia, Cyprus</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cv-group" data-i18n="edu.programmes">Programmes &amp; Exchanges</div>
+  <div class="cv-list">
+    <div class="cv-item">
+      <div class="period" data-i18n="edu.1.period">Sep – Oct 2025</div>
+      <div>
+        <h3 data-i18n="edu.1.role">6th ASEF Young Leaders Summit</h3>
+        <div class="org" data-i18n="edu.1.org">Asia-Europe Foundation · Osaka, Japan</div>
+        <p class="note" data-i18n="edu.1.note">Youth leadership programme on “Leadership in Society 5.0”.</p>
+      </div>
+    </div>
+    <div class="cv-item">
+      <div class="period" data-i18n="edu.3.period">Sep – Dec 2018</div>
+      <div>
+        <h3 data-i18n="edu.3.role">Erasmus Exchange Semester</h3>
+        <div class="org" data-i18n="edu.3.org">Corvinus University of Budapest · Budapest, Hungary</div>
+        <p class="note" data-i18n="edu.3.note">Study-abroad semester during my BA in Journalism.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="wrap section" id="experience">
+  <h2 class="section-title" data-i18n="exp.title">Experience</h2>
+
+  <div class="cv-group" data-i18n="exp.professional">Professional</div>
+  <div class="cv-list">
+    <div class="cv-item">
+      <div class="period" data-i18n="exp.1.period">Dec 2025 – Present</div>
+      <div>
+        <h3 data-i18n="exp.1.role">Digital Communications Specialist</h3>
+        <div class="org" data-i18n="exp.1.org">Self-employed · Cyprus</div>
+        <ul>
+          <li data-i18n="exp.1.b1">Provide digital marketing, social media management, content creation and communications consulting for brands — from strategy and content calendars to publishing and performance reporting.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cv-item">
+      <div class="period" data-i18n="exp.6.period">Ongoing</div>
+      <div>
+        <h3 data-i18n="exp.6.role">Content Creator &amp; Disability Advocate</h3>
+        <div class="org" data-i18n="exp.6.org">Personal channels (Instagram, TikTok)</div>
+        <ul>
+          <li data-i18n="exp.6.b1">Create accessibility and disability-inclusion content using short-form video and storytelling, building an engaged personal audience.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cv-item">
+      <div class="period" data-i18n="exp.2.period">Jan 2025 – Sep 2025</div>
+      <div>
+        <h3 data-i18n="exp.2.role">Content Creator Assistant — Eurodesk</h3>
+        <div class="org" data-i18n="exp.2.org">Eurodesk · Brussels, Belgium</div>
+        <ul>
+          <li data-i18n="exp.2.b1">Researched social media trends and platform best practices for Instagram and TikTok and turned them into content plans for a pan-European youth network.</li>
+          <li data-i18n="exp.2.b2">Produced short-form video, reels and graphics using CapCut, Adobe Premiere Pro, Photoshop and Canva.</li>
+          <li data-i18n="exp.2.b3">Delivered live event coverage and post-event recap videos for Eurodesk and partner events, including on-the-ground filming and interviews.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cv-item">
+      <div class="period" data-i18n="exp.3.period">Feb 2023 – Sep 2023</div>
+      <div>
+        <h3 data-i18n="exp.3.role">Social Media Manager — University of Nicosia, Erasmus Office</h3>
+        <div class="org" data-i18n="exp.3.org">University of Nicosia · Nicosia, Cyprus</div>
+        <ul>
+          <li data-i18n="exp.3.b1">Managed the Erasmus Office's social media end to end — content strategy, content calendar, copywriting, graphic design and community management — to strengthen the university's online presence.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cv-item">
+      <div class="period" data-i18n="exp.4.period">Jan 2022 – Jun 2022</div>
+      <div>
+        <h3 data-i18n="exp.4.role">Communications Intern — Erasmus Student Network UPO</h3>
+        <div class="org" data-i18n="exp.4.org">ESN UPO · Seville, Spain</div>
+        <ul>
+          <li data-i18n="exp.4.b1">Planned and ran social media campaigns and produced multilingual content and graphics for an international Erasmus student community.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cv-item">
+      <div class="period" data-i18n="exp.5.period">Jun 2020 – Aug 2020</div>
+      <div>
+        <h3 data-i18n="exp.5.role">Journalist — Cyprus Broadcasting Corporation (CyBC)</h3>
+        <div class="org" data-i18n="exp.5.org">CyBC · Nicosia, Cyprus</div>
+        <ul>
+          <li data-i18n="exp.5.b1">Reported and produced news content across digital, television and radio — web articles, TV news reportages and radio news scripts — for the national public broadcaster.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="cv-group" data-i18n="exp.volunteering">Volunteering</div>
+  <div class="cv-list">
+    <div class="cv-item">
+      <div class="period" data-i18n="vol.1.period">Jan 2026 – Present</div>
+      <div>
+        <h3 data-i18n="vol.1.role">International Relations Secretary — Cyprus Youth Council</h3>
+        <div class="org" data-i18n="vol.1.org">Cyprus Youth Council</div>
+        <ul>
+          <li data-i18n="vol.1.b1">Board member holding the International Relations portfolio; represent the Council with international partners, youth organisations and networks.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cv-item">
+      <div class="period" data-i18n="vol.2.period">Aug 2024 – Jul 2025</div>
+      <div>
+        <h3 data-i18n="vol.2.role">Communication Community Manager — ESN International</h3>
+        <div class="org" data-i18n="vol.2.org">Erasmus Student Network AISBL</div>
+        <ul>
+          <li data-i18n="vol.2.b1">Coordinated a Europe-wide communications community of National Communication Managers, International Team communication officers and the Communication Committee.</li>
+          <li data-i18n="vol.2.b2">Designed and delivered in-person and online communications trainings and organised two annual Communication Community Meetings end to end — agenda, facilitation and logistics.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cv-item">
+      <div class="period" data-i18n="vol.3.period">Oct 2022 – Sep 2024</div>
+      <div>
+        <h3 data-i18n="vol.3.role">President — ESN Cyprus</h3>
+        <div class="org" data-i18n="vol.3.org">Erasmus Student Network Cyprus · Mandates 2022/23 &amp; 2023/24</div>
+        <ul>
+          <li data-i18n="vol.3.b1">Legal representative and strategic lead of the national organisation; oversaw governance, team development, stakeholder relations and delivery of education and advocacy projects, including Erasmus in Schools, inclusive mobility and Nicosia placing second for Erasmus Destination of the Year 2024.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cv-item">
+      <div class="period" data-i18n="vol.4.period">Oct 2021 – Oct 2022</div>
+      <div>
+        <h3 data-i18n="vol.4.role">Communication Manager — ESN Cyprus</h3>
+        <div class="org" data-i18n="vol.4.org">Erasmus Student Network Cyprus</div>
+        <ul>
+          <li data-i18n="vol.4.b1">Owned the national organisation's digital presence and brand voice; defined the communication strategy and managed the internal communication team.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- LANGUAGES -->
 <section class="wrap section" id="languages">
   <h2 class="section-title" data-i18n="lang.title">Languages</h2>
@@ -742,8 +955,61 @@
   </div>
 </section>
 
+<!-- CONTACT -->
+<section class="wrap section" id="contact">
+  <h2 class="section-title" data-i18n="contact.title">Contact me</h2>
+  <p class="contact-lead" data-i18n="contact.lead">Let's work together</p>
+  <div class="contact-list">
+    <a class="c-row" href="mailto:anastasia.andreou99@gmail.com">
+      <span class="c-ico">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      </span>
+      <span>
+        <span class="c-label" data-i18n="contact.email.label">Email</span><br>
+        <span class="c-value">anastasia.andreou99@gmail.com</span>
+      </span>
+    </a>
+    <a class="c-row" href="tel:+35797721728">
+      <span class="c-ico">
+        <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.3 1L6.6 10.8z"/></svg>
+      </span>
+      <span>
+        <span class="c-label" data-i18n="contact.phone.label">Phone</span><br>
+        <span class="c-value">+357 97 721 728</span>
+      </span>
+    </a>
+    <a class="c-row" href="https://www.instagram.com/anastasiaandreou/" target="_blank" rel="noopener">
+      <span class="c-ico">
+        <svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.97.24 2.43.4.61.24 1.05.52 1.51.98.46.46.74.9.98 1.51.16.46.35 1.26.4 2.43.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.24 1.97-.4 2.43-.24.61-.52 1.05-.98 1.51-.46.46-.9.74-1.51.98-.46.16-1.26.35-2.43.4-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.97-.24-2.43-.4a4.1 4.1 0 0 1-1.51-.98 4.1 4.1 0 0 1-.98-1.51c-.16-.46-.35-1.26-.4-2.43-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.24-1.97.4-2.43.24-.61.52-1.05.98-1.51.46-.46.9-.74 1.51-.98.46-.16 1.26-.35 2.43-.4C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.39A5.86 5.86 0 0 0 .62 4.15C.32 4.9.12 5.78.06 7.05.01 8.33 0 8.74 0 12s.01 3.67.06 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.39 2.13.67.67 1.34 1.08 2.13 1.39.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.06c1.27-.06 2.15-.26 2.91-.56.79-.31 1.46-.72 2.13-1.39.67-.67 1.08-1.34 1.39-2.13.3-.76.5-1.64.56-2.91.05-1.28.06-1.69.06-4.95s-.01-3.67-.06-4.95c-.06-1.27-.26-2.15-.56-2.91a5.86 5.86 0 0 0-1.39-2.13A5.86 5.86 0 0 0 19.86.63C19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4zm6.4-11.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44z"/></svg>
+      </span>
+      <span>
+        <span class="c-label" data-i18n="contact.ig.label">Instagram</span><br>
+        <span class="c-value">@anastasiaandreou</span>
+      </span>
+    </a>
+    <a class="c-row" href="https://www.tiktok.com/@anastasiaandreou99" target="_blank" rel="noopener">
+      <span class="c-ico">
+        <svg viewBox="0 0 24 24"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+      </span>
+      <span>
+        <span class="c-label" data-i18n="contact.tt.label">TikTok</span><br>
+        <span class="c-value">@anastasiaandreou99</span>
+      </span>
+    </a>
+    <a class="c-row" href="https://www.linkedin.com/in/anastasia-andreou-9b43bb199/" target="_blank" rel="noopener">
+      <span class="c-ico">
+        <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2 3.77-2 4 0 4.75 2.6 4.75 6.1V21h-4v-5.6c0-1.3 0-3-1.85-3s-2.13 1.4-2.13 2.9V21h-4V9z"/></svg>
+      </span>
+      <span>
+        <span class="c-label" data-i18n="contact.li.label">LinkedIn</span><br>
+        <span class="c-value">Anastasia Andreou</span>
+      </span>
+    </a>
+  </div>
+</section>
+
 <!-- FOOTER -->
-<footer id="contact">
+<footer>
   <div class="wrap footer-inner">
     <div><span data-i18n="footer.rights">© 2026 Anastasia Andreou</span> · <a href="mailto:anastasia.andreou99@gmail.com">anastasia.andreou99@gmail.com</a></div>
     <div class="socials" aria-label="Social links">
@@ -760,273 +1026,8 @@
   </div>
 </footer>
 
-<script>
-  /* ---------- i18n ---------- */
-  const translations = {
-    en: {
-      'nav.about': 'About Me',
-      'nav.resume': 'Resume',
-      'nav.work': 'My Work',
-      'nav.contact': 'Contact',
-      'nav.experience': 'Experience',
-      'nav.education': 'Education',
-      'nav.volunteering': 'Volunteering',
-      'hero.eyebrow': 'Digital Communications Specialist',
-      'hero.name': 'Anastasia Andreou',
-      'hero.bio': 'Creative professional with strong communication and storytelling skills. Skilled at exploring diverse topics, identifying compelling ideas, and transforming complex information into clear, engaging, and meaningful narratives. Adaptable to different audiences, environments, and challenges, combining creativity with strategic thinking, problem-solving, and attention to detail. A cooperative team player who values open communication, shared goals, and positive working relationships, while also demonstrating the confidence and initiative to lead, motivate, and support others. Curious and continuously motivated to learn, grow, and turn ideas into impactful stories and successful outcomes.',
-      'btn.download': 'Download CV',
-      'btn.contact': 'Contact',
-      'services.title': 'My Skills',
-      'tools.head': 'Tools',
-      'svc.content.title': 'Content Creation',
-      'svc.content.text': 'I create engaging, informative content that resonates with audiences and supports business goals.',
-      'svc.smm.title': 'Social Media Management',
-      'svc.smm.text': 'I manage social media platforms, engaging audiences and driving brand awareness.',
-      'svc.marketing.title': 'Digital Marketing',
-      'svc.marketing.text': 'I develop and execute digital marketing strategies, driving growth and brand awareness.',
-      'svc.analysis.title': 'Social Media Analysis',
-      'svc.analysis.text': 'I analyze social media performance metrics to inform strategy and optimize engagement.',
-      'exp.title': 'Professional Experience',
-      'exp.1.period': 'Dec 2025 – Present',
-      'exp.1.role': 'Digital Communications Expert — Freelancer',
-      'exp.1.org': 'Freelance · Cyprus',
-      'exp.1.b1': 'Advocating for disability inclusion on my personal Instagram and TikTok.',
-      'exp.1.b2': 'Digital services for brands: marketing, social media management, content creation and communications consulting.',
-      'exp.2.period': 'Jan 2025 – Sep 2025',
-      'exp.2.role': 'Content Creator Assistant — Eurodesk',
-      'exp.2.org': 'Eurodesk · Brussels, Belgium',
-      'exp.2.b1': "Researched social media trends and adapted best practices to the organisation's needs.",
-      'exp.2.b2': 'Produced video content and visuals for social media.',
-      'exp.2.b3': "Covered Eurodesk and external events across the organisation's channels.",
-      'exp.3.period': 'Feb 2023 – Sep 2023',
-      'exp.3.role': 'Social Media Manager — University of Nicosia, Erasmus Office',
-      'exp.3.org': 'University of Nicosia · Nicosia, Cyprus',
-      'exp.3.b1': "Managed the university's online presence through communication strategies and original content.",
-      'exp.4.period': 'Jan 2022 – Jun 2022',
-      'exp.4.role': 'Communications Intern — Erasmus Student Network UPO',
-      'exp.4.org': 'ESN UPO · Seville, Spain',
-      'exp.4.b1': 'Ran social media campaigns and created content.',
-      'exp.5.period': 'Jun 2020 – Aug 2020',
-      'exp.5.role': 'Journalist — Cyprus Broadcasting Corporation (CyBC)',
-      'exp.5.org': 'CyBC · Nicosia, Cyprus',
-      'exp.5.b1': 'Wrote web articles, produced TV news reportages and wrote radio news stories.',
-      'edu.title': 'Education & Training',
-      'edu.1.period': 'Sep – Oct 2025',
-      'edu.1.role': '6th ASEF Young Leaders Summit',
-      'edu.1.org': 'Asia-Europe Foundation · Osaka, Japan',
-      'edu.1.note': 'Youth leadership programme on “Leadership in Society 5.0”.',
-      'edu.2.period': '2022 – 2024',
-      'edu.2.role': 'MA, Digital Art and Design',
-      'edu.2.org': 'University of Nicosia · Nicosia, Cyprus',
-      'edu.3.period': 'Sep – Dec 2018',
-      'edu.3.role': 'Erasmus Exchange Semester',
-      'edu.3.org': 'Corvinus University of Budapest · Budapest, Hungary',
-      'edu.4.period': '2017 – 2021',
-      'edu.4.role': 'BA, Journalism',
-      'edu.4.org': 'University of Cyprus · Nicosia, Cyprus',
-      'vol.title': 'Volunteering Experience',
-      'vol.1.period': 'Jan 2026 – Present',
-      'vol.1.role': 'International Relations Secretary — Cyprus Youth Council',
-      'vol.1.org': 'Cyprus Youth Council',
-      'vol.1.b1': 'Board member holding the International Relations portfolio.',
-      'vol.2.period': 'Aug 2024 – Jul 2025',
-      'vol.2.role': 'Communication Community Manager — ESN International',
-      'vol.2.org': 'Erasmus Student Network AISBL',
-      'vol.2.b1': 'Connected National Communication Managers, International Team communication officers and the Communication Committee.',
-      'vol.2.b2': 'Delivered in-person and online communications trainings and organised the two annual Communication Community Meetings end to end.',
-      'vol.3.period': 'Oct 2022 – Sep 2024',
-      'vol.3.role': 'President — ESN Cyprus',
-      'vol.3.org': 'Erasmus Student Network Cyprus · Mandates 2022/23 & 2023/24',
-      'vol.3.b1': 'Legal representative of the organisation; led its strategic development and its education & advocacy projects (Erasmus in Schools, inclusive mobility, Nicosia — Erasmus Destination of the Year).',
-      'vol.4.period': 'Oct 2021 – Oct 2022',
-      'vol.4.role': 'Communication Manager — ESN Cyprus',
-      'vol.4.org': 'Erasmus Student Network Cyprus',
-      'vol.4.b1': "Owned the organisation's digital presence, set its communication strategy and managed the communication team.",
-      'lang.title': 'Languages',
-      'lang.greek': 'Greek',
-      'lang.greek.lvl': 'Mother tongue',
-      'lang.english': 'English',
-      'lang.english.lvl': 'C2 · Proficient',
-      'lang.spanish': 'Spanish',
-      'lang.spanish.lvl': 'B2 · Independent',
-      'work.title': 'My Work',
-      'work.back': '← Back to home',
-      'work.1.tag': 'Social Media · Event Coverage',
-      'work.1.title': 'ESN Erasmus Generation Meeting — Seville 2024',
-      'work.1.text': "Part of the Media Team at the largest student-led conference in Europe, helping grow ESN's TikTok and Instagram reach through original event content.",
-      'work.2.tag': 'Video · Content Creation',
-      'work.2.title': 'European Youth Event (EYE) 2025 — Strasbourg',
-      'work.2.text': "Filmed and edited interviews, and covered Eurodesk's GameZone and InfoStand activities live for Instagram and TikTok in front of thousands of attendees.",
-      'work.3.tag': 'Web Design · Development',
-      'work.3.title': 'Personal Portfolio Website',
-      'work.3.text': 'Designed and built this site from scratch — a responsive, accessible layout with a full English / Greek language switcher.',
-      'references.title': 'References',
-      'quote.1.text': '“Anastasia brings a collaborative spirit and strong integrity to the team, with an attention to detail that shows a genuine commitment to high-quality work. I am more than confident she would be an asset to any company or organisation.”',
-      'quote.1.role': '— Communications Manager, ESN AISBL',
-      'quote.1.download': 'Download full letter',
-      'quote.2.text': '“Anastasia combines solid technical ability with the communication skills that make someone a strong addition to any team. She is organised, self-motivated, and consistently represented us professionally at external events.”',
-      'quote.2.role': '— Director, Eurodesk Brussels Link',
-      'quote.2.download': 'Download full letter',
-      'footer.rights': '© 2026 Anastasia Andreou'
-    },
-    el: {
-      'nav.about': 'Σχετικά',
-      'nav.resume': 'Βιογραφικό',
-      'nav.work': 'Η Δουλειά μου',
-      'nav.contact': 'Επικοινωνία',
-      'nav.experience': 'Εμπειρία',
-      'nav.education': 'Εκπαίδευση',
-      'nav.volunteering': 'Εθελοντισμός',
-      'hero.eyebrow': 'Ειδικός Ψηφιακής Επικοινωνίας',
-      'hero.name': 'Αναστασία Ανδρέου',
-      'hero.bio': 'Φτιάχνω καθαρά, γρήγορα περιβάλλοντα χρήστη και μου αρέσει να μετατρέπω ιδέες σε προϊόντα που ο κόσμος θέλει πραγματικά να χρησιμοποιεί. Αυτή την περίοδο επικεντρώνομαι στο React, στα design systems και στην προσβάσιμη front-end αρχιτεκτονική.',
-      'btn.download': 'Λήψη βιογραφικού',
-      'btn.contact': 'Επικοινωνία',
-      'services.title': 'Οι δεξιότητές μου',
-      'tools.head': 'Εργαλεία',
-      'svc.content.title': 'Δημιουργία Περιεχομένου',
-      'svc.content.text': 'Δημιουργώ ελκυστικό και ενημερωτικό περιεχόμενο που επικοινωνεί με το κοινό και υποστηρίζει τους στόχους της επιχείρησης.',
-      'svc.smm.title': 'Διαχείριση Μέσων Κοινωνικής Δικτύωσης',
-      'svc.smm.text': 'Διαχειρίζομαι πλατφόρμες κοινωνικής δικτύωσης, ενεργοποιώντας το κοινό και ενισχύοντας την αναγνωρισιμότητα της μάρκας.',
-      'svc.marketing.title': 'Ψηφιακό Μάρκετινγκ',
-      'svc.marketing.text': 'Αναπτύσσω και υλοποιώ στρατηγικές ψηφιακού μάρκετινγκ, οδηγώντας σε ανάπτυξη και αναγνωρισιμότητα της μάρκας.',
-      'svc.analysis.title': 'Ανάλυση Μέσων Κοινωνικής Δικτύωσης',
-      'svc.analysis.text': 'Αναλύω δείκτες απόδοσης στα μέσα κοινωνικής δικτύωσης για να καθοδηγώ τη στρατηγική και να βελτιστοποιώ την αλληλεπίδραση.',
-      'exp.title': 'Επαγγελματική Εμπειρία',
-      'exp.1.period': 'Δεκ 2025 – Σήμερα',
-      'exp.1.role': 'Ειδικός Ψηφιακής Επικοινωνίας — Ελεύθερη Επαγγελματίας',
-      'exp.1.org': 'Ελεύθερη επαγγελματίας · Κύπρος',
-      'exp.1.b1': 'Υπερασπίζομαι την ένταξη των ατόμων με αναπηρία στα προσωπικά μου Instagram και TikTok.',
-      'exp.1.b2': 'Ψηφιακές υπηρεσίες για brands: μάρκετινγκ, διαχείριση μέσων κοινωνικής δικτύωσης, δημιουργία περιεχομένου και συμβουλευτική επικοινωνίας.',
-      'exp.2.period': 'Ιαν 2025 – Σεπ 2025',
-      'exp.2.role': 'Βοηθός Δημιουργού Περιεχομένου — Eurodesk',
-      'exp.2.org': 'Eurodesk · Βρυξέλλες, Βέλγιο',
-      'exp.2.b1': 'Ερεύνησα τάσεις στα μέσα κοινωνικής δικτύωσης και προσάρμοσα βέλτιστες πρακτικές στις ανάγκες του οργανισμού.',
-      'exp.2.b2': 'Δημιούργησα βίντεο και γραφικά για τα μέσα κοινωνικής δικτύωσης.',
-      'exp.2.b3': 'Κάλυψα εκδηλώσεις του Eurodesk και εξωτερικές εκδηλώσεις στα κανάλια του οργανισμού.',
-      'exp.3.period': 'Φεβ 2023 – Σεπ 2023',
-      'exp.3.role': 'Υπεύθυνη Μέσων Κοινωνικής Δικτύωσης — Πανεπιστήμιο Λευκωσίας, Γραφείο Erasmus',
-      'exp.3.org': 'Πανεπιστήμιο Λευκωσίας · Λευκωσία, Κύπρος',
-      'exp.3.b1': 'Διαχειρίστηκα την online παρουσία του πανεπιστημίου μέσω στρατηγικών επικοινωνίας και πρωτότυπου περιεχομένου.',
-      'exp.4.period': 'Ιαν 2022 – Ιουν 2022',
-      'exp.4.role': 'Ασκούμενη Επικοινωνίας — Erasmus Student Network UPO',
-      'exp.4.org': 'ESN UPO · Σεβίλλη, Ισπανία',
-      'exp.4.b1': 'Έτρεξα καμπάνιες στα μέσα κοινωνικής δικτύωσης και δημιούργησα περιεχόμενο.',
-      'exp.5.period': 'Ιουν 2020 – Αυγ 2020',
-      'exp.5.role': 'Δημοσιογράφος — Ραδιοφωνικό Ίδρυμα Κύπρου (ΡΙΚ)',
-      'exp.5.org': 'ΡΙΚ · Λευκωσία, Κύπρος',
-      'exp.5.b1': 'Έγραψα άρθρα για το web, ετοίμασα ρεπορτάζ για το τηλεοπτικό δελτίο και κείμενα για το ραδιοφωνικό δελτίο ειδήσεων.',
-      'edu.title': 'Εκπαίδευση & Κατάρτιση',
-      'edu.1.period': 'Σεπ – Οκτ 2025',
-      'edu.1.role': '6ο ASEF Young Leaders Summit',
-      'edu.1.org': 'Ίδρυμα Ασίας–Ευρώπης · Οζάκα, Ιαπωνία',
-      'edu.1.note': 'Πρόγραμμα ηγεσίας νέων με θέμα «Ηγεσία στην Κοινωνία 5.0».',
-      'edu.2.period': '2022 – 2024',
-      'edu.2.role': 'MA, Ψηφιακή Τέχνη και Σχεδίαση',
-      'edu.2.org': 'Πανεπιστήμιο Λευκωσίας · Λευκωσία, Κύπρος',
-      'edu.3.period': 'Σεπ – Δεκ 2018',
-      'edu.3.role': 'Εξάμηνο Erasmus',
-      'edu.3.org': 'Πανεπιστήμιο Corvinus Βουδαπέστης · Βουδαπέστη, Ουγγαρία',
-      'edu.4.period': '2017 – 2021',
-      'edu.4.role': 'BA, Δημοσιογραφία',
-      'edu.4.org': 'Πανεπιστήμιο Κύπρου · Λευκωσία, Κύπρος',
-      'vol.title': 'Εθελοντική Εμπειρία',
-      'vol.1.period': 'Ιαν 2026 – Σήμερα',
-      'vol.1.role': 'Γραμματέας Διεθνών Σχέσεων — Συμβούλιο Νεολαίας Κύπρου',
-      'vol.1.org': 'Συμβούλιο Νεολαίας Κύπρου',
-      'vol.1.b1': 'Μέλος του Διοικητικού Συμβουλίου με χαρτοφυλάκιο τις Διεθνείς Σχέσεις.',
-      'vol.2.period': 'Αυγ 2024 – Ιουλ 2025',
-      'vol.2.role': 'Communication Community Manager — ESN International',
-      'vol.2.org': 'Erasmus Student Network AISBL',
-      'vol.2.b1': 'Συνέδεσα τους Εθνικούς Υπεύθυνους Επικοινωνίας, τους υπεύθυνους επικοινωνίας των διεθνών ομάδων και την Επιτροπή Επικοινωνίας.',
-      'vol.2.b2': 'Παρέδωσα δια ζώσης και διαδικτυακές εκπαιδεύσεις επικοινωνίας και οργάνωσα εξ ολοκλήρου τις δύο ετήσιες συναντήσεις της κοινότητας επικοινωνίας.',
-      'vol.3.period': 'Οκτ 2022 – Σεπ 2024',
-      'vol.3.role': 'Πρόεδρος — ESN Cyprus',
-      'vol.3.org': 'Erasmus Student Network Κύπρου · Θητείες 2022/23 & 2023/24',
-      'vol.3.b1': 'Νόμιμη εκπρόσωπος του οργανισμού· ηγήθηκα της στρατηγικής ανάπτυξης και των έργων εκπαίδευσης και συνηγορίας (Erasmus in Schools, inclusive mobility, Λευκωσία — Προορισμός Erasmus της Χρονιάς).',
-      'vol.4.period': 'Οκτ 2021 – Οκτ 2022',
-      'vol.4.role': 'Υπεύθυνη Επικοινωνίας — ESN Cyprus',
-      'vol.4.org': 'Erasmus Student Network Κύπρου',
-      'vol.4.b1': 'Ανέλαβα την ψηφιακή παρουσία του οργανισμού, καθόρισα τη στρατηγική επικοινωνίας και διαχειρίστηκα την ομάδα επικοινωνίας.',
-      'lang.title': 'Γλώσσες',
-      'lang.greek': 'Ελληνικά',
-      'lang.greek.lvl': 'Μητρική γλώσσα',
-      'lang.english': 'Αγγλικά',
-      'lang.english.lvl': 'C2 · Άριστη',
-      'lang.spanish': 'Ισπανικά',
-      'lang.spanish.lvl': 'B2 · Καλή',
-      'work.title': 'Η Δουλειά μου',
-      'work.back': '← Επιστροφή στην αρχική',
-      'work.1.tag': 'Μέσα Κοινωνικής Δικτύωσης · Κάλυψη Εκδήλωσης',
-      'work.1.title': 'ESN Erasmus Generation Meeting — Σεβίλλη 2024',
-      'work.1.text': 'Μέλος της Media Team στο μεγαλύτερο φοιτητικό συνέδριο της Ευρώπης, συμβάλλοντας στην αύξηση της απήχησης του ESN στο TikTok και το Instagram μέσα από πρωτότυπο περιεχόμενο εκδήλωσης.',
-      'work.2.tag': 'Βίντεο · Δημιουργία Περιεχομένου',
-      'work.2.title': 'European Youth Event (EYE) 2025 — Στρασβούργο',
-      'work.2.text': 'Γύρισα και επεξεργάστηκα συνεντεύξεις και κάλυψα ζωντανά τις δράσεις GameZone και InfoStand του Eurodesk για Instagram και TikTok μπροστά σε χιλιάδες συμμετέχοντες.',
-      'work.3.tag': 'Σχεδίαση Ιστοσελίδων · Ανάπτυξη',
-      'work.3.title': 'Προσωπική Ιστοσελίδα Πορτφόλιο',
-      'work.3.text': 'Σχεδίασα και ανέπτυξα αυτή την ιστοσελίδα από την αρχή — μια responsive, προσβάσιμη διάταξη με πλήρη εναλλαγή γλώσσας Αγγλικά / Ελληνικά.',
-      'references.title': 'Συστάσεις',
-      'quote.1.text': '“Η Αναστασία έφερε στην ομάδα συνεργατικό πνεύμα και ακεραιότητα, με μια προσοχή στη λεπτομέρεια που αντικατοπτρίζει μια πραγματική δέσμευση για ποιοτική δουλειά. Είμαι απόλυτα σίγουρη ότι θα αποτελούσε πολύτιμο στέλεχος για κάθε εταιρεία ή οργανισμό.”',
-      'quote.1.role': '— Υπεύθυνη Επικοινωνίας, ESN AISBL',
-      'quote.1.download': 'Λήψη πλήρους συστατικής επιστολής',
-      'quote.2.text': '“Η Αναστασία συνδυάζει άρτιες τεχνικές δεξιότητες με επικοινωνιακές ικανότητες που την καθιστούν πολύτιμη προσθήκη σε κάθε ομάδα. Είναι οργανωτική, αυτοπαρακινούμενη και εκπροσώπησε με επαγγελματισμό τον οργανισμό μας σε εξωτερικές εκδηλώσεις.”',
-      'quote.2.role': '— Διευθύντρια, Eurodesk Brussels Link',
-      'quote.2.download': 'Λήψη πλήρους συστατικής επιστολής',
-      'footer.rights': '© 2026 Αναστασία Ανδρέου'
-    }
-  };
-
-  function applyLanguage(lang) {
-    const dict = translations[lang] || translations.en;
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      if (dict[key] != null) el.textContent = dict[key];
-    });
-    document.documentElement.lang = lang;
-    document.querySelectorAll('.lang button').forEach(b => {
-      b.classList.toggle('active', b.dataset.lang === lang);
-    });
-    try { localStorage.setItem('lang', lang); } catch (e) {}
-  }
-
-  document.querySelectorAll('.lang button').forEach(btn => {
-    btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
-  });
-
-  // initial language: saved choice, else browser preference, else English
-  let initial = 'en';
-  try {
-    const saved = localStorage.getItem('lang');
-    if (saved && translations[saved]) initial = saved;
-    else if ((navigator.language || '').toLowerCase().startsWith('el')) initial = 'el';
-  } catch (e) {}
-  applyLanguage(initial);
-
-  /* ---------- buttons ---------- */
-  const cvBtn = document.getElementById('downloadCv');
-  if (cvBtn) cvBtn.addEventListener('click', () => {
-    const link = document.createElement('a');
-    link.href = 'Anastasia_Andreou_CV2026.pdf';
-    link.download = 'Anastasia_Andreou_CV2026.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  });
-
-  /* ---------- mobile menu ---------- */
-  const navToggle = document.querySelector('.nav-toggle');
-  const navLinks = document.querySelector('.nav-links');
-  if (navToggle && navLinks) {
-    const setOpen = (open) => {
-      navLinks.classList.toggle('open', open);
-      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    };
-    navToggle.addEventListener('click', () => setOpen(!navLinks.classList.contains('open')));
-    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
-  }
-</script>
+<script src="translations.js"></script>
+<script src="app.js"></script>
 
 </body>
 </html>
