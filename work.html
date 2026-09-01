@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anastasia Andreou — Digital Communications Expert</title>
+<title>Anastasia Andreou — My Work</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -421,15 +421,17 @@
 <header class="nav">
   <div class="wrap nav-inner">
     <div class="brand">
-      <span class="logo">A</span> <strong>Anastasia</strong>&nbsp;Andreou
+      <a href="index.html" style="display:flex;align-items:center;gap:12px">
+        <span class="logo">A</span> <span><strong>Anastasia</strong>&nbsp;Andreou</span>
+      </a>
     </div>
     <div class="nav-right">
       <nav class="nav-links">
-        <a href="#about" data-i18n="nav.about">About Me</a>
-        <a href="#services" data-i18n="nav.resume">Resume</a>
-        <a href="#services" data-i18n="nav.What I do">What I do</a>
-        <a href="work.html" data-i18n="nav.work">My Work</a>
-        <a href="#contact" data-i18n="nav.contact">Contact</a>
+        <a href="index.html#about" data-i18n="nav.about">About Me</a>
+        <a href="index.html#services" data-i18n="nav.resume">Resume</a>
+        <a href="index.html#services" data-i18n="nav.What I do">What I do</a>
+        <a href="work.html" data-i18n="nav.work" aria-current="page">My Work</a>
+        <a href="index.html#contact" data-i18n="nav.contact">Contact</a>
       </nav>
       <div class="lang" role="group" aria-label="Language">
         <button type="button" data-lang="en" class="active">EN</button>
@@ -442,92 +444,43 @@
   </div>
 </header>
 
-<!-- HERO -->
-<section class="wrap hero" id="about">
-  <div class="hero-photo">
-    <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="100" cy="78" rx="44" ry="50" fill="#4a4a4a"/>
-      <path d="M34 240 C34 156 56 118 100 118 C144 118 166 156 166 240 Z" fill="#4a4a4a"/>
-    </svg>
-  </div>
-  <div class="hero-text">
-    <div class="eyebrow" data-i18n="hero.eyebrow">Digital Communications Expert</div>
-    <h1 data-i18n="hero.name">Anastasia Andreou</h1>
-    <p data-i18n="hero.bio">
-      Creative professional with strong communication and storytelling skills. Skilled at exploring diverse topics, identifying compelling ideas, and transforming complex information into clear, engaging, and meaningful narratives. Adaptable to different audiences, environments, and challenges, combining creativity with strategic thinking, problem-solving, and attention to detail. A cooperative team player who values open communication, shared goals, and positive working relationships, while also demonstrating the confidence and initiative to lead, motivate, and support others. Curious and continuously motivated to learn, grow, and turn ideas into impactful stories and successful outcomes.
-    </p>
-    <div class="cta-row">
-      <button class="btn btn-green" id="downloadCv" data-i18n="btn.download">Download CV</button>
-      <button class="btn btn-gray" id="contactBtn" data-i18n="btn.contact">Contact</button>
-    </div>
-  </div>
-</section>
-
-<!-- WHAT I DO -->
-<section class="wrap section" id="services">
-  <h2 class="section-title" data-i18n="services.title">What I Do</h2>
-  <div class="services">
-    <div class="service">
-      <div class="ico">
-        <svg viewBox="0 0 24 24"><path d="M4 20l4-1L20 7a2 2 0 0 0-3-3L5 16l-1 4z"/><path d="M14 7l3 3"/></svg>
+<!-- MY WORK -->
+<main class="wrap section" id="work">
+  <a class="back-link" href="index.html" data-i18n="work.back">← Back to home</a>
+  <h2 class="section-title" data-i18n="work.title">My Work</h2>
+  <div class="work-grid">
+    <div class="work-card">
+      <div class="work-thumb g1">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1"/></svg>
       </div>
-      <div>
-        <h3 data-i18n="svc.content.title">Content Creation</h3>
-        <p data-i18n="svc.content.text">I create engaging, informative content that resonates with audiences and supports business goals.</p>
+      <div class="work-body">
+        <div class="work-tag" data-i18n="work.1.tag">Social Media · Event Coverage</div>
+        <h3 data-i18n="work.1.title">ESN Erasmus Generation Meeting — Seville 2024</h3>
+        <p data-i18n="work.1.text">Part of the Media Team at the largest student-led conference in Europe, helping grow ESN's TikTok and Instagram reach through original event content.</p>
       </div>
     </div>
-    <div class="service">
-      <div class="ico">
-        <svg viewBox="0 0 24 24"><path d="M4 9h16l-1-5H5L4 9z"/><path d="M5 9v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9"/><path d="M10 20v-5h4v5"/></svg>
+    <div class="work-card">
+      <div class="work-thumb g2">
+        <svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg>
       </div>
-      <div>
-        <h3 data-i18n="svc.smm.title">Social Media Management</h3>
-        <p data-i18n="svc.smm.text">I manage social media platforms, engaging audiences and driving brand awareness.</p>
-      </div>
-    </div>
-    <div class="service">
-      <div class="ico">
-        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 20h8M12 16v4"/></svg>
-      </div>
-      <div>
-        <h3 data-i18n="svc.marketing.title">Digital Marketing</h3>
-        <p data-i18n="svc.marketing.text">I develop and execute marketing strategies, driving growth and brand awareness.</p>
+      <div class="work-body">
+        <div class="work-tag" data-i18n="work.2.tag">Video · Content Creation</div>
+        <h3 data-i18n="work.2.title">European Youth Event (EYE) 2025 — Strasbourg</h3>
+        <p data-i18n="work.2.text">Filmed and edited interviews, and covered Eurodesk's GameZone and InfoStand activities live for Instagram and TikTok in front of thousands of attendees.</p>
       </div>
     </div>
-    <div class="service">
-      <div class="ico">
-        <svg viewBox="0 0 24 24"><path d="M3 11l14-6v14L3 13v-2z"/><path d="M7 13v5a2 2 0 0 0 4 0v-3"/></svg>
+    <div class="work-card">
+      <div class="work-thumb g3">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18"/><path d="M8 4v5"/></svg>
       </div>
-      <div>
-        <h3 data-i18n="svc.analysis.title">Social media analysis</h3>
-        <p data-i18n="svc.analysis.text">I analyze social media performance metrics to inform strategy and optimize engagement.</p>
+      <div class="work-body">
+        <div class="work-tag" data-i18n="work.3.tag">Web Design · Development</div>
+        <h3 data-i18n="work.3.title">Personal Portfolio Website</h3>
+        <p data-i18n="work.3.text">Designed and built this site from scratch — a responsive, accessible layout with a full English / Greek language switcher.</p>
       </div>
     </div>
   </div>
-</section>
-
-<!-- REFERENCES -->
-<section class="wrap section" id="references">
-  <h2 class="section-title" data-i18n="references.title">References</h2>
-  <div class="quotes">
-    <div class="quote">
-      <p data-i18n="quote.1.text">“Anastasia brings a collaborative spirit and strong integrity to the team, with an attention to detail that shows a genuine commitment to high-quality work. I am more than confident she would be an asset to any company or organisation.”</p>
-      <div class="who">Lina Mohorić <span data-i18n="quote.1.role">— Communications Manager, ESN AISBL</span></div>
-      <a class="letter-link" href="Recommendation%20Letter%20ESN.pdf" download="Recommendation Letter - ESN (Lina Mohoric).pdf">
-        <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 19h16v2H4v-2z"/></svg>
-        <span data-i18n="quote.1.download">Download full letter</span>
-      </a>
-    </div>
-    <div class="quote">
-      <p data-i18n="quote.2.text">“Anastasia combines solid technical ability with the communication skills that make someone a strong addition to any team. She is organised, self-motivated, and consistently represented us professionally at external events.”</p>
-      <div class="who">Audrey Frith <span data-i18n="quote.2.role">— Director, Eurodesk Brussels Link</span></div>
-      <a class="letter-link" href="Recommendation%20letter%20Eurodesk.pdf" download="Recommendation Letter - Eurodesk (Audrey Frith).pdf">
-        <svg viewBox="0 0 24 24"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 19h16v2H4v-2z"/></svg>
-        <span data-i18n="quote.2.download">Download full letter</span>
-      </a>
-    </div>
-  </div>
-</section>
+</main>
 
 <!-- FOOTER -->
 <footer id="contact">
