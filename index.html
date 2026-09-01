@@ -171,6 +171,13 @@
     overflow: hidden;
   }
   .hero-photo svg { width: 78%; height: auto; filter: grayscale(1); }
+  .hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 18%;
+    display: block;
+  }
 
   .eyebrow {
     font-size: 15px;
@@ -614,10 +621,7 @@
 <!-- HERO -->
 <section class="wrap hero" id="about">
   <div class="hero-photo">
-    <svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="100" cy="78" rx="44" ry="50" fill="#4a4a4a"/>
-      <path d="M34 240 C34 156 56 118 100 118 C144 118 166 156 166 240 Z" fill="#4a4a4a"/>
-    </svg>
+    <img src="anastasia.jpg" alt="Anastasia Andreou" width="340" height="340">
   </div>
   <div class="hero-text">
     <div class="eyebrow" data-i18n="hero.eyebrow">Digital Communications Expert</div>
