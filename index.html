@@ -77,6 +77,12 @@
   }
   .brand strong { font-weight: 600; }
 
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
   .nav-links {
     display: flex;
     align-items: center;
@@ -86,6 +92,32 @@
   }
   .nav-links a { transition: color 0.15s ease; }
   .nav-links a:hover { color: var(--heading); }
+
+  /* language toggle */
+  .lang {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    font-size: 12px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .lang button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    padding: 6px 12px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .lang button.active {
+    background: var(--green);
+    color: #fff;
+  }
 
   .nav-toggle {
     display: none;
@@ -308,17 +340,23 @@
     <div class="brand">
       <span class="logo">A</span> <strong>Anastasia</strong>&nbsp;Andreou
     </div>
-    <nav class="nav-links">
-      <a href="#about">About Me</a>
-      <a href="#services">Resume</a>
-      <a href="#services">Portfolio</a>
-      <a href="#testimonials">Blog</a>
-      <a href="#contact">Contact</a>
-      <a href="#contact">Get it Now</a>
-    </nav>
-    <button class="nav-toggle" aria-label="Menu">
-      <svg viewBox="0 0 24 24"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg>
-    </button>
+    <div class="nav-right">
+      <nav class="nav-links">
+        <a href="#about" data-i18n="nav.about">About Me</a>
+        <a href="#services" data-i18n="nav.resume">Resume</a>
+        <a href="#services" data-i18n="nav.portfolio">Portfolio</a>
+        <a href="#testimonials" data-i18n="nav.blog">Blog</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+        <a href="#contact" data-i18n="nav.getitnow">Get it Now</a>
+      </nav>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" class="active">EN</button>
+        <button type="button" data-lang="el">ΕΛ</button>
+      </div>
+      <button class="nav-toggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -331,31 +369,31 @@
     </svg>
   </div>
   <div class="hero-text">
-    <div class="eyebrow">Frontend developer</div>
-    <h1>Anastasia Andreou</h1>
-    <p>
+    <div class="eyebrow" data-i18n="hero.eyebrow">Frontend developer</div>
+    <h1 data-i18n="hero.name">Anastasia Andreou</h1>
+    <p data-i18n="hero.bio">
       I build clean, fast interfaces and enjoy turning ideas into products
       people actually want to use. Currently focused on React, design systems,
       and accessible front-end architecture.
     </p>
     <div class="cta-row">
-      <button class="btn btn-green" id="downloadCv">Download CV</button>
-      <button class="btn btn-gray" id="contactBtn">Contact</button>
+      <button class="btn btn-green" id="downloadCv" data-i18n="btn.download">Download CV</button>
+      <button class="btn btn-gray" id="contactBtn" data-i18n="btn.contact">Contact</button>
     </div>
   </div>
 </section>
 
 <!-- WHAT I DO -->
 <section class="wrap section" id="services">
-  <h2 class="section-title">What I Do</h2>
+  <h2 class="section-title" data-i18n="services.title">What I Do</h2>
   <div class="services">
     <div class="service">
       <div class="ico">
         <svg viewBox="0 0 24 24"><path d="M4 20l4-1L20 7a2 2 0 0 0-3-3L5 16l-1 4z"/><path d="M14 7l3 3"/></svg>
       </div>
       <div>
-        <h3>Frontend Development</h3>
-        <p>Component-driven UIs in React and TypeScript, built to be fast, testable, and easy for a team to maintain over time.</p>
+        <h3 data-i18n="svc.frontend.title">Frontend Development</h3>
+        <p data-i18n="svc.frontend.text">Component-driven UIs in React and TypeScript, built to be fast, testable, and easy for a team to maintain over time.</p>
       </div>
     </div>
     <div class="service">
@@ -363,8 +401,8 @@
         <svg viewBox="0 0 24 24"><path d="M4 9h16l-1-5H5L4 9z"/><path d="M5 9v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9"/><path d="M10 20v-5h4v5"/></svg>
       </div>
       <div>
-        <h3>Design Systems</h3>
-        <p>Reusable tokens, patterns, and documentation that keep a product visually consistent as it grows across teams.</p>
+        <h3 data-i18n="svc.design.title">Design Systems</h3>
+        <p data-i18n="svc.design.text">Reusable tokens, patterns, and documentation that keep a product visually consistent as it grows across teams.</p>
       </div>
     </div>
     <div class="service">
@@ -372,8 +410,8 @@
         <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 20h8M12 16v4"/></svg>
       </div>
       <div>
-        <h3>Web Design</h3>
-        <p>Layouts and interactions that balance clarity with personality, designed mobile-first and refined in the browser.</p>
+        <h3 data-i18n="svc.webdesign.title">Web Design</h3>
+        <p data-i18n="svc.webdesign.text">Layouts and interactions that balance clarity with personality, designed mobile-first and refined in the browser.</p>
       </div>
     </div>
     <div class="service">
@@ -381,8 +419,8 @@
         <svg viewBox="0 0 24 24"><path d="M3 11l14-6v14L3 13v-2z"/><path d="M7 13v5a2 2 0 0 0 4 0v-3"/></svg>
       </div>
       <div>
-        <h3>Accessibility</h3>
-        <p>WCAG-aware markup, keyboard flows, and testing so interfaces work for everyone, not just the happy path.</p>
+        <h3 data-i18n="svc.a11y.title">Accessibility</h3>
+        <p data-i18n="svc.a11y.text">WCAG-aware markup, keyboard flows, and testing so interfaces work for everyone, not just the happy path.</p>
       </div>
     </div>
   </div>
@@ -390,15 +428,15 @@
 
 <!-- TESTIMONIALS -->
 <section class="wrap section" id="testimonials">
-  <h2 class="section-title">Testimonials</h2>
+  <h2 class="section-title" data-i18n="testimonials.title">Testimonials</h2>
   <div class="quotes">
     <div class="quote">
-      <p>“Anastasia shipped our redesign ahead of schedule and left the codebase cleaner than she found it. Rare combination.”</p>
-      <div class="who">Maria K. <span>— Product Lead</span></div>
+      <p data-i18n="quote.1.text">“Anastasia shipped our redesign ahead of schedule and left the codebase cleaner than she found it. Rare combination.”</p>
+      <div class="who">Maria K. <span data-i18n="quote.1.role">— Product Lead</span></div>
     </div>
     <div class="quote">
-      <p>“Thoughtful about accessibility and performance from day one. Our Lighthouse scores have never looked better.”</p>
-      <div class="who">Daniel R. <span>— Engineering Manager</span></div>
+      <p data-i18n="quote.2.text">“Thoughtful about accessibility and performance from day one. Our Lighthouse scores have never looked better.”</p>
+      <div class="who">Daniel R. <span data-i18n="quote.2.role">— Engineering Manager</span></div>
     </div>
   </div>
 </section>
@@ -406,7 +444,7 @@
 <!-- FOOTER -->
 <footer id="contact">
   <div class="wrap footer-inner">
-    <div>© 2026 Anastasia Andreou · anastasia.andreou99@gmail.com</div>
+    <div><span data-i18n="footer.rights">© 2026 Anastasia Andreou</span> · <a href="mailto:anastasia.andreou99@gmail.com">anastasia.andreou99@gmail.com</a></div>
     <div class="socials" aria-label="Social links">
       <a href="https://twitter.com" aria-label="Twitter">
         <svg viewBox="0 0 24 24"><path d="M23 4.5c-.8.4-1.7.6-2.6.8a4.6 4.6 0 0 0 2-2.5c-.9.5-1.8.9-2.9 1.1a4.5 4.5 0 0 0-7.7 4.1A12.9 12.9 0 0 1 2.4 3.4a4.5 4.5 0 0 0 1.4 6 4.5 4.5 0 0 1-2-.6v.1a4.5 4.5 0 0 0 3.6 4.4 4.5 4.5 0 0 1-2 .1 4.5 4.5 0 0 0 4.2 3.1A9 9 0 0 1 1 19a12.8 12.8 0 0 0 7 2c8.3 0 12.9-7 12.9-13v-.6c.9-.6 1.6-1.4 2.1-2.3z"/></svg>
@@ -422,7 +460,93 @@
 </footer>
 
 <script>
-  // Download CV
+  /* ---------- i18n ---------- */
+  const translations = {
+    en: {
+      'nav.about': 'About Me',
+      'nav.resume': 'Resume',
+      'nav.portfolio': 'Portfolio',
+      'nav.blog': 'Blog',
+      'nav.contact': 'Contact',
+      'nav.getitnow': 'Get it Now',
+      'hero.eyebrow': 'Frontend developer',
+      'hero.name': 'Anastasia Andreou',
+      'hero.bio': 'I build clean, fast interfaces and enjoy turning ideas into products people actually want to use. Currently focused on React, design systems, and accessible front-end architecture.',
+      'btn.download': 'Download CV',
+      'btn.contact': 'Contact',
+      'services.title': 'What I Do',
+      'svc.frontend.title': 'Frontend Development',
+      'svc.frontend.text': 'Component-driven UIs in React and TypeScript, built to be fast, testable, and easy for a team to maintain over time.',
+      'svc.design.title': 'Design Systems',
+      'svc.design.text': 'Reusable tokens, patterns, and documentation that keep a product visually consistent as it grows across teams.',
+      'svc.webdesign.title': 'Web Design',
+      'svc.webdesign.text': 'Layouts and interactions that balance clarity with personality, designed mobile-first and refined in the browser.',
+      'svc.a11y.title': 'Accessibility',
+      'svc.a11y.text': 'WCAG-aware markup, keyboard flows, and testing so interfaces work for everyone, not just the happy path.',
+      'testimonials.title': 'Testimonials',
+      'quote.1.text': '“Anastasia shipped our redesign ahead of schedule and left the codebase cleaner than she found it. Rare combination.”',
+      'quote.1.role': '— Product Lead',
+      'quote.2.text': '“Thoughtful about accessibility and performance from day one. Our Lighthouse scores have never looked better.”',
+      'quote.2.role': '— Engineering Manager',
+      'footer.rights': '© 2026 Anastasia Andreou'
+    },
+    el: {
+      'nav.about': 'Σχετικά',
+      'nav.resume': 'Βιογραφικό',
+      'nav.portfolio': 'Χαρτοφυλάκιο',
+      'nav.blog': 'Ιστολόγιο',
+      'nav.contact': 'Επικοινωνία',
+      'nav.getitnow': 'Αποκτήστε το',
+      'hero.eyebrow': 'Frontend προγραμματίστρια',
+      'hero.name': 'Αναστασία Ανδρέου',
+      'hero.bio': 'Φτιάχνω καθαρά, γρήγορα περιβάλλοντα χρήστη και μου αρέσει να μετατρέπω ιδέες σε προϊόντα που ο κόσμος θέλει πραγματικά να χρησιμοποιεί. Αυτή την περίοδο επικεντρώνομαι στο React, στα design systems και στην προσβάσιμη front-end αρχιτεκτονική.',
+      'btn.download': 'Λήψη βιογραφικού',
+      'btn.contact': 'Επικοινωνία',
+      'services.title': 'Τι κάνω',
+      'svc.frontend.title': 'Ανάπτυξη Frontend',
+      'svc.frontend.text': 'Διεπαφές βασισμένες σε components με React και TypeScript, φτιαγμένες να είναι γρήγορες, εύκολα ελέγξιμες και εύκολες στη συντήρηση από μια ομάδα.',
+      'svc.design.title': 'Design Systems',
+      'svc.design.text': 'Επαναχρησιμοποιήσιμα tokens, μοτίβα και τεκμηρίωση που κρατούν ένα προϊόν οπτικά συνεπές καθώς μεγαλώνει σε πολλές ομάδες.',
+      'svc.webdesign.title': 'Σχεδίαση Ιστοσελίδων',
+      'svc.webdesign.text': 'Διατάξεις και αλληλεπιδράσεις που ισορροπούν τη σαφήνεια με την προσωπικότητα, σχεδιασμένες mobile-first και εξελιγμένες μέσα στον browser.',
+      'svc.a11y.title': 'Προσβασιμότητα',
+      'svc.a11y.text': 'Σημασιολογικό markup με γνώμονα το WCAG, ροές πληκτρολογίου και δοκιμές ώστε οι διεπαφές να λειτουργούν για όλους.',
+      'testimonials.title': 'Μαρτυρίες',
+      'quote.1.text': '“Η Αναστασία παρέδωσε τον επανασχεδιασμό μας νωρίτερα από το χρονοδιάγραμμα και άφησε τον κώδικα καθαρότερο απ’ ό,τι τον βρήκε. Σπάνιος συνδυασμός.”',
+      'quote.1.role': '— Υπεύθυνη Προϊόντος',
+      'quote.2.text': '“Έδωσε προσοχή στην προσβασιμότητα και στην απόδοση από την πρώτη μέρα. Τα σκορ μας στο Lighthouse δεν ήταν ποτέ καλύτερα.”',
+      'quote.2.role': '— Επικεφαλής Μηχανικός',
+      'footer.rights': '© 2026 Αναστασία Ανδρέου'
+    }
+  };
+
+  function applyLanguage(lang) {
+    const dict = translations[lang] || translations.en;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (dict[key] != null) el.textContent = dict[key];
+    });
+    document.documentElement.lang = lang;
+    document.querySelectorAll('.lang button').forEach(b => {
+      b.classList.toggle('active', b.dataset.lang === lang);
+    });
+    try { localStorage.setItem('lang', lang); } catch (e) {}
+  }
+
+  document.querySelectorAll('.lang button').forEach(btn => {
+    btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
+  });
+
+  // initial language: saved choice, else browser preference, else English
+  let initial = 'en';
+  try {
+    const saved = localStorage.getItem('lang');
+    if (saved && translations[saved]) initial = saved;
+    else if ((navigator.language || '').toLowerCase().startsWith('el')) initial = 'el';
+  } catch (e) {}
+  applyLanguage(initial);
+
+  /* ---------- buttons ---------- */
   document.getElementById('downloadCv').addEventListener('click', () => {
     const link = document.createElement('a');
     link.href = 'Anastasia_Andreou_CV2026.pdf';
@@ -432,12 +556,11 @@
     document.body.removeChild(link);
   });
 
-  // Contact
   document.getElementById('contactBtn').addEventListener('click', () => {
     window.location.href = 'mailto:anastasia.andreou99@gmail.com';
   });
 
-  // Mobile menu toggle
+  /* ---------- mobile menu ---------- */
   document.querySelector('.nav-toggle').addEventListener('click', () => {
     const links = document.querySelector('.nav-links');
     const open = links.style.display === 'flex';
