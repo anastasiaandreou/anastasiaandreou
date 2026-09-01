@@ -36,7 +36,7 @@
   .wrap {
     max-width: 1060px;
     margin: 0 auto;
-    padding: 0 32px;
+    padding: 0 40px;
   }
 
   /* ---------- NAVBAR ---------- */
@@ -156,7 +156,7 @@
     grid-template-columns: 340px 1fr;
     gap: 64px;
     align-items: center;
-    padding: 84px 0 96px;
+    padding-block: 84px 96px;
   }
 
   .hero-photo {
@@ -218,7 +218,7 @@
   .btn-gray:hover { border-color: var(--heading); }
 
   /* ---------- SECTIONS ---------- */
-  .section { padding: 70px 0; }
+  .section { padding-block: 70px; }
   .section + .section { padding-top: 0; }
 
   .section-title {
@@ -417,7 +417,7 @@
 
   /* ---------- RESPONSIVE ---------- */
   @media (max-width: 860px) {
-    .wrap { padding: 0 20px; }
+    .wrap { padding: 0 28px; }
 
     .nav-inner { height: 62px; }
     .brand { font-size: 16px; gap: 10px; }
@@ -449,7 +449,7 @@
       grid-template-columns: 1fr;
       gap: 36px;
       text-align: center;
-      padding: 48px 0 56px;
+      padding-block: 48px 56px;
     }
     .hero-photo {
       margin: 0 auto;
@@ -461,7 +461,7 @@
     .hero-text p { margin: 0 auto; font-size: 14.5px; }
     .cta-row { justify-content: center; flex-wrap: wrap; }
 
-    .section { padding: 48px 0; }
+    .section { padding-block: 48px; }
     .section-title { font-size: 25px; margin-bottom: 32px; }
     .services { gap: 32px; }
     .services, .quotes, .work-grid { grid-template-columns: 1fr; }
