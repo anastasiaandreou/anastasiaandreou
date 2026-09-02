@@ -258,38 +258,29 @@
     color: var(--muted);
   }
 
-  .tools-marquee {
-    overflow: hidden;
-    margin-top: 44px;
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
-    mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  .tools-head {
+    font-family: 'Lexend', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--heading);
+    margin: 48px 0 18px;
   }
-  .tools-track {
+  .tools {
     display: flex;
-    width: max-content;
+    flex-wrap: wrap;
+    gap: 10px;
     list-style: none;
-    animation: tools-scroll 40s linear infinite;
-  }
-  .tools-marquee:hover .tools-track { animation-play-state: paused; }
-  @keyframes tools-scroll {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
   }
   .tool {
-    flex: 0 0 auto;
-    margin: 0 5px;
-    white-space: nowrap;
     font-size: 12.5px;
     font-weight: 500;
     color: var(--heading);
     background: var(--bg-soft);
     border: 1px solid var(--border);
     border-radius: 6px;
-    padding: 7px 13px;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .tools-marquee { overflow-x: auto; }
-    .tools-track { animation: none; transform: none; }
+    padding: 6px 12px;
   }
 
   /* ---------- BRANDS ---------- */
@@ -804,37 +795,22 @@
     </div>
   </div>
 
-  <div class="tools-marquee">
-    <ul class="tools-track">
-      <li class="tool">Canva</li>
-      <li class="tool">CapCut</li>
-      <li class="tool">Premiere Pro</li>
-      <li class="tool">Photoshop</li>
-      <li class="tool">Lightroom</li>
-      <li class="tool">Illustrator</li>
-      <li class="tool">Figma</li>
-      <li class="tool">WordPress</li>
-      <li class="tool">Wix</li>
-      <li class="tool">Procreate</li>
-      <li class="tool">Autodesk Maya</li>
-      <li class="tool">Google Workspace</li>
-      <li class="tool">Microsoft Office</li>
-
-      <li class="tool" aria-hidden="true">Canva</li>
-      <li class="tool" aria-hidden="true">CapCut</li>
-      <li class="tool" aria-hidden="true">Premiere Pro</li>
-      <li class="tool" aria-hidden="true">Photoshop</li>
-      <li class="tool" aria-hidden="true">Lightroom</li>
-      <li class="tool" aria-hidden="true">Illustrator</li>
-      <li class="tool" aria-hidden="true">Figma</li>
-      <li class="tool" aria-hidden="true">WordPress</li>
-      <li class="tool" aria-hidden="true">Wix</li>
-      <li class="tool" aria-hidden="true">Procreate</li>
-      <li class="tool" aria-hidden="true">Autodesk Maya</li>
-      <li class="tool" aria-hidden="true">Google Workspace</li>
-      <li class="tool" aria-hidden="true">Microsoft Office</li>
-    </ul>
-  </div>
+  <div class="tools-head" data-i18n="tools.head">Tools</div>
+  <ul class="tools">
+    <li class="tool">Canva</li>
+    <li class="tool">CapCut</li>
+    <li class="tool">Premiere Pro</li>
+    <li class="tool">Photoshop</li>
+    <li class="tool">Lightroom</li>
+    <li class="tool">Illustrator</li>
+    <li class="tool">Figma</li>
+    <li class="tool">WordPress</li>
+    <li class="tool">Wix</li>
+    <li class="tool">Procreate</li>
+    <li class="tool">Autodesk Maya</li>
+    <li class="tool">Google Workspace</li>
+    <li class="tool">Microsoft Office</li>
+  </ul>
 </section>
 
 <!-- EDUCATION -->
