@@ -86,4 +86,23 @@
       if (sec) obs.observe(sec);
     });
   }
+
+  // Dark mode toggle
+  var root = document.documentElement;
+  var themeBtn = document.querySelector(".theme-toggle");
+  if (themeBtn) {
+    var sync = function () {
+      themeBtn.setAttribute(
+        "aria-pressed",
+        root.getAttribute("data-theme") === "dark" ? "true" : "false"
+      );
+    };
+    sync();
+    themeBtn.addEventListener("click", function () {
+      var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem("theme", next); } catch (e) {}
+      sync();
+    });
+  }
 })();
