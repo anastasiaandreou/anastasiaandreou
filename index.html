@@ -311,6 +311,59 @@
     padding: 7px 14px;
   }
 
+  /* ---------- BRANDS ---------- */
+  .section:has(+ .brands) { padding-bottom: 30px; }
+  .brands {
+    background: var(--green);
+    padding-block: 46px;
+    overflow: hidden;
+    scroll-margin-top: 88px;
+  }
+  .brands-head {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: #fff;
+    margin-bottom: 26px;
+  }
+  .marquee {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  }
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: brands-scroll 45s linear infinite;
+  }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  @keyframes brands-scroll {
+    from { transform: translateX(-50%); }
+    to   { transform: translateX(0); }
+  }
+  .brand-logo {
+    flex: 0 0 auto;
+    width: 176px;
+    height: 92px;
+    margin: 0 12px;
+    background: #fff;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 22px;
+  }
+  .brand-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee { overflow-x: auto; }
+    .marquee-track { animation: none; transform: none; }
+  }
+
   /* ---------- MY WORK ---------- */
   .work-grid {
     display: grid;
@@ -752,6 +805,46 @@
     <li class="tool">Google Workspace</li>
     <li class="tool">Microsoft Office</li>
   </ul>
+</section>
+
+<!-- BRANDS I WORKED FOR -->
+<section class="brands" id="brands">
+  <div class="wrap">
+    <div class="brands-head" data-i18n="brands.head">Brands I worked for</div>
+  </div>
+  <div class="marquee">
+    <div class="marquee-track">
+      <div class="brand-logo"><img src="brand-logos/european-commission.png" alt="European Commission" loading="lazy"></div>
+      <div class="brand-logo"><img src="brand-logos/grant-thornton.png" alt="Grant Thornton" loading="lazy"></div>
+      <div class="brand-logo"><img src="brand-logos/esn.png" alt="Erasmus Student Network" loading="lazy"></div>
+      <div class="brand-logo"><img src="brand-logos/unic.png" alt="University of Nicosia" loading="lazy"></div>
+      <div class="brand-logo"><img src="brand-logos/cybc.png" alt="Cyprus Broadcasting Corporation (RIK)" loading="lazy"></div>
+      <div class="brand-logo"><img src="brand-logos/idep.png" alt="IDEP Lifelong Learning" loading="lazy"></div>
+      <div class="brand-logo"><img src="brand-logos/youth-parliament.png" alt="Youth Parliament of Cyprus" loading="lazy"></div>
+      <div class="brand-logo"><img src="brand-logos/msps.png" alt="MSPS" loading="lazy"></div>
+      <div class="brand-logo"><img src="brand-logos/esn-cyprus.png" alt="ESN Cyprus" loading="lazy"></div>
+      <div class="brand-logo"><img src="brand-logos/esn-nicosia.png" alt="ESN Nicosia" loading="lazy"></div>
+      <div class="brand-logo"><img src="brand-logos/esn-upo.png" alt="ESN UPO Seville" loading="lazy"></div>
+      <div class="brand-logo"><img src="brand-logos/reset.png" alt="RESET" loading="lazy"></div>
+      <div class="brand-logo"><img src="brand-logos/ikigai-matcha.png" alt="Ikigai Matcha" loading="lazy"></div>
+      <div class="brand-logo"><img src="brand-logos/pet-paradise.png" alt="Pet Paradise Pet Grooming" loading="lazy"></div>
+
+      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/european-commission.png" alt="" loading="lazy"></div>
+      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/grant-thornton.png" alt="" loading="lazy"></div>
+      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/esn.png" alt="" loading="lazy"></div>
+      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/unic.png" alt="" loading="lazy"></div>
+      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/cybc.png" alt="" loading="lazy"></div>
+      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/idep.png" alt="" loading="lazy"></div>
+      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/youth-parliament.png" alt="" loading="lazy"></div>
+      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/msps.png" alt="" loading="lazy"></div>
+      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/esn-cyprus.png" alt="" loading="lazy"></div>
+      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/esn-nicosia.png" alt="" loading="lazy"></div>
+      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/esn-upo.png" alt="" loading="lazy"></div>
+      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/reset.png" alt="" loading="lazy"></div>
+      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/ikigai-matcha.png" alt="" loading="lazy"></div>
+      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/pet-paradise.png" alt="" loading="lazy"></div>
+    </div>
+  </div>
 </section>
 
 <!-- EDUCATION -->

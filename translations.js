@@ -14,6 +14,7 @@ window.I18N = {
 
     "services.title": "My Skills",
     "tools.head": "Tools",
+    "brands.head": "Brands I worked for",
     "svc.content.title": "Content Creation",
     "svc.content.text": "I create engaging, informative content that resonates with audiences and supports business goals.",
     "svc.smm.title": "Social Media Management",
@@ -168,6 +169,7 @@ window.I18N = {
 
     "services.title": "Οι δεξιότητές μου",
     "tools.head": "Εργαλεία",
+    "brands.head": "Μάρκες με τις οποίες έχω συνεργαστεί",
     "svc.content.title": "Δημιουργία Περιεχομένου",
     "svc.content.text": "Δημιουργώ ελκυστικό και ενημερωτικό περιεχόμενο που επικοινωνεί με το κοινό και υποστηρίζει τους στόχους της επιχείρησης.",
     "svc.smm.title": "Διαχείριση Μέσων Κοινωνικής Δικτύωσης",
