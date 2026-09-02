@@ -9,14 +9,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --green: #33b679;
-    --green-dark: #2a9c66;
-    --text: #2b2b2b;
-    --heading: #1f1f1f;
-    --muted: #9a9fa6;
-    --border: #ececec;
-    --bg: #ffffff;
-    --bg-soft: #fafafa;
+    --accent: #2563EB;
+    --accent-dark: #1D4ED8;
+    --text: #0F172A;
+    --heading: #0F172A;
+    --muted: #64748B;
+    --border: #E2E8F0;
+    --bg: #F8FAFC;
+    --bg-soft: #FFFFFF;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -66,7 +66,7 @@
     width: 38px;
     height: 38px;
     border-radius: 50%;
-    background: var(--green);
+    background: var(--accent);
     color: #fff;
     display: flex;
     align-items: center;
@@ -102,7 +102,7 @@
     width: 5px;
     height: 5px;
     border-radius: 50%;
-    background: var(--green);
+    background: var(--accent);
     transform: translateX(-50%) scale(0);
     transition: transform 0.15s ease;
   }
@@ -133,7 +133,7 @@
     transition: background 0.15s ease, color 0.15s ease;
   }
   .lang button.active {
-    background: var(--green);
+    background: var(--accent);
     color: #fff;
   }
 
@@ -213,13 +213,13 @@
     background: transparent;
     transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
   }
-  .btn-green {
-    border: 1.5px solid var(--green);
-    color: var(--green);
+  .btn-primary {
+    border: 1.5px solid var(--accent);
+    color: var(--accent);
   }
-  .btn-green:hover { background: var(--green); color: #fff; }
+  .btn-primary:hover { background: var(--accent); color: #fff; }
   .btn-gray {
-    border: 1.5px solid #d7d7d7;
+    border: 1.5px solid #CBD5E1;
     color: var(--heading);
   }
   .btn-gray:hover { border-color: var(--heading); }
@@ -245,7 +245,7 @@
     bottom: 0;
     width: 44px;
     height: 3px;
-    background: var(--green);
+    background: var(--accent);
   }
   .section-title::before {
     content: "";
@@ -271,7 +271,7 @@
   .service .ico {
     width: 40px;
     height: 40px;
-    color: var(--green);
+    color: var(--accent);
   }
   .service .ico svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.4; }
   .service h3 {
@@ -312,9 +312,9 @@
   }
 
   /* ---------- BRANDS ---------- */
-  .section:has(+ .brands) { padding-bottom: 30px; }
+  .hero:has(+ .brands) { padding-bottom: 44px; }
   .brands {
-    background: var(--green);
+    background: var(--accent);
     padding-block: 46px;
     overflow: hidden;
     scroll-margin-top: 88px;
@@ -392,16 +392,16 @@
     color: #fff;
   }
   .work-thumb svg { width: 34px; height: 34px; fill: none; stroke: currentColor; stroke-width: 1.5; }
-  .work-thumb.g1 { background: linear-gradient(135deg, #33b679, #237a4e); }
-  .work-thumb.g2 { background: linear-gradient(135deg, #4aa8d8, #2a6f97); }
-  .work-thumb.g3 { background: linear-gradient(135deg, #e0a63e, #b9781f); }
+  .work-thumb.g1 { background: linear-gradient(135deg, #2563EB, #1E3A8A); }
+  .work-thumb.g2 { background: linear-gradient(135deg, #0EA5E9, #0369A1); }
+  .work-thumb.g3 { background: linear-gradient(135deg, #6366F1, #4338CA); }
   .work-body { padding: 20px 22px 24px; }
   .work-tag {
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.03em;
     text-transform: uppercase;
-    color: var(--green);
+    color: var(--accent);
   }
   .work-body h3 {
     font-family: 'Lato', sans-serif;
@@ -431,7 +431,7 @@
     font-weight: 700;
     letter-spacing: 0.03em;
     text-transform: uppercase;
-    color: var(--green);
+    color: var(--accent);
     padding-top: 3px;
   }
   .cv-item h3 {
@@ -497,11 +497,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--green);
+    color: var(--accent);
     transition: border-color 0.15s ease;
   }
   .c-row .c-ico svg { width: 18px; height: 18px; fill: currentColor; }
-  a.c-row:hover .c-ico { border-color: var(--green); }
+  a.c-row:hover .c-ico { border-color: var(--accent); }
   .c-label { font-size: 12px; font-weight: 700; color: var(--heading); }
   .c-value {
     font-size: 13.5px;
@@ -509,7 +509,7 @@
     transition: color 0.15s ease;
     word-break: break-word;
   }
-  a.c-row:hover .c-value { color: var(--green); }
+  a.c-row:hover .c-value { color: var(--accent); }
 
   /* ---------- LANGUAGES ---------- */
   .langs {
@@ -547,7 +547,7 @@
   .lang-row .track span {
     display: block;
     height: 100%;
-    background: var(--green);
+    background: var(--accent);
     border-radius: 3px;
   }
 
@@ -559,11 +559,11 @@
     gap: 6px;
     font-size: 13px;
     font-weight: 600;
-    color: var(--green);
+    color: var(--accent);
     margin-bottom: 22px;
     transition: color 0.15s ease;
   }
-  .back-link:hover { color: var(--green-dark); }
+  .back-link:hover { color: var(--accent-dark); }
 
   /* ---------- TESTIMONIALS ---------- */
   .quotes {
@@ -598,10 +598,10 @@
     margin-top: 14px;
     font-size: 12.5px;
     font-weight: 600;
-    color: var(--green);
+    color: var(--accent);
     transition: color 0.15s ease;
   }
-  .quote .letter-link:hover { color: var(--green-dark); }
+  .quote .letter-link:hover { color: var(--accent-dark); }
   .quote .letter-link svg {
     width: 13px;
     height: 13px;
@@ -637,7 +637,7 @@
     color: var(--muted);
     transition: color 0.15s ease, border-color 0.15s ease;
   }
-  .socials a:hover { color: var(--green); border-color: var(--green); }
+  .socials a:hover { color: var(--accent); border-color: var(--accent); }
   .socials svg { width: 15px; height: 15px; fill: currentColor; }
 
   /* ---------- RESPONSIVE ---------- */
@@ -742,7 +742,47 @@
       Creative professional with strong communication and storytelling skills. Skilled at exploring diverse topics, identifying compelling ideas, and transforming complex information into clear, engaging, and meaningful narratives. Adaptable to different audiences, environments, and challenges, combining creativity with strategic thinking, problem-solving, and attention to detail. A cooperative team player who values open communication, shared goals, and positive working relationships, while also demonstrating the confidence and initiative to lead, motivate, and support others. Curious and continuously motivated to learn, grow, and turn ideas into impactful stories and successful outcomes.
     </p>
     <div class="cta-row">
-      <button class="btn btn-green" id="downloadCv" data-i18n="btn.download">Download CV</button>
+      <button class="btn btn-primary" id="downloadCv" data-i18n="btn.download">Download CV</button>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS I WORKED FOR -->
+<section class="brands" id="brands">
+  <div class="wrap">
+    <div class="brands-head" data-i18n="brands.head">Brands I worked for</div>
+  </div>
+  <div class="marquee">
+    <div class="marquee-track">
+      <div class="brand-logo"><img src="brand-logos/european-commission.png" alt="European Commission" loading="lazy"></div>
+      <div class="brand-logo"><img src="brand-logos/grant-thornton.png" alt="Grant Thornton" loading="lazy"></div>
+      <div class="brand-logo"><img src="brand-logos/esn.png" alt="Erasmus Student Network" loading="lazy"></div>
+      <div class="brand-logo"><img src="brand-logos/unic.png" alt="University of Nicosia" loading="lazy"></div>
+      <div class="brand-logo"><img src="brand-logos/cybc.png" alt="Cyprus Broadcasting Corporation (RIK)" loading="lazy"></div>
+      <div class="brand-logo"><img src="brand-logos/idep.png" alt="IDEP Lifelong Learning" loading="lazy"></div>
+      <div class="brand-logo"><img src="brand-logos/youth-parliament.png" alt="Youth Parliament of Cyprus" loading="lazy"></div>
+      <div class="brand-logo"><img src="brand-logos/msps.png" alt="MSPS" loading="lazy"></div>
+      <div class="brand-logo"><img src="brand-logos/esn-cyprus.png" alt="ESN Cyprus" loading="lazy"></div>
+      <div class="brand-logo"><img src="brand-logos/esn-nicosia.png" alt="ESN Nicosia" loading="lazy"></div>
+      <div class="brand-logo"><img src="brand-logos/esn-upo.png" alt="ESN UPO Seville" loading="lazy"></div>
+      <div class="brand-logo"><img src="brand-logos/reset.png" alt="RESET" loading="lazy"></div>
+      <div class="brand-logo"><img src="brand-logos/ikigai-matcha.png" alt="Ikigai Matcha" loading="lazy"></div>
+      <div class="brand-logo"><img src="brand-logos/pet-paradise.png" alt="Pet Paradise Pet Grooming" loading="lazy"></div>
+
+      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/european-commission.png" alt="" loading="lazy"></div>
+      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/grant-thornton.png" alt="" loading="lazy"></div>
+      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/esn.png" alt="" loading="lazy"></div>
+      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/unic.png" alt="" loading="lazy"></div>
+      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/cybc.png" alt="" loading="lazy"></div>
+      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/idep.png" alt="" loading="lazy"></div>
+      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/youth-parliament.png" alt="" loading="lazy"></div>
+      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/msps.png" alt="" loading="lazy"></div>
+      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/esn-cyprus.png" alt="" loading="lazy"></div>
+      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/esn-nicosia.png" alt="" loading="lazy"></div>
+      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/esn-upo.png" alt="" loading="lazy"></div>
+      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/reset.png" alt="" loading="lazy"></div>
+      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/ikigai-matcha.png" alt="" loading="lazy"></div>
+      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/pet-paradise.png" alt="" loading="lazy"></div>
     </div>
   </div>
 </section>
@@ -805,46 +845,6 @@
     <li class="tool">Google Workspace</li>
     <li class="tool">Microsoft Office</li>
   </ul>
-</section>
-
-<!-- BRANDS I WORKED FOR -->
-<section class="brands" id="brands">
-  <div class="wrap">
-    <div class="brands-head" data-i18n="brands.head">Brands I worked for</div>
-  </div>
-  <div class="marquee">
-    <div class="marquee-track">
-      <div class="brand-logo"><img src="brand-logos/european-commission.png" alt="European Commission" loading="lazy"></div>
-      <div class="brand-logo"><img src="brand-logos/grant-thornton.png" alt="Grant Thornton" loading="lazy"></div>
-      <div class="brand-logo"><img src="brand-logos/esn.png" alt="Erasmus Student Network" loading="lazy"></div>
-      <div class="brand-logo"><img src="brand-logos/unic.png" alt="University of Nicosia" loading="lazy"></div>
-      <div class="brand-logo"><img src="brand-logos/cybc.png" alt="Cyprus Broadcasting Corporation (RIK)" loading="lazy"></div>
-      <div class="brand-logo"><img src="brand-logos/idep.png" alt="IDEP Lifelong Learning" loading="lazy"></div>
-      <div class="brand-logo"><img src="brand-logos/youth-parliament.png" alt="Youth Parliament of Cyprus" loading="lazy"></div>
-      <div class="brand-logo"><img src="brand-logos/msps.png" alt="MSPS" loading="lazy"></div>
-      <div class="brand-logo"><img src="brand-logos/esn-cyprus.png" alt="ESN Cyprus" loading="lazy"></div>
-      <div class="brand-logo"><img src="brand-logos/esn-nicosia.png" alt="ESN Nicosia" loading="lazy"></div>
-      <div class="brand-logo"><img src="brand-logos/esn-upo.png" alt="ESN UPO Seville" loading="lazy"></div>
-      <div class="brand-logo"><img src="brand-logos/reset.png" alt="RESET" loading="lazy"></div>
-      <div class="brand-logo"><img src="brand-logos/ikigai-matcha.png" alt="Ikigai Matcha" loading="lazy"></div>
-      <div class="brand-logo"><img src="brand-logos/pet-paradise.png" alt="Pet Paradise Pet Grooming" loading="lazy"></div>
-
-      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/european-commission.png" alt="" loading="lazy"></div>
-      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/grant-thornton.png" alt="" loading="lazy"></div>
-      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/esn.png" alt="" loading="lazy"></div>
-      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/unic.png" alt="" loading="lazy"></div>
-      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/cybc.png" alt="" loading="lazy"></div>
-      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/idep.png" alt="" loading="lazy"></div>
-      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/youth-parliament.png" alt="" loading="lazy"></div>
-      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/msps.png" alt="" loading="lazy"></div>
-      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/esn-cyprus.png" alt="" loading="lazy"></div>
-      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/esn-nicosia.png" alt="" loading="lazy"></div>
-      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/esn-upo.png" alt="" loading="lazy"></div>
-      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/reset.png" alt="" loading="lazy"></div>
-      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/ikigai-matcha.png" alt="" loading="lazy"></div>
-      <div class="brand-logo" aria-hidden="true"><img src="brand-logos/pet-paradise.png" alt="" loading="lazy"></div>
-    </div>
-  </div>
 </section>
 
 <!-- EDUCATION -->
@@ -1041,7 +1041,7 @@
       </div>
     </a>
   </div>
-  <a class="btn btn-green work-more" href="work.html" data-i18n="work.seemore">See more here</a>
+  <a class="btn btn-primary work-more" href="work.html" data-i18n="work.seemore">See more here</a>
 </section>
 
 <!-- LANGUAGES -->
