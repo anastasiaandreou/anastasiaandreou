@@ -18,6 +18,7 @@
     --border: #E2E8F0;
     --bg: #FFFFFF;
     --bg-soft: #F1F5F9;
+    --radius: 10px;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -64,9 +65,9 @@
     font-weight: 500;
   }
   .brand .logo {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
     background: var(--accent);
     color: #fff;
     display: flex;
@@ -95,29 +96,15 @@
     position: relative;
     transition: color 0.15s ease;
   }
-  .nav-links a::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: -9px;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: var(--accent);
-    transform: translateX(-50%) scale(0);
-    transition: transform 0.15s ease;
-  }
   .nav-links a:hover,
   .nav-links a:focus-visible { color: var(--heading); }
-  .nav-links a:hover::after,
-  .nav-links a:focus-visible::after { transform: translateX(-50%) scale(1); }
 
   /* language toggle */
   .lang {
     display: flex;
     align-items: center;
     border: 1px solid var(--border);
-    border-radius: 20px;
+    border-radius: 8px;
     overflow: hidden;
     font-size: 12px;
     font-weight: 600;
@@ -165,7 +152,8 @@
     height: 340px;
     border-radius: 50%;
     background: radial-gradient(ellipse at 60% 40%, #e9e9e9 0%, #cfcfcf 60%, #b9b9b9 100%);
-    box-shadow: 0 0 0 12px #fff, 0 24px 50px -18px rgba(0, 0, 0, 0.28);
+    border: 1px solid var(--border);
+    box-shadow: 0 12px 32px -14px rgba(2, 6, 23, 0.14);
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -187,11 +175,12 @@
   }
   .hero-text h1 {
     font-family: 'Lexend', sans-serif;
-    font-size: 52px;
-    font-weight: 700;
-    line-height: 1.08;
+    font-size: 44px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
     color: var(--heading);
-    margin: 10px 0 20px;
+    margin: 10px 0 18px;
   }
   .hero-text p {
     font-size: 15px;
@@ -205,8 +194,8 @@
     margin-top: 30px;
   }
   .btn {
-    padding: 13px 30px;
-    border-radius: 30px;
+    padding: 12px 22px;
+    border-radius: var(--radius);
     font-family: 'Figtree', sans-serif;
     font-size: 14px;
     font-weight: 500;
@@ -215,47 +204,29 @@
     transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
   }
   .btn-primary {
-    border: 1.5px solid var(--accent);
-    color: var(--accent);
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: #fff;
   }
-  .btn-primary:hover { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: #1E293B; border-color: #1E293B; }
   .btn-gray {
-    border: 1.5px solid #CBD5E1;
+    border: 1px solid var(--border);
     color: var(--heading);
   }
-  .btn-gray:hover { border-color: var(--heading); }
+  .btn-gray:hover { background: var(--bg-soft); }
 
   /* ---------- SECTIONS ---------- */
-  .section { padding-block: 70px; }
-  .section + .section { padding-top: 0; }
+  .section { padding-block: 68px; }
+  .section + .section { border-top: 1px solid var(--border); }
   .hero, .section { scroll-margin-top: 88px; }
 
   .section-title {
     font-family: 'Lexend', sans-serif;
-    font-size: 30px;
-    font-weight: 700;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
     color: var(--heading);
-    padding-bottom: 14px;
-    position: relative;
-    margin-bottom: 46px;
-  }
-  .section-title::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 44px;
-    height: 3px;
-    background: var(--accent);
-  }
-  .section-title::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 1px;
-    width: 220px;
-    height: 1px;
-    background: var(--border);
+    margin-bottom: 32px;
   }
 
   /* ---------- WHAT I DO ---------- */
@@ -287,45 +258,57 @@
     color: var(--muted);
   }
 
-  .tools-head {
-    font-family: 'Lexend', sans-serif;
-    font-weight: 700;
-    font-size: 13px;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--heading);
-    margin: 48px 0 18px;
+  .tools-marquee {
+    overflow: hidden;
+    margin-top: 44px;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
   }
-  .tools {
+  .tools-track {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    width: max-content;
     list-style: none;
+    animation: tools-scroll 40s linear infinite;
+  }
+  .tools-marquee:hover .tools-track { animation-play-state: paused; }
+  @keyframes tools-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
   }
   .tool {
+    flex: 0 0 auto;
+    margin: 0 5px;
+    white-space: nowrap;
     font-size: 12.5px;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--heading);
     background: var(--bg-soft);
     border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 7px 14px;
+    border-radius: 6px;
+    padding: 7px 13px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .tools-marquee { overflow-x: auto; }
+    .tools-track { animation: none; transform: none; }
   }
 
   /* ---------- BRANDS ---------- */
   .hero:has(+ .brands) { padding-bottom: 44px; }
   .brands {
-    background: var(--secondary);
-    padding-block: 46px;
+    background: var(--bg-soft);
+    border-block: 1px solid var(--border);
+    padding-block: 40px;
     overflow: hidden;
     scroll-margin-top: 88px;
   }
   .brands-head {
     font-family: 'Lexend', sans-serif;
-    font-weight: 700;
-    font-size: 22px;
-    color: #fff;
-    margin-bottom: 26px;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 22px;
   }
   .marquee {
     overflow: hidden;
@@ -344,11 +327,12 @@
   }
   .brand-logo {
     flex: 0 0 auto;
-    width: 176px;
-    height: 92px;
-    margin: 0 12px;
+    width: 168px;
+    height: 84px;
+    margin: 0 10px;
     background: #fff;
-    border-radius: 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -375,27 +359,26 @@
     display: block;
     color: inherit;
     border: 1px solid var(--border);
-    border-radius: 14px;
+    border-radius: var(--radius);
     overflow: hidden;
-    background: var(--bg-soft);
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    background: #fff;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
   }
   .work-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 14px 30px -16px rgba(0, 0, 0, 0.25);
+    border-color: #CBD5E1;
+    box-shadow: 0 10px 26px -14px rgba(2, 6, 23, 0.12);
   }
   .work-more { display: inline-block; margin-top: 34px; }
   .work-thumb {
-    height: 130px;
+    height: 104px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
+    background: var(--bg-soft);
+    border-bottom: 1px solid var(--border);
+    color: var(--accent);
   }
-  .work-thumb svg { width: 34px; height: 34px; fill: none; stroke: currentColor; stroke-width: 1.5; }
-  .work-thumb.g1 { background: linear-gradient(135deg, #0F172A, #1E293B); }
-  .work-thumb.g2 { background: linear-gradient(135deg, #1E293B, #334155); }
-  .work-thumb.g3 { background: linear-gradient(135deg, #334155, #475569); }
+  .work-thumb svg { width: 30px; height: 30px; fill: none; stroke: currentColor; stroke-width: 1.5; }
   .work-body { padding: 20px 22px 24px; }
   .work-tag {
     font-size: 11px;
@@ -492,7 +475,7 @@
   .c-row .c-ico {
     width: 46px;
     height: 46px;
-    border-radius: 50%;
+    border-radius: var(--radius);
     border: 1px solid var(--border);
     background: var(--bg-soft);
     display: flex;
@@ -553,7 +536,6 @@
   }
 
   .nav-links a[aria-current="page"] { color: var(--heading); }
-  .nav-links a[aria-current="page"]::after { transform: translateX(-50%) scale(1); }
   .back-link {
     display: inline-flex;
     align-items: center;
@@ -573,15 +555,12 @@
     gap: 28px;
   }
   .quote {
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 28px 30px;
-    background: var(--bg-soft);
+    border-left: 2px solid var(--border);
+    padding: 2px 0 2px 24px;
   }
   .quote p {
-    font-size: 14px;
+    font-size: 14.5px;
     color: var(--text);
-    font-style: italic;
   }
   .quote .who {
     margin-top: 16px;
@@ -630,7 +609,7 @@
   .socials a {
     width: 34px;
     height: 34px;
-    border-radius: 50%;
+    border-radius: 8px;
     border: 1px solid var(--border);
     display: flex;
     align-items: center;
@@ -667,7 +646,6 @@
     }
     .nav-links.open { display: flex; }
     .nav-links a { padding: 13px 20px; }
-    .nav-links a::after { display: none; }
 
     .nav-toggle { display: flex; }
 
@@ -681,7 +659,7 @@
       margin: 0 auto;
       width: 240px;
       height: 240px;
-      box-shadow: 0 0 0 10px #fff, 0 18px 36px -16px rgba(0, 0, 0, 0.28);
+      box-shadow: 0 10px 26px -14px rgba(2, 6, 23, 0.14);
     }
     .hero-text h1 { font-size: 34px; }
     .hero-text p { margin: 0 auto; font-size: 14.5px; }
@@ -689,7 +667,7 @@
 
     .section { padding-block: 48px; }
     .hero, .section { scroll-margin-top: 70px; }
-    .section-title { font-size: 25px; margin-bottom: 32px; }
+    .section-title { font-size: 21px; margin-bottom: 26px; }
     .contact-lead { margin: -20px 0 26px; }
     .services { gap: 32px; }
     .services, .quotes, .work-grid { grid-template-columns: 1fr; }
@@ -826,22 +804,37 @@
     </div>
   </div>
 
-  <div class="tools-head" data-i18n="tools.head">Tools</div>
-  <ul class="tools">
-    <li class="tool">Canva</li>
-    <li class="tool">CapCut</li>
-    <li class="tool">Premiere Pro</li>
-    <li class="tool">Photoshop</li>
-    <li class="tool">Lightroom</li>
-    <li class="tool">Illustrator</li>
-    <li class="tool">Figma</li>
-    <li class="tool">WordPress</li>
-    <li class="tool">Wix</li>
-    <li class="tool">Procreate</li>
-    <li class="tool">Autodesk Maya</li>
-    <li class="tool">Google Workspace</li>
-    <li class="tool">Microsoft Office</li>
-  </ul>
+  <div class="tools-marquee">
+    <ul class="tools-track">
+      <li class="tool">Canva</li>
+      <li class="tool">CapCut</li>
+      <li class="tool">Premiere Pro</li>
+      <li class="tool">Photoshop</li>
+      <li class="tool">Lightroom</li>
+      <li class="tool">Illustrator</li>
+      <li class="tool">Figma</li>
+      <li class="tool">WordPress</li>
+      <li class="tool">Wix</li>
+      <li class="tool">Procreate</li>
+      <li class="tool">Autodesk Maya</li>
+      <li class="tool">Google Workspace</li>
+      <li class="tool">Microsoft Office</li>
+
+      <li class="tool" aria-hidden="true">Canva</li>
+      <li class="tool" aria-hidden="true">CapCut</li>
+      <li class="tool" aria-hidden="true">Premiere Pro</li>
+      <li class="tool" aria-hidden="true">Photoshop</li>
+      <li class="tool" aria-hidden="true">Lightroom</li>
+      <li class="tool" aria-hidden="true">Illustrator</li>
+      <li class="tool" aria-hidden="true">Figma</li>
+      <li class="tool" aria-hidden="true">WordPress</li>
+      <li class="tool" aria-hidden="true">Wix</li>
+      <li class="tool" aria-hidden="true">Procreate</li>
+      <li class="tool" aria-hidden="true">Autodesk Maya</li>
+      <li class="tool" aria-hidden="true">Google Workspace</li>
+      <li class="tool" aria-hidden="true">Microsoft Office</li>
+    </ul>
+  </div>
 </section>
 
 <!-- EDUCATION -->
