@@ -234,11 +234,27 @@
     color: var(--heading);
     margin: 10px 0 18px;
   }
+  .hero-intro { max-width: 440px; }
   .hero-text p {
     font-size: 15px;
     color: var(--muted);
-    max-width: 440px;
   }
+  .read-more {
+    display: block;
+    width: fit-content;
+    margin: 12px 0 0 auto;
+    padding: 0;
+    border: none;
+    background: none;
+    font-family: 'Figtree', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--heading);
+    cursor: pointer;
+    transition: color 0.15s ease;
+  }
+  .read-more::after { content: " \2192"; }
+  .read-more:hover { color: var(--accent); }
 
   .cta-row {
     display: flex;
@@ -824,7 +840,9 @@
       box-shadow: 0 16px 36px -12px rgba(30, 58, 138, 0.45);
     }
     .hero-text h1 { font-size: 34px; }
-    .hero-text p { margin: 0 auto; font-size: 14.5px; }
+    .hero-intro { margin: 0 auto; }
+    .hero-text p { font-size: 14.5px; }
+    .read-more { margin: 12px auto 0; }
     .cta-row { justify-content: center; flex-wrap: wrap; }
 
     .section { padding-block: 48px; }
@@ -888,10 +906,12 @@
   <div class="hero-text">
     <div class="eyebrow" data-i18n="hero.eyebrow">Digital Communications Specialist</div>
     <h1 data-i18n="hero.name">Anastasia Andreou</h1>
-    <p data-i18n="hero.bio">I help organisations and brands tell their story. Now I'm learning to tell mine, openly, as a creator with a disability.</p>
+    <div class="hero-intro">
+      <p data-i18n="hero.bio">I help organisations and brands tell their story. Now I'm learning to tell mine, openly, as a creator with a disability.</p>
+      <button class="read-more" id="aboutOpen" type="button" data-i18n="btn.about" aria-haspopup="dialog">Read more</button>
+    </div>
     <div class="cta-row">
       <button class="btn btn-primary" id="downloadCv" data-i18n="btn.download">Download CV</button>
-      <button class="btn btn-gray" id="aboutOpen" type="button" data-i18n="btn.about" aria-haspopup="dialog">More about me</button>
     </div>
   </div>
 </section>
