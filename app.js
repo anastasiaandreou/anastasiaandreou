@@ -87,21 +87,22 @@
     });
   }
 
-  // Dark mode toggle
+  // Night mode toggle (night is the default; toggle switches to light)
   var root = document.documentElement;
   var themeBtn = document.querySelector(".theme-toggle");
   if (themeBtn) {
     var sync = function () {
       themeBtn.setAttribute(
         "aria-pressed",
-        root.getAttribute("data-theme") === "dark" ? "true" : "false"
+        root.getAttribute("data-theme") === "light" ? "false" : "true"
       );
     };
     sync();
     themeBtn.addEventListener("click", function () {
-      var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
-      root.setAttribute("data-theme", next);
-      try { localStorage.setItem("theme", next); } catch (e) {}
+      var toLight = root.getAttribute("data-theme") !== "light";
+      if (toLight) root.setAttribute("data-theme", "light");
+      else root.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", toLight ? "light" : "dark"); } catch (e) {}
       sync();
     });
   }

@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>try{var t=localStorage.getItem("theme");if(t==="light"||(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme:light)").matches))document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
 <title>Anastasia Andreou — Digital Communications Specialist</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,6 +23,21 @@
     --card: #241D17;
     --nav-bg: rgba(28, 22, 17, 0.82);
     --on-accent: #241811;
+  }
+
+  html[data-theme="light"] {
+    --accent: #B0701A;
+    --accent-dark: #915B12;
+    --secondary: #B0701A;
+    --text: #5A5040;
+    --heading: #241B12;
+    --muted: #8B7E6B;
+    --border: #E4DBCB;
+    --bg: #F7F3EA;
+    --bg-soft: #EFE8D9;
+    --card: #FFFFFF;
+    --nav-bg: rgba(247, 243, 234, 0.85);
+    --on-accent: #FFFFFF;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -156,6 +172,27 @@
     cursor: pointer;
   }
   .nav-toggle svg { width: 18px; height: 18px; fill: var(--text); }
+
+  .theme-toggle {
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: transparent;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .theme-toggle:hover { color: var(--heading); border-color: var(--muted); }
+  .theme-toggle svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .theme-toggle .i-moon { display: none; }
+  .theme-toggle .i-sun { display: block; }
+  html[data-theme="light"] .theme-toggle .i-moon { display: block; }
+  html[data-theme="light"] .theme-toggle .i-sun { display: none; }
 
   /* ---------- HERO ---------- */
   .hero {
@@ -795,7 +832,7 @@
   .mag-eyebrow::after { content: ""; flex: 1; height: 1px; background: var(--border); }
   .mag-eyebrow span { color: var(--muted); }
 
-  .mag { min-height: 560px; }
+  .mag { min-height: 500px; }
   .mag-head { position: relative; }
   .mag-title {
     font-family: 'Lexend', sans-serif;
@@ -811,18 +848,15 @@
   }
   .mag-photo {
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 33%;
-    max-width: 348px;
+    top: -6px;
+    right: -14px;
+    width: 40%;
+    max-width: 404px;
     z-index: 2;
   }
   .mag-photo img {
     width: 100%;
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
-    object-position: 50% 14%;
-    border-radius: 6px;
+    height: auto;
     display: block;
   }
   .mag-seal {
@@ -1185,6 +1219,10 @@
         <a href="#work" data-i18n="nav.work">My Work</a>
         <a href="#contact" data-i18n="nav.contact">Contact</a>
       </nav>
+      <button class="theme-toggle" type="button" aria-label="Toggle night mode" title="Toggle night mode" aria-pressed="true">
+        <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
       <div class="lang" role="group" aria-label="Language">
         <button type="button" data-lang="en" class="active">EN</button>
         <button type="button" data-lang="el">ΕΛ</button>
@@ -1203,7 +1241,7 @@
   <div class="mag-head">
     <h1 class="mag-title">PORTFOLIO</h1>
     <div class="mag-photo">
-      <img src="anastasia.jpg" alt="Anastasia Andreou" width="420" height="560">
+      <img src="anastasia-cutout.png" alt="Anastasia Andreou" width="820" height="820">
       <div class="mag-seal" aria-hidden="true">
         <svg viewBox="0 0 104 104">
           <defs><path id="sealArc" d="M52,52 m-39,0 a39,39 0 1,1 78,0 a39,39 0 1,1 -78,0"/></defs>
