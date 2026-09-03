@@ -131,6 +131,7 @@ window.I18N = {
 
     "footer.rights": "© 2026 Anastasia Andreou",
 
+    "mag.hi": "Hey, I'm Anastasia",
     "mag.st.a": "I turn ideas into digital stories that",
     "mag.st.b": "inform",
     "mag.st.c": "include",
@@ -399,6 +400,7 @@ window.I18N = {
 
     "footer.rights": "© 2026 Αναστασία Ανδρέου",
 
+    "mag.hi": "Γεια, είμαι η Αναστασία",
     "mag.st.a": "Μετατρέπω ιδέες σε ψηφιακές ιστορίες που",
     "mag.st.b": "ενημερώνουν",
     "mag.st.c": "συμπεριλαμβάνουν",

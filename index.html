@@ -817,7 +817,6 @@
     position: relative;
     padding-block: 34px 30px;
     scroll-margin-top: 88px;
-    overflow: hidden;
   }
   .mag-eyebrow {
     display: flex;
@@ -832,28 +831,27 @@
   .mag-eyebrow::after { content: ""; flex: 1; height: 1px; background: var(--border); }
   .mag-eyebrow span { color: var(--muted); }
 
-  .mag { min-height: 500px; }
-  .mag-head { position: relative; }
+  .mag-head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 48px;
+    align-items: center;
+  }
   .mag-title {
     font-family: 'Lexend', sans-serif;
     font-weight: 800;
-    font-size: clamp(64px, 13.5vw, 170px);
-    line-height: 0.9;
-    letter-spacing: -0.045em;
+    font-size: clamp(42px, 7.4vw, 84px);
+    line-height: 1.03;
+    letter-spacing: -0.03em;
     color: var(--heading);
-    margin: 8px 0 0;
-    white-space: nowrap;
-    position: relative;
-    z-index: 1;
+    margin: 6px 0 0;
   }
   .mag-photo {
-    position: absolute;
-    top: 8px;
-    right: 10px;
-    width: 34%;
-    max-width: 344px;
+    position: relative;
+    width: 300px;
+    max-width: 32vw;
     aspect-ratio: 1;
-    z-index: 2;
+    flex-shrink: 0;
   }
   .mag-photo::before {
     content: "";
@@ -1111,10 +1109,9 @@
   @media (max-width: 960px) {
     .wrap { padding: 0 28px; }
 
-    .mag { min-height: 0; }
-    .mag-head { display: flex; flex-direction: column; }
-    .mag-title { white-space: normal; font-size: clamp(52px, 17vw, 96px); }
-    .mag-photo { position: static; order: -1; width: 58%; max-width: 240px; margin: 0 0 14px; }
+    .mag-head { display: flex; flex-direction: column; align-items: flex-start; gap: 0; }
+    .mag-title { font-size: clamp(34px, 9vw, 54px); }
+    .mag-photo { order: -1; width: 62%; max-width: 240px; margin: 0 0 18px; }
     .mag-body { margin-top: 22px; }
     .stats { grid-template-columns: 1fr; }
     .stat + .stat { border-left: none; border-top: 1px solid var(--border); }
@@ -1235,7 +1232,7 @@
   <p class="mag-eyebrow"><span data-i18n="hero.eyebrow">Content Creator</span>&nbsp;— Anastasia Andreou</p>
 
   <div class="mag-head">
-    <h1 class="mag-title">PORTFOLIO</h1>
+    <h1 class="mag-title" data-i18n="mag.hi">Hey, I'm Anastasia</h1>
     <div class="mag-photo">
       <img src="anastasia-circle.png" alt="Anastasia Andreou" width="700" height="700">
     </div>
