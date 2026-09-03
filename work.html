@@ -301,11 +301,84 @@
     color: var(--muted);
   }
 
+  /* ---------- SHOWCASE ---------- */
+  .showcase { display: flex; flex-direction: column; gap: 68px; }
+  .show-item {
+    display: grid;
+    grid-template-columns: 1.02fr 0.98fr;
+    gap: 52px;
+    align-items: center;
+  }
+  .show-item:nth-child(even) .show-media { order: 2; }
+  .show-media {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--bg-soft);
+    box-shadow: 0 20px 46px -24px rgba(2, 6, 23, 0.3);
+    aspect-ratio: 16 / 9;
+  }
+  .show-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.45s ease;
+  }
+  .show-item:hover .show-media img { transform: scale(1.03); }
+  .show-num {
+    font-family: 'Lexend', sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+  }
+  .show-eyebrow {
+    display: block;
+    margin-top: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .show-info h3 {
+    font-family: 'Lexend', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+    color: var(--heading);
+    margin: 12px 0;
+  }
+  .show-info p { font-size: 14px; color: var(--muted); max-width: 48ch; }
+  .show-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 22px; }
+  .show-tags span {
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--heading);
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 5px 10px;
+  }
+  .show-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--accent);
+    transition: gap 0.15s ease, color 0.15s ease;
+  }
+  .show-link svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; }
+  .show-link:hover { color: var(--accent-dark); gap: 11px; }
+
   /* ---------- MY WORK ---------- */
   .work-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
   }
   .work-card {
     border: 1px solid var(--border);
@@ -319,16 +392,20 @@
     box-shadow: 0 10px 26px -14px rgba(2, 6, 23, 0.12);
   }
   .work-thumb {
-    height: 104px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    aspect-ratio: 16 / 10;
     background: var(--bg-soft);
     border-bottom: 1px solid var(--border);
-    color: var(--accent);
+    overflow: hidden;
   }
-  .work-thumb svg { width: 30px; height: 30px; fill: none; stroke: currentColor; stroke-width: 1.5; }
-  .work-body { padding: 20px 22px 24px; }
+  .work-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .work-card:hover .work-thumb img { transform: scale(1.04); }
+  .work-body { padding: 18px 20px 22px; }
   .work-tag {
     font-size: 11px;
     font-weight: 600;
@@ -557,6 +634,11 @@
   @media (max-width: 960px) {
     .wrap { padding: 0 28px; }
 
+    .showcase { gap: 46px; }
+    .show-item { grid-template-columns: 1fr; gap: 22px; }
+    .show-item:nth-child(even) .show-media { order: 0; }
+    .show-info h3 { font-size: 19px; }
+
     .nav-inner { height: 62px; }
     .brand { font-size: 16px; gap: 10px; }
     .brand .logo { width: 34px; height: 34px; font-size: 17px; }
@@ -650,34 +732,155 @@
   <a class="back-link" href="index.html" data-i18n="work.back">← Back to home</a>
   <h2 class="section-title" data-i18n="work.title">My Work</h2>
 
-  <p class="work-intro" data-i18n="work.intro">I create content for youth, education and mobility organisations — social media, short-form video, campaigns and event coverage. Most of it is published on my channels and my full visual portfolio, so the links below go straight to the real work.</p>
+  <p class="work-intro" data-i18n="work.intro">I make content for youth, education and mobility organisations — social media design, short-form video, event coverage, photography and full campaigns. Here is a sample, grouped by type; each one links through to the full set.</p>
 
-  <!-- swap a .feature / .link-row for real screenshots later:
-       replace the card body with <img src="..." alt="..."> above the text -->
+  <div class="subhead" data-i18n="work.showcase.head">Content &amp; storytelling</div>
+  <div class="showcase">
 
-  <div class="subhead" data-i18n="work.featured">Featured</div>
-  <div class="feature-list">
-    <a class="feature" href="https://www.instagram.com/anastasiaandreou/" target="_blank" rel="noopener">
-      <div class="role" data-i18n="work.f1.role">Media Team · ESN AISBL</div>
-      <h3 data-i18n="work.f1.title">Erasmus Generation Meeting — Seville 2024</h3>
-      <p data-i18n="work.f1.text">Produced daily TikTok and Instagram content live from Europe's largest student-led conference — filming, editing and posting on the day.</p>
-      <div class="impact">
-        <svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
-        <span data-i18n="work.f1.impact">Lifted the reach and engagement of both channels across the event.</span>
+    <article class="show-item">
+      <div class="show-media"><img src="portfolio/social-design.jpg" alt="Grid of Eurodesk and ESN social media graphics and carousels" loading="lazy"></div>
+      <div class="show-info">
+        <span class="show-num">01</span>
+        <span class="show-eyebrow" data-i18n="work.p1.role">Eurodesk · Erasmus Student Network</span>
+        <h3 data-i18n="work.p1.title">Social media design</h3>
+        <p data-i18n="work.p1.text">Static visuals and carousels for Instagram, Facebook, LinkedIn and TikTok — campaign graphics, awareness days and explainer posts, all built to each organisation's brand system.</p>
+        <div class="show-tags">
+          <span data-i18n="work.p1.t1">Instagram carousels</span>
+          <span data-i18n="work.p1.t2">Campaign graphics</span>
+          <span data-i18n="work.p1.t3">Canva &amp; Adobe</span>
+        </div>
+        <a class="show-link" href="https://anastasiaswork.my.canva.site/portfolio" target="_blank" rel="noopener">
+          <span data-i18n="work.p1.cta">See the full set</span>
+          <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
       </div>
-      <span class="go"><span data-i18n="work.f1.cta">View on Instagram</span>
-        <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+    </article>
+
+    <article class="show-item">
+      <div class="show-media"><img src="portfolio/video-reels.jpg" alt="Stills from short-form video and reels" loading="lazy"></div>
+      <div class="show-info">
+        <span class="show-num">02</span>
+        <span class="show-eyebrow" data-i18n="work.p2.role">Eurodesk · Erasmus Student Network</span>
+        <h3 data-i18n="work.p2.title">Short-form video &amp; reels</h3>
+        <p data-i18n="work.p2.text">Concept, filming and editing for reels and TikToks — trend-led formats, event recaps and talking-head explainers for youth audiences. Includes the Nicosia campaign that passed 60k views and helped the city place second for Erasmus Destination of the Year 2024.</p>
+        <div class="show-tags">
+          <span data-i18n="work.p2.t1">Reels &amp; TikTok</span>
+          <span data-i18n="work.p2.t2">60k+ views</span>
+          <span data-i18n="work.p2.t3">CapCut &amp; Premiere Pro</span>
+        </div>
+        <a class="show-link" href="https://www.tiktok.com/@anastasiaandreou99" target="_blank" rel="noopener">
+          <span data-i18n="work.p2.cta">Watch on TikTok</span>
+          <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+      </div>
+    </article>
+
+    <article class="show-item">
+      <div class="show-media"><img src="portfolio/video-production.jpg" alt="Video production stills — documentary, animation and news" loading="lazy"></div>
+      <div class="show-info">
+        <span class="show-num">03</span>
+        <span class="show-eyebrow" data-i18n="work.p3.role">CyBC · independent projects</span>
+        <h3 data-i18n="work.p3.title">Video production</h3>
+        <p data-i18n="work.p3.text">Longer-form work beyond social — a documentary, a stop-motion animation, TV news bulletins and story-led films, from scripting and shooting through to the edit.</p>
+        <div class="show-tags">
+          <span data-i18n="work.p3.t1">Documentary</span>
+          <span data-i18n="work.p3.t2">Animation</span>
+          <span data-i18n="work.p3.t3">News &amp; storytelling</span>
+        </div>
+        <a class="show-link" href="https://anastasiaswork.my.canva.site/portfolio" target="_blank" rel="noopener">
+          <span data-i18n="work.p3.cta">See the reel</span>
+          <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+      </div>
+    </article>
+
+    <article class="show-item">
+      <div class="show-media"><img src="portfolio/event-coverage.jpg" alt="Instagram Story coverage from Eurodesk events" loading="lazy"></div>
+      <div class="show-info">
+        <span class="show-num">04</span>
+        <span class="show-eyebrow" data-i18n="work.p4.role">Brussels &amp; Strasbourg · 2025</span>
+        <h3 data-i18n="work.p4.title">Event coverage — Instagram Stories</h3>
+        <p data-i18n="work.p4.text">Live Stories from the Eurodesk Network Meeting, the Multipliers Seminar and the European Youth Event 2025 — filmed, captioned and published on the day.</p>
+        <div class="show-tags">
+          <span data-i18n="work.p4.t1">Instagram Stories</span>
+          <span data-i18n="work.p4.t2">Live coverage</span>
+          <span data-i18n="work.p4.t3">Interviews</span>
+        </div>
+        <a class="show-link" href="https://www.instagram.com/anastasiaandreou/" target="_blank" rel="noopener">
+          <span data-i18n="work.p4.cta">View the coverage</span>
+          <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+      </div>
+    </article>
+
+    <article class="show-item">
+      <div class="show-media"><img src="portfolio/photography.jpg" alt="Event and editorial photography" loading="lazy"></div>
+      <div class="show-info">
+        <span class="show-num">05</span>
+        <span class="show-eyebrow" data-i18n="work.p5.role">European youth events · travel</span>
+        <h3 data-i18n="work.p5.title">Photography</h3>
+        <p data-i18n="work.p5.text">On-the-ground photography at European youth events — candid moments, portraits, award shots and wide crowd scenes — plus a travel and editorial set from Japan and beyond.</p>
+        <div class="show-tags">
+          <span data-i18n="work.p5.t1">Event photography</span>
+          <span data-i18n="work.p5.t2">Portraits</span>
+          <span data-i18n="work.p5.t3">Travel &amp; editorial</span>
+        </div>
+        <a class="show-link" href="https://anastasiaswork.my.canva.site/portfolio" target="_blank" rel="noopener">
+          <span data-i18n="work.p5.cta">See the photos</span>
+          <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+      </div>
+    </article>
+
+    <article class="show-item">
+      <div class="show-media"><img src="portfolio/print-brochures.jpg" alt="Eurodesk brochures and printed guides" loading="lazy"></div>
+      <div class="show-info">
+        <span class="show-num">06</span>
+        <span class="show-eyebrow" data-i18n="work.p6.role">Eurodesk Brussels Link · 2025</span>
+        <h3 data-i18n="work.p6.title">Print &amp; brochures</h3>
+        <p data-i18n="work.p6.text">Layout and design for printed and downloadable material — mobility guides, the monthly Youth Letter, the Opportunity Finder and mental-health-abroad resources.</p>
+        <div class="show-tags">
+          <span data-i18n="work.p6.t1">Editorial layout</span>
+          <span data-i18n="work.p6.t2">Brochures</span>
+          <span data-i18n="work.p6.t3">InDesign &amp; Canva</span>
+        </div>
+        <a class="show-link" href="https://anastasiaswork.my.canva.site/portfolio" target="_blank" rel="noopener">
+          <span data-i18n="work.p6.cta">See the full set</span>
+          <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="subhead" data-i18n="work.craft.head">Design &amp; craft</div>
+  <p class="adv-lead" data-i18n="work.craft.lead">Beyond content, I work across brand, product and illustration — here is a taste of each.</p>
+  <div class="work-grid">
+    <a class="work-card" href="https://anastasiaswork.my.canva.site/portfolio" target="_blank" rel="noopener">
+      <div class="work-thumb"><img src="portfolio/branding-merch.jpg" alt="ESN branding materials, hoodie and stickers" loading="lazy"></div>
+      <div class="work-body">
+        <div class="work-tag" data-i18n="work.p7.role">Erasmus Student Network</div>
+        <h3 data-i18n="work.p7.title">Branding &amp; merchandise</h3>
+        <p data-i18n="work.p7.text">Logos, roll-up banners, email headers, stickers and a hoodie themed on Cyprus locations.</p>
+      </div>
     </a>
-    <a class="feature" href="https://www.tiktok.com/@anastasiaandreou99" target="_blank" rel="noopener">
-      <div class="role" data-i18n="work.f2.role">Content Creator Assistant · Eurodesk</div>
-      <h3 data-i18n="work.f2.title">European Youth Event 2025 — Strasbourg</h3>
-      <p data-i18n="work.f2.text">Filmed and interviewed on the ground, then edited recap videos covering Eurodesk's GameZone and InfoStand for Instagram and TikTok.</p>
-      <div class="impact">
-        <svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
-        <span data-i18n="work.f2.impact">Live coverage delivered to thousands of EYE participants and partner organisations.</span>
+    <a class="work-card" href="https://anastasiaswork.my.canva.site/portfolio" target="_blank" rel="noopener">
+      <div class="work-thumb"><img src="portfolio/digital-products.jpg" alt="Digital magazine, app and web design mockups" loading="lazy"></div>
+      <div class="work-body">
+        <div class="work-tag" data-i18n="work.p8.role">UI / UX · web</div>
+        <h3 data-i18n="work.p8.title">Digital products &amp; publications</h3>
+        <p data-i18n="work.p8.text">A health-app concept, ESN Cyprus web pages and “SU STAY”, an interactive sustainability magazine.</p>
       </div>
-      <span class="go"><span data-i18n="work.f2.cta">Watch on TikTok</span>
-        <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
+    </a>
+    <a class="work-card" href="https://anastasiaswork.my.canva.site/portfolio" target="_blank" rel="noopener">
+      <div class="work-thumb"><img src="portfolio/illustration.jpg" alt="Digital portraits and watercolour illustrations" loading="lazy"></div>
+      <div class="work-body">
+        <div class="work-tag" data-i18n="work.p9.role">Personal work · Procreate</div>
+        <h3 data-i18n="work.p9.title">Digital illustration</h3>
+        <p data-i18n="work.p9.text">Digital portraits and hand-painted botanical studies drawn in Procreate.</p>
+      </div>
+    </a>
+    <a class="work-card" href="https://anastasiaswork.my.canva.site/portfolio" target="_blank" rel="noopener">
+      <div class="work-thumb"><img src="portfolio/modeling-3d.jpg" alt="3D city dioramas modelled in Autodesk Maya" loading="lazy"></div>
+      <div class="work-body">
+        <div class="work-tag" data-i18n="work.p10.role">Autodesk Maya</div>
+        <h3 data-i18n="work.p10.title">3D modelling</h3>
+        <p data-i18n="work.p10.text">Stylised city dioramas — modelling, texturing and lighting a small green metropolis.</p>
+      </div>
     </a>
   </div>
 
