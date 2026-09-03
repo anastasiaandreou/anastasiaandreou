@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script>try{var t=localStorage.getItem("theme");if(t==="light"||(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme:light)").matches))document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
-<title>Anastasia Andreou — Digital Communications Specialist</title>
+<title>Anastasia Andreou — Content Creator</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Lexend:wght@400;500;600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -848,39 +848,36 @@
   }
   .mag-photo {
     position: absolute;
-    top: -6px;
-    right: -14px;
-    width: 40%;
-    max-width: 404px;
+    top: 8px;
+    right: 10px;
+    width: 34%;
+    max-width: 344px;
+    aspect-ratio: 1;
     z-index: 2;
+  }
+  .mag-photo::before {
+    content: "";
+    position: absolute;
+    inset: -15%;
+    border-radius: 50%;
+    background: conic-gradient(from 130deg,
+      rgba(231, 163, 76, 0.55),
+      rgba(231, 163, 76, 0.04),
+      rgba(231, 163, 76, 0.42),
+      rgba(231, 163, 76, 0.04),
+      rgba(231, 163, 76, 0.55));
+    filter: blur(30px);
+    z-index: -1;
   }
   .mag-photo img {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
-  }
-  .mag-seal {
-    position: absolute;
-    top: 42px;
-    left: -52px;
-    width: 98px;
-    height: 98px;
-    z-index: 3;
-  }
-  .mag-seal svg { width: 100%; height: 100%; }
-  .mag-seal text {
-    fill: var(--muted);
-    font-family: 'Figtree', sans-serif;
-    font-size: 7.7px;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-  }
-  .mag-seal .seal-mono {
-    fill: var(--heading);
-    font-family: 'Lexend', sans-serif;
-    font-size: 21px;
-    font-weight: 700;
-    letter-spacing: 0;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 50% 14%;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
   }
 
   .mag-body { position: relative; z-index: 1; max-width: 560px; margin-top: 30px; }
@@ -1117,8 +1114,7 @@
     .mag { min-height: 0; }
     .mag-head { display: flex; flex-direction: column; }
     .mag-title { white-space: normal; font-size: clamp(52px, 17vw, 96px); }
-    .mag-photo { position: static; order: -1; width: 64%; max-width: 260px; margin-bottom: 10px; }
-    .mag-seal { top: 22px; right: 4px; width: 74px; height: 74px; }
+    .mag-photo { position: static; order: -1; width: 58%; max-width: 240px; margin: 0 0 14px; }
     .mag-body { margin-top: 22px; }
     .stats { grid-template-columns: 1fr; }
     .stat + .stat { border-left: none; border-top: 1px solid var(--border); }
@@ -1236,26 +1232,19 @@
 
 <!-- MASTHEAD -->
 <section class="wrap mag" id="about">
-  <p class="mag-eyebrow"><span data-i18n="hero.eyebrow">Digital Communications Specialist</span>&nbsp;— Anastasia Andreou</p>
+  <p class="mag-eyebrow"><span data-i18n="hero.eyebrow">Content Creator</span>&nbsp;— Anastasia Andreou</p>
 
   <div class="mag-head">
     <h1 class="mag-title">PORTFOLIO</h1>
     <div class="mag-photo">
-      <img src="anastasia-cutout.png" alt="Anastasia Andreou" width="820" height="820">
-      <div class="mag-seal" aria-hidden="true">
-        <svg viewBox="0 0 104 104">
-          <defs><path id="sealArc" d="M52,52 m-39,0 a39,39 0 1,1 78,0 a39,39 0 1,1 -78,0"/></defs>
-          <text><textPath href="#sealArc" startOffset="0">CLEAR MESSAGE&nbsp;&nbsp;·&nbsp;&nbsp;REAL IMPACT&nbsp;&nbsp;·&nbsp;&nbsp;</textPath></text>
-          <text class="seal-mono" x="52" y="60" text-anchor="middle">AA</text>
-        </svg>
-      </div>
+      <img src="anastasia-circle.png" alt="Anastasia Andreou" width="700" height="700">
     </div>
   </div>
 
   <div class="mag-body">
     <h2 class="mag-statement"><span data-i18n="mag.st.a">I turn ideas into digital stories that</span> <em data-i18n="mag.st.b">inform</em>, <em data-i18n="mag.st.c">include</em> <span data-i18n="mag.st.d">and</span> <em data-i18n="mag.st.e">connect</em>.</h2>
     <div class="mag-rule"></div>
-    <p class="mag-bio" data-i18n="mag.bio">I'm a Digital Communications Specialist crafting content and campaigns for brands, youth and mobility organisations — helping them tell their story through clear, meaningful digital work. Now I'm learning to tell mine, openly, as a creator with a disability.</p>
+    <p class="mag-bio" data-i18n="mag.bio">I'm a content creator making content and campaigns for brands, youth and mobility organisations — helping them tell their story through clear, meaningful digital work. Now I'm learning to tell mine, openly, as a creator with a disability.</p>
     <div class="cta-row">
       <button class="btn btn-primary" id="downloadCv" data-i18n="btn.download">Download CV</button>
       <button class="read-more" id="aboutOpen" type="button" data-i18n="btn.about" aria-haspopup="dialog">Read more about me</button>
