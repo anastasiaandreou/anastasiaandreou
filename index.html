@@ -602,6 +602,45 @@
   }
   .back-link:hover { color: var(--accent-dark); }
 
+  /* ---------- CONVERSATIONS ---------- */
+  .section-lead {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 620px;
+    margin: -20px 0 34px;
+  }
+  .talks { display: flex; flex-direction: column; }
+  .talk {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 15px 0;
+    border-top: 1px solid var(--border);
+    color: inherit;
+  }
+  .talk:last-child { border-bottom: 1px solid var(--border); }
+  .talk-body { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+  .talk-name { font-size: 15px; font-weight: 600; color: var(--heading); transition: color 0.15s ease; }
+  .talk-meta { font-size: 13px; color: var(--muted); }
+  .talk-date {
+    margin-left: auto;
+    font-size: 12.5px;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .talk-arrow {
+    flex-shrink: 0;
+    width: 13px;
+    height: 13px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    color: var(--muted);
+    transition: color 0.15s ease, transform 0.15s ease;
+  }
+  a.talk:hover .talk-name { color: var(--accent); }
+  a.talk:hover .talk-arrow { color: var(--accent); transform: translate(2px, -2px); }
+
   /* ---------- TESTIMONIALS ---------- */
   .quotes {
     display: grid;
@@ -674,6 +713,74 @@
   .socials a:hover { color: var(--accent); border-color: var(--accent); }
   .socials svg { width: 15px; height: 15px; fill: currentColor; }
 
+  /* ---------- ABOUT MODAL ---------- */
+  .modal {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: none;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 48px 20px;
+    background: rgba(2, 6, 23, 0.55);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+    overflow-y: auto;
+  }
+  .modal.open { display: flex; }
+  .modal-panel {
+    position: relative;
+    width: 100%;
+    max-width: 720px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 46px 48px 48px;
+    box-shadow: 0 40px 90px -24px rgba(2, 6, 23, 0.45);
+  }
+  .modal-close {
+    position: absolute;
+    top: 22px;
+    right: 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    background: transparent;
+    font-family: 'Figtree', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--muted);
+    cursor: pointer;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .modal-close:hover { color: var(--heading); border-color: var(--muted); }
+  .modal-eyebrow {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .modal-panel h2 {
+    font-family: 'Lexend', sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--heading);
+    margin: 14px 0 18px;
+  }
+  .modal-panel p {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--text);
+  }
+  body.modal-open { overflow: hidden; }
+
   /* ---------- RESPONSIVE ---------- */
   @media (max-width: 960px) {
     .wrap { padding: 0 28px; }
@@ -732,6 +839,11 @@
     .cv-item .period { padding-top: 0; }
 
     .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
+
+    .modal { padding: 16px 12px; }
+    .modal-panel { padding: 44px 24px 32px; border-radius: 14px; }
+    .modal-close { top: 14px; right: 14px; padding: 7px 13px; }
+    .modal-panel h2 { font-size: 24px; }
   }
 </style>
 </head>
@@ -776,11 +888,10 @@
   <div class="hero-text">
     <div class="eyebrow" data-i18n="hero.eyebrow">Digital Communications Specialist</div>
     <h1 data-i18n="hero.name">Anastasia Andreou</h1>
-    <p data-i18n="hero.bio">
-      Creative professional with strong communication and storytelling skills. Skilled at exploring diverse topics, identifying compelling ideas, and transforming complex information into clear, engaging, and meaningful narratives. Adaptable to different audiences, environments, and challenges, combining creativity with strategic thinking, problem-solving, and attention to detail. A cooperative team player who values open communication, shared goals, and positive working relationships, while also demonstrating the confidence and initiative to lead, motivate, and support others. Curious and continuously motivated to learn, grow, and turn ideas into impactful stories and successful outcomes.
-    </p>
+    <p data-i18n="hero.bio">I help organisations and brands tell their story. Now I'm learning to tell mine, openly, as a creator with a disability.</p>
     <div class="cta-row">
       <button class="btn btn-primary" id="downloadCv" data-i18n="btn.download">Download CV</button>
+      <button class="btn btn-gray" id="aboutOpen" type="button" data-i18n="btn.about" aria-haspopup="dialog">More about me</button>
     </div>
   </div>
 </section>
@@ -1115,6 +1226,78 @@
   </div>
 </section>
 
+<!-- CONVERSATIONS (interviews & podcasts) -->
+<section class="wrap section" id="conversations">
+  <h2 class="section-title" data-i18n="talks.title">Conversations</h2>
+  <p class="section-lead" data-i18n="talks.lead">Interviews and podcasts where I've shared my story — on content creation, inclusion, and building a voice as a creator with a disability.</p>
+  <div class="talks">
+    <a class="talk" href="https://simerini.sigmalive.com/article/2026/8/5/anastasia-andreou-e-gunaika-pou-emathe-pos-e-duname-den-metrietai-se-upsos/" target="_blank" rel="noopener">
+      <span class="talk-body">
+        <span class="talk-name">Simerini</span>
+        <span class="talk-meta" data-i18n="talks.1.meta">Newspaper interview · independence, family, and how society sees disability</span>
+      </span>
+      <span class="talk-date">Aug 2026</span>
+      <svg class="talk-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
+    </a>
+    <a class="talk" href="https://www.sigmalive.com/lifestyle/showbiz/1301102/anastasia-andreoy-den-theorw-oti-imai-diaforetiki-vinteo" target="_blank" rel="noopener">
+      <span class="talk-body">
+        <span class="talk-name">SigmaLive · Μεσημέρι και Κάτι</span>
+        <span class="talk-meta" data-i18n="talks.2.meta">TV interview · daily life with osteogenesis imperfecta</span>
+      </span>
+      <span class="talk-date">Jan 2026</span>
+      <svg class="talk-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
+    </a>
+    <a class="talk" href="https://www.youtube.com/watch?v=ynCgS41vJw8" target="_blank" rel="noopener">
+      <span class="talk-body">
+        <span class="talk-name">Good Girls · E73</span>
+        <span class="talk-meta" data-i18n="talks.3.meta">Podcast · what we don't say out loud about disability</span>
+      </span>
+      <span class="talk-date"></span>
+      <svg class="talk-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
+    </a>
+    <a class="talk" href="https://www.youtube.com/watch?v=Ue9YGvi1DJc" target="_blank" rel="noopener">
+      <span class="talk-body">
+        <span class="talk-name">Good Girls · E30</span>
+        <span class="talk-meta" data-i18n="talks.4.meta">Podcast · accessibility and the state</span>
+      </span>
+      <span class="talk-date"></span>
+      <svg class="talk-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
+    </a>
+    <a class="talk" href="https://www.youtube.com/watch?v=MbbFb95YeSA" target="_blank" rel="noopener">
+      <span class="talk-body">
+        <span class="talk-name">Mix FM</span>
+        <span class="talk-meta" data-i18n="talks.5.meta">Radio · Women's Day series, episode 3</span>
+      </span>
+      <span class="talk-date"></span>
+      <svg class="talk-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
+    </a>
+    <a class="talk" href="https://www.youtube.com/watch?v=s-_J2jcArKA" target="_blank" rel="noopener">
+      <span class="talk-body">
+        <span class="talk-name">Μικρή στο σώμα, μεγάλη στην ψυχή</span>
+        <span class="talk-meta" data-i18n="talks.6.meta">TV feature · season-finale portrait</span>
+      </span>
+      <span class="talk-date"></span>
+      <svg class="talk-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
+    </a>
+    <a class="talk" href="https://www.youtube.com/watch?v=QVPNCdIxxZg" target="_blank" rel="noopener">
+      <span class="talk-body">
+        <span class="talk-name">Youth Talk on Inclusion</span>
+        <span class="talk-meta" data-i18n="talks.7.meta">Talk · inclusion, from Cyprus</span>
+      </span>
+      <span class="talk-date"></span>
+      <svg class="talk-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
+    </a>
+    <a class="talk" href="https://www.youtube.com/watch?v=qAJCU0Jsbcc" target="_blank" rel="noopener">
+      <span class="talk-body">
+        <span class="talk-name">HER Moment</span>
+        <span class="talk-meta" data-i18n="talks.8.meta">Talk · strength and finding a voice</span>
+      </span>
+      <span class="talk-date"></span>
+      <svg class="talk-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
+    </a>
+  </div>
+</section>
+
 <!-- REFERENCES -->
 <section class="wrap section" id="references">
   <h2 class="section-title" data-i18n="references.title">References</h2>
@@ -1197,6 +1380,16 @@
     <div data-i18n="footer.rights">© 2026 Anastasia Andreou</div>
   </div>
 </footer>
+
+<!-- ABOUT MODAL -->
+<div class="modal" id="about-modal" role="dialog" aria-modal="true" aria-labelledby="about-modal-title">
+  <div class="modal-panel">
+    <button class="modal-close" id="aboutClose" type="button">Close &times;</button>
+    <div class="modal-eyebrow" data-i18n="about.eyebrow">About</div>
+    <h2 id="about-modal-title" data-i18n="about.title">The story so far</h2>
+    <p data-i18n="about.body">Creative professional with strong communication and storytelling skills. Skilled at exploring diverse topics, identifying compelling ideas, and transforming complex information into clear, engaging, and meaningful narratives. Adaptable to different audiences, environments, and challenges, combining creativity with strategic thinking, problem-solving, and attention to detail. A cooperative team player who values open communication, shared goals, and positive working relationships, while also demonstrating the confidence and initiative to lead, motivate, and support others. Curious and continuously motivated to learn, grow, and turn ideas into impactful stories and successful outcomes.</p>
+  </div>
+</div>
 
 <script src="translations.js"></script>
 <script src="app.js"></script>

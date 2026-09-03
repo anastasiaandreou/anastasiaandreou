@@ -105,4 +105,31 @@
       sync();
     });
   }
+
+  // About modal
+  var modal = document.getElementById("about-modal");
+  var aboutOpen = document.getElementById("aboutOpen");
+  var aboutClose = document.getElementById("aboutClose");
+  if (modal && aboutOpen) {
+    var lastFocus = null;
+    var openModal = function () {
+      lastFocus = document.activeElement;
+      modal.classList.add("open");
+      document.body.classList.add("modal-open");
+      if (aboutClose) aboutClose.focus();
+    };
+    var closeModal = function () {
+      modal.classList.remove("open");
+      document.body.classList.remove("modal-open");
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    };
+    aboutOpen.addEventListener("click", openModal);
+    if (aboutClose) aboutClose.addEventListener("click", closeModal);
+    modal.addEventListener("click", function (e) {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && modal.classList.contains("open")) closeModal();
+    });
+  }
 })();
