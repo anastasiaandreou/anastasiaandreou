@@ -133,4 +133,54 @@
       if (e.key === "Escape" && modal.classList.contains("open")) closeModal();
     });
   }
+
+  // Phone-card carousel (Selected works)
+  var pcTrack = document.querySelector(".pc-track");
+  if (pcTrack) {
+    var pcStep = function () {
+      var c = pcTrack.querySelector(".pc-card");
+      return (c ? c.getBoundingClientRect().width + 22 : 220) * 1.4;
+    };
+    var pcPrev = document.querySelector(".pc-prev");
+    var pcNext = document.querySelector(".pc-next");
+    if (pcPrev) pcPrev.addEventListener("click", function () {
+      pcTrack.scrollBy({ left: -pcStep(), behavior: "smooth" });
+    });
+    if (pcNext) pcNext.addEventListener("click", function () {
+      pcTrack.scrollBy({ left: pcStep(), behavior: "smooth" });
+    });
+  }
+
+  // Work-category modals (opened from the phone cards)
+  var wcModals = document.querySelectorAll(".modal[data-work-modal]");
+  if (wcModals.length) {
+    var wcLast = null;
+    var wcCloseAll = function () {
+      wcModals.forEach(function (m) { m.classList.remove("open"); });
+      document.body.classList.remove("modal-open");
+      if (wcLast && wcLast.focus) wcLast.focus();
+    };
+    document.querySelectorAll("[data-open-modal]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var m = document.getElementById(btn.getAttribute("data-open-modal"));
+        if (!m) return;
+        wcLast = btn;
+        m.classList.add("open");
+        document.body.classList.add("modal-open");
+        var cl = m.querySelector("[data-close-modal]");
+        if (cl) cl.focus();
+      });
+    });
+    wcModals.forEach(function (m) {
+      m.addEventListener("click", function (e) {
+        if (e.target === m || (e.target.closest && e.target.closest("[data-close-modal]"))) wcCloseAll();
+      });
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key !== "Escape") return;
+      for (var i = 0; i < wcModals.length; i++) {
+        if (wcModals[i].classList.contains("open")) { wcCloseAll(); break; }
+      }
+    });
+  }
 })();
