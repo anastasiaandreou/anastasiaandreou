@@ -905,6 +905,20 @@
   .wc-link svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; }
   .wc-link:hover { color: var(--accent-dark); }
 
+  .item-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 2px; }
+  .item-row a {
+    display: block;
+    width: 54px;
+    height: 54px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    flex-shrink: 0;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .item-row a:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .item-row img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
   /* ---------- ABOUT MODAL ---------- */
   .modal {
     position: fixed;
@@ -1165,15 +1179,15 @@
   .tools-magrow { margin-top: 40px; }
 
   /* process */
-  .process-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 28px; margin-top: 24px; }
+  .process-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; margin-top: 24px; }
   .pstep { position: relative; }
   .pstep:not(:last-child)::after {
     content: "\2192";
     position: absolute;
     top: 4px;
-    right: -18px;
+    right: -13px;
     color: var(--muted);
-    font-size: 14px;
+    font-size: 13px;
   }
   .pstep .p-num { font-family: 'Lexend', sans-serif; font-size: 21px; font-weight: 700; color: var(--heading); }
   .pstep h3 {
@@ -1789,18 +1803,23 @@
     </div>
     <div class="pstep">
       <div class="p-num">03</div>
-      <h3 data-i18n="proc.3.name">Create</h3>
-      <p data-i18n="proc.3.text">Design content that is clear and on-brand.</p>
+      <h3 data-i18n="proc.3.name">Research</h3>
+      <p data-i18n="proc.3.text">Looking into the trends, audience behaviour and competitive landscape.</p>
     </div>
     <div class="pstep">
       <div class="p-num">04</div>
-      <h3 data-i18n="proc.4.name">Publish</h3>
-      <p data-i18n="proc.4.text">Deliver across platforms, on schedule.</p>
+      <h3 data-i18n="proc.4.name">Create</h3>
+      <p data-i18n="proc.4.text">Design content that is clear and on-brand.</p>
     </div>
     <div class="pstep">
       <div class="p-num">05</div>
-      <h3 data-i18n="proc.5.name">Measure</h3>
-      <p data-i18n="proc.5.text">Track results and refine what works.</p>
+      <h3 data-i18n="proc.5.name">Publish</h3>
+      <p data-i18n="proc.5.text">Deliver across platforms, on schedule.</p>
+    </div>
+    <div class="pstep">
+      <div class="p-num">06</div>
+      <h3 data-i18n="proc.6.name">Measure</h3>
+      <p data-i18n="proc.6.text">Track results and refine what works.</p>
     </div>
   </div>
 </section>
@@ -2000,6 +2019,12 @@
       <span data-i18n="work.p1.t3">Canva &amp; Adobe</span>
     </div>
     <p data-i18n="work.p1.text">Static visuals and carousels for Instagram, Facebook, LinkedIn and TikTok — campaign graphics, awareness days and explainer posts, all built to each organisation's brand system.</p>
+    <div class="item-row">
+      <a href="portfolio/items/social-a.jpg" target="_blank" rel="noopener"><img src="portfolio/items/social-a.jpg" alt="An Erasmus+ Love Story social post" loading="lazy"></a>
+      <a href="portfolio/items/social-b.jpg" target="_blank" rel="noopener"><img src="portfolio/items/social-b.jpg" alt="Going on Mobility Starter Pack graphic" loading="lazy"></a>
+      <a href="portfolio/items/social-c.jpg" target="_blank" rel="noopener"><img src="portfolio/items/social-c.jpg" alt="Watch the State of the European Union graphic" loading="lazy"></a>
+      <a href="portfolio/items/social-d.jpg" target="_blank" rel="noopener"><img src="portfolio/items/social-d.jpg" alt="We are Students Helping Students template" loading="lazy"></a>
+    </div>
     <a class="wc-link" href="https://anastasiaswork.my.canva.site/portfolio" target="_blank" rel="noopener">
       <span data-i18n="work.p1.cta">See the full set</span>
       <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
@@ -2051,6 +2076,12 @@
       <span data-i18n="work.p4.t3">Interviews</span>
     </div>
     <p data-i18n="work.p4.text">Live Stories from the Eurodesk Network Meeting, the Multipliers Seminar and the European Youth Event 2025 — filmed, captioned and published on the day.</p>
+    <div class="item-row">
+      <a href="portfolio/items/event-a.jpg" target="_blank" rel="noopener"><img src="portfolio/items/event-a.jpg" alt="Eurodesk 35th anniversary Instagram Story" loading="lazy"></a>
+      <a href="portfolio/items/event-b.jpg" target="_blank" rel="noopener"><img src="portfolio/items/event-b.jpg" alt="Multipliers Seminar Instagram Story" loading="lazy"></a>
+      <a href="portfolio/items/event-c.jpg" target="_blank" rel="noopener"><img src="portfolio/items/event-c.jpg" alt="Interview with Glenn Micallef Instagram Story" loading="lazy"></a>
+      <a href="portfolio/items/event-d.jpg" target="_blank" rel="noopener"><img src="portfolio/items/event-d.jpg" alt="EYE quiz Instagram Story" loading="lazy"></a>
+    </div>
     <a class="wc-link" href="https://www.instagram.com/anastasiaandreou/" target="_blank" rel="noopener">
       <span data-i18n="work.p4.cta">View the coverage</span>
       <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
@@ -2068,6 +2099,14 @@
       <span data-i18n="work.p5.t3">Travel &amp; editorial</span>
     </div>
     <p data-i18n="work.p5.text">On-the-ground photography at European youth events — candid moments, portraits, award shots and wide crowd scenes — plus a travel and editorial set from Japan and beyond.</p>
+    <div class="item-row">
+      <a href="portfolio/items/photo-a.jpg" target="_blank" rel="noopener"><img src="portfolio/items/photo-a.jpg" alt="Award trophy photography" loading="lazy"></a>
+      <a href="portfolio/items/photo-b.jpg" target="_blank" rel="noopener"><img src="portfolio/items/photo-b.jpg" alt="Eurodesk booth activity photography" loading="lazy"></a>
+      <a href="portfolio/items/photo-c.jpg" target="_blank" rel="noopener"><img src="portfolio/items/photo-c.jpg" alt="ESN flags crowd photography" loading="lazy"></a>
+      <a href="portfolio/items/photo-d.jpg" target="_blank" rel="noopener"><img src="portfolio/items/photo-d.jpg" alt="Sign language conversation photography" loading="lazy"></a>
+      <a href="portfolio/items/photo-e.jpg" target="_blank" rel="noopener"><img src="portfolio/items/photo-e.jpg" alt="Osaka Castle travel photography" loading="lazy"></a>
+      <a href="portfolio/items/photo-f.jpg" target="_blank" rel="noopener"><img src="portfolio/items/photo-f.jpg" alt="Matcha and wagashi travel photography" loading="lazy"></a>
+    </div>
     <a class="wc-link" href="https://anastasiaswork.my.canva.site/portfolio" target="_blank" rel="noopener">
       <span data-i18n="work.p5.cta">See the photos</span>
       <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
@@ -2085,6 +2124,12 @@
       <span data-i18n="work.p6.t3">InDesign &amp; Canva</span>
     </div>
     <p data-i18n="work.p6.text">Layout and design for printed and downloadable material — mobility guides, the monthly Youth Letter, the Opportunity Finder and mental-health-abroad resources.</p>
+    <div class="item-row">
+      <a href="portfolio/items/print-a.jpg" target="_blank" rel="noopener"><img src="portfolio/items/print-a.jpg" alt="What is Eurodesk brochure page" loading="lazy"></a>
+      <a href="portfolio/items/print-b.jpg" target="_blank" rel="noopener"><img src="portfolio/items/print-b.jpg" alt="Inclusive mobility brochure page" loading="lazy"></a>
+      <a href="portfolio/items/print-c.jpg" target="_blank" rel="noopener"><img src="portfolio/items/print-c.jpg" alt="Sustainability guide brochure page" loading="lazy"></a>
+      <a href="portfolio/items/print-d.jpg" target="_blank" rel="noopener"><img src="portfolio/items/print-d.jpg" alt="Opportunity Finder brochure page" loading="lazy"></a>
+    </div>
     <a class="wc-link" href="https://anastasiaswork.my.canva.site/portfolio" target="_blank" rel="noopener">
       <span data-i18n="work.p6.cta">See the full set</span>
       <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>

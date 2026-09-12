@@ -391,6 +391,27 @@
   .proj-cta:hover .lbl { color: var(--accent); }
   .proj-cta:hover .go { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
 
+  .item-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+  .item-row a {
+    position: relative;
+    display: block;
+    width: 54px;
+    height: 54px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    flex-shrink: 0;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .item-row a:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .item-row img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .item-row a.is-video::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.28) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23fff" d="M8 5v14l11-7z"/></svg>') center/16px no-repeat;
+  }
+
   /* ---------- DESIGN & CRAFT GRID ---------- */
   .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
   .work-card {
@@ -603,6 +624,12 @@
         </div>
         <h3 data-i18n="work.p1.title">Social media design</h3>
         <p data-i18n="work.p1.text">Static visuals and carousels for Instagram, Facebook, LinkedIn and TikTok — campaign graphics, awareness days and explainer posts, all built to each organisation's brand system.</p>
+        <div class="item-row">
+          <a href="portfolio/items/social-a.jpg" target="_blank" rel="noopener"><img src="portfolio/items/social-a.jpg" alt="An Erasmus+ Love Story social post" loading="lazy"></a>
+          <a href="portfolio/items/social-b.jpg" target="_blank" rel="noopener"><img src="portfolio/items/social-b.jpg" alt="Going on Mobility Starter Pack graphic" loading="lazy"></a>
+          <a href="portfolio/items/social-c.jpg" target="_blank" rel="noopener"><img src="portfolio/items/social-c.jpg" alt="Watch the State of the European Union graphic" loading="lazy"></a>
+          <a href="portfolio/items/social-d.jpg" target="_blank" rel="noopener"><img src="portfolio/items/social-d.jpg" alt="We are Students Helping Students template" loading="lazy"></a>
+        </div>
         <a class="proj-cta" href="https://anastasiaswork.my.canva.site/portfolio" target="_blank" rel="noopener">
           <span class="lbl" data-i18n="work.p1.cta">See the full set</span>
           <span class="go"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
@@ -657,6 +684,12 @@
         </div>
         <h3 data-i18n="work.p4.title">Event coverage — Instagram Stories</h3>
         <p data-i18n="work.p4.text">Live Stories from the Eurodesk Network Meeting, the Multipliers Seminar and the European Youth Event 2025 — filmed, captioned and published on the day.</p>
+        <div class="item-row">
+          <a href="portfolio/items/event-a.jpg" target="_blank" rel="noopener"><img src="portfolio/items/event-a.jpg" alt="Eurodesk 35th anniversary Instagram Story" loading="lazy"></a>
+          <a href="portfolio/items/event-b.jpg" target="_blank" rel="noopener"><img src="portfolio/items/event-b.jpg" alt="Multipliers Seminar Instagram Story" loading="lazy"></a>
+          <a href="portfolio/items/event-c.jpg" target="_blank" rel="noopener"><img src="portfolio/items/event-c.jpg" alt="Interview with Glenn Micallef Instagram Story" loading="lazy"></a>
+          <a href="portfolio/items/event-d.jpg" target="_blank" rel="noopener"><img src="portfolio/items/event-d.jpg" alt="EYE quiz Instagram Story" loading="lazy"></a>
+        </div>
         <a class="proj-cta" href="https://www.instagram.com/anastasiaandreou/" target="_blank" rel="noopener">
           <span class="lbl" data-i18n="work.p4.cta">View the coverage</span>
           <span class="go"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
@@ -675,6 +708,14 @@
         </div>
         <h3 data-i18n="work.p5.title">Photography</h3>
         <p data-i18n="work.p5.text">On-the-ground photography at European youth events — candid moments, portraits, award shots and wide crowd scenes — plus a travel and editorial set from Japan and beyond.</p>
+        <div class="item-row">
+          <a href="portfolio/items/photo-a.jpg" target="_blank" rel="noopener"><img src="portfolio/items/photo-a.jpg" alt="Award trophy photography" loading="lazy"></a>
+          <a href="portfolio/items/photo-b.jpg" target="_blank" rel="noopener"><img src="portfolio/items/photo-b.jpg" alt="Eurodesk booth activity photography" loading="lazy"></a>
+          <a href="portfolio/items/photo-c.jpg" target="_blank" rel="noopener"><img src="portfolio/items/photo-c.jpg" alt="ESN flags crowd photography" loading="lazy"></a>
+          <a href="portfolio/items/photo-d.jpg" target="_blank" rel="noopener"><img src="portfolio/items/photo-d.jpg" alt="Sign language conversation photography" loading="lazy"></a>
+          <a href="portfolio/items/photo-e.jpg" target="_blank" rel="noopener"><img src="portfolio/items/photo-e.jpg" alt="Osaka Castle travel photography" loading="lazy"></a>
+          <a href="portfolio/items/photo-f.jpg" target="_blank" rel="noopener"><img src="portfolio/items/photo-f.jpg" alt="Matcha and wagashi travel photography" loading="lazy"></a>
+        </div>
         <a class="proj-cta" href="https://anastasiaswork.my.canva.site/portfolio" target="_blank" rel="noopener">
           <span class="lbl" data-i18n="work.p5.cta">See the photos</span>
           <span class="go"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
@@ -693,6 +734,12 @@
         </div>
         <h3 data-i18n="work.p6.title">Print &amp; brochures</h3>
         <p data-i18n="work.p6.text">Layout and design for printed and downloadable material — mobility guides, the monthly Youth Letter, the Opportunity Finder and mental-health-abroad resources.</p>
+        <div class="item-row">
+          <a href="portfolio/items/print-a.jpg" target="_blank" rel="noopener"><img src="portfolio/items/print-a.jpg" alt="What is Eurodesk brochure page" loading="lazy"></a>
+          <a href="portfolio/items/print-b.jpg" target="_blank" rel="noopener"><img src="portfolio/items/print-b.jpg" alt="Inclusive mobility brochure page" loading="lazy"></a>
+          <a href="portfolio/items/print-c.jpg" target="_blank" rel="noopener"><img src="portfolio/items/print-c.jpg" alt="Sustainability guide brochure page" loading="lazy"></a>
+          <a href="portfolio/items/print-d.jpg" target="_blank" rel="noopener"><img src="portfolio/items/print-d.jpg" alt="Opportunity Finder brochure page" loading="lazy"></a>
+        </div>
         <a class="proj-cta" href="https://anastasiaswork.my.canva.site/portfolio" target="_blank" rel="noopener">
           <span class="lbl" data-i18n="work.p6.cta">See the full set</span>
           <span class="go"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
@@ -705,14 +752,24 @@
   <div class="subhead" data-i18n="work.craft.head">Design &amp; craft</div>
   <p class="adv-lead" data-i18n="work.craft.lead">Beyond content, I work across brand, product and illustration — here is a taste of each.</p>
   <div class="work-grid">
-    <a class="work-card" href="https://anastasiaswork.my.canva.site/portfolio" target="_blank" rel="noopener">
-      <div class="work-thumb"><img src="portfolio/branding-merch.jpg" alt="ESN branding materials, hoodie and stickers" loading="lazy"></div>
+    <div class="work-card">
+      <a href="https://anastasiaswork.my.canva.site/portfolio" target="_blank" rel="noopener">
+        <div class="work-thumb"><img src="portfolio/branding-merch.jpg" alt="ESN branding materials, hoodie and stickers" loading="lazy"></div>
+      </a>
       <div class="work-body">
         <div class="work-tag" data-i18n="work.p7.role">Erasmus Student Network</div>
         <h3 data-i18n="work.p7.title">Branding &amp; merchandise</h3>
         <p data-i18n="work.p7.text">Logos, roll-up banners, email headers, stickers and a hoodie themed on Cyprus locations.</p>
+        <div class="item-row">
+          <a href="portfolio/items/brand-a.jpg" target="_blank" rel="noopener"><img src="portfolio/items/brand-a.jpg" alt="ESN Nicosia roll-up banner" loading="lazy"></a>
+          <a href="portfolio/items/brand-b.jpg" target="_blank" rel="noopener"><img src="portfolio/items/brand-b.jpg" alt="National Erasmus Games Netherlands logo" loading="lazy"></a>
+          <a href="portfolio/items/brand-c.jpg" target="_blank" rel="noopener"><img src="portfolio/items/brand-c.jpg" alt="The Paphos Trip logo" loading="lazy"></a>
+          <a href="portfolio/items/brand-d.jpg" target="_blank" rel="noopener"><img src="portfolio/items/brand-d.jpg" alt="Finished Cyprus-themed hoodie" loading="lazy"></a>
+          <a class="is-video" href="portfolio/items/brand-video-turtle.mp4" target="_blank" rel="noopener"><img src="portfolio/items/brand-e.jpg" alt="Aphro the turtle animated logo, video" loading="lazy"></a>
+          <a class="is-video" href="portfolio/items/brand-video-green.mp4" target="_blank" rel="noopener"><img src="portfolio/items/brand-f.jpg" alt="Coloring the Green animated logo, video" loading="lazy"></a>
+        </div>
       </div>
-    </a>
+    </div>
     <a class="work-card" href="https://anastasiaswork.my.canva.site/portfolio" target="_blank" rel="noopener">
       <div class="work-thumb"><img src="portfolio/digital-products.jpg" alt="Digital magazine, app and web design mockups" loading="lazy"></div>
       <div class="work-body">
@@ -721,22 +778,38 @@
         <p data-i18n="work.p8.text">A health-app concept, ESN Cyprus web pages and “SU STAY”, an interactive sustainability magazine.</p>
       </div>
     </a>
-    <a class="work-card" href="https://anastasiaswork.my.canva.site/portfolio" target="_blank" rel="noopener">
-      <div class="work-thumb"><img src="portfolio/illustration.jpg" alt="Digital portraits and watercolour illustrations" loading="lazy"></div>
+    <div class="work-card">
+      <a href="https://anastasiaswork.my.canva.site/portfolio" target="_blank" rel="noopener">
+        <div class="work-thumb"><img src="portfolio/illustration.jpg" alt="Digital portraits and watercolour illustrations" loading="lazy"></div>
+      </a>
       <div class="work-body">
         <div class="work-tag" data-i18n="work.p9.role">Personal work · Procreate</div>
         <h3 data-i18n="work.p9.title">Digital illustration</h3>
         <p data-i18n="work.p9.text">Digital portraits and hand-painted botanical studies drawn in Procreate.</p>
+        <div class="item-row">
+          <a href="portfolio/items/illus-a.jpg" target="_blank" rel="noopener"><img src="portfolio/items/illus-a.jpg" alt="Digital fashion portrait illustration" loading="lazy"></a>
+          <a href="portfolio/items/illus-b.jpg" target="_blank" rel="noopener"><img src="portfolio/items/illus-b.jpg" alt="Botanical illustration, white flowers" loading="lazy"></a>
+          <a href="portfolio/items/illus-c.jpg" target="_blank" rel="noopener"><img src="portfolio/items/illus-c.jpg" alt="Botanical illustration, pink flower" loading="lazy"></a>
+          <a href="portfolio/items/illus-d.jpg" target="_blank" rel="noopener"><img src="portfolio/items/illus-d.jpg" alt="Blue cat illustration" loading="lazy"></a>
+        </div>
       </div>
-    </a>
-    <a class="work-card" href="https://anastasiaswork.my.canva.site/portfolio" target="_blank" rel="noopener">
-      <div class="work-thumb"><img src="portfolio/modeling-3d.jpg" alt="3D city dioramas modelled in Autodesk Maya" loading="lazy"></div>
+    </div>
+    <div class="work-card">
+      <a href="https://anastasiaswork.my.canva.site/portfolio" target="_blank" rel="noopener">
+        <div class="work-thumb"><img src="portfolio/modeling-3d.jpg" alt="3D city dioramas modelled in Autodesk Maya" loading="lazy"></div>
+      </a>
       <div class="work-body">
         <div class="work-tag" data-i18n="work.p10.role">Autodesk Maya</div>
         <h3 data-i18n="work.p10.title">3D modelling</h3>
         <p data-i18n="work.p10.text">Stylised city dioramas — modelling, texturing and lighting a small green metropolis.</p>
+        <div class="item-row">
+          <a href="portfolio/items/model-a.jpg" target="_blank" rel="noopener"><img src="portfolio/items/model-a.jpg" alt="3D city diorama render, view 1" loading="lazy"></a>
+          <a href="portfolio/items/model-b.jpg" target="_blank" rel="noopener"><img src="portfolio/items/model-b.jpg" alt="3D city diorama render, view 2" loading="lazy"></a>
+          <a href="portfolio/items/model-c.jpg" target="_blank" rel="noopener"><img src="portfolio/items/model-c.jpg" alt="3D city diorama render, view 3" loading="lazy"></a>
+          <a href="portfolio/items/model-d.jpg" target="_blank" rel="noopener"><img src="portfolio/items/model-d.jpg" alt="3D city diorama render, view 4" loading="lazy"></a>
+        </div>
       </div>
-    </a>
+    </div>
   </div>
 
   <div class="subhead" data-i18n="work.adv.head">Disability advocacy</div>
