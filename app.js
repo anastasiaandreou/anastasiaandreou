@@ -183,4 +183,73 @@
       }
     });
   }
+
+  // Category visual galleries: big photo + stacked photos, paginated with dots
+  document.querySelectorAll(".gal").forEach(function (gal) {
+    var srcImgs = gal.querySelectorAll(".gal-source img");
+    if (!srcImgs.length) return;
+    var items = Array.prototype.map.call(srcImgs, function (img) {
+      return {
+        src: img.getAttribute("src"),
+        alt: img.getAttribute("alt") || "",
+        video: img.getAttribute("data-video")
+      };
+    });
+    var pagesEl = gal.querySelector(".gal-pages");
+    var dotsEl = gal.querySelector(".gal-dots");
+    if (!pagesEl || !dotsEl) return;
+
+    var pageSize = 4;
+    var pages = [];
+    for (var i = 0; i < items.length; i += pageSize) pages.push(items.slice(i, i + pageSize));
+
+    function makeCell(item, cls) {
+      var a = document.createElement("a");
+      a.className = cls + (item.video ? " is-video" : "");
+      a.href = item.video || item.src;
+      a.target = "_blank";
+      a.rel = "noopener";
+      var img = document.createElement("img");
+      img.src = item.src;
+      img.alt = item.alt;
+      img.loading = "lazy";
+      a.appendChild(img);
+      return a;
+    }
+
+    pages.forEach(function (pageItems, pi) {
+      var pageEl = document.createElement("div");
+      pageEl.className = "gal-page" + (pi === 0 ? " active" : "");
+      if (pageItems.length === 1) {
+        pageEl.appendChild(makeCell(pageItems[0], "gal-hero gal-solo"));
+      } else {
+        var stack = document.createElement("div");
+        stack.className = "gal-stack";
+        pageItems.slice(1).forEach(function (it) {
+          stack.appendChild(makeCell(it, "gal-cell"));
+        });
+        pageEl.appendChild(stack);
+        pageEl.appendChild(makeCell(pageItems[0], "gal-hero"));
+      }
+      pagesEl.appendChild(pageEl);
+    });
+
+    if (pages.length > 1) {
+      pages.forEach(function (_, pi) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.setAttribute("aria-label", "Show set " + (pi + 1) + " of " + pages.length);
+        if (pi === 0) b.className = "active";
+        b.addEventListener("click", function () {
+          pagesEl.querySelectorAll(".gal-page").forEach(function (p, idx) {
+            p.classList.toggle("active", idx === pi);
+          });
+          dotsEl.querySelectorAll("button").forEach(function (d, idx) {
+            d.classList.toggle("active", idx === pi);
+          });
+        });
+        dotsEl.appendChild(b);
+      });
+    }
+  });
 })();

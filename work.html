@@ -412,6 +412,49 @@
     background: rgba(0, 0, 0, 0.28) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23fff" d="M8 5v14l11-7z"/></svg>') center/16px no-repeat;
   }
 
+  /* ---------- CATEGORY GALLERY (big photo + stack, paginated) ---------- */
+  .gal { margin: 18px 0 2px; }
+  .gal-source { display: none; }
+  .gal-page { display: none; grid-template-columns: 1fr 1.55fr; gap: 12px; }
+  .gal-page.active { display: grid; }
+  .gal-stack { display: flex; flex-direction: column; gap: 12px; }
+  .gal-cell, .gal-hero {
+    display: block;
+    position: relative;
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--bg-3);
+    border: 1px solid var(--line);
+  }
+  .gal-cell { aspect-ratio: 1 / 1; }
+  .gal-hero { height: 100%; min-height: 160px; }
+  .gal-hero.gal-solo { grid-column: 1 / -1; aspect-ratio: 16 / 9; height: auto; }
+  .gal-cell img, .gal-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  .gal-cell:hover img, .gal-hero:hover img { transform: scale(1.05); }
+  .gal-cell.is-video::after, .gal-hero.is-video::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(20, 15, 10, 0.32) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23fff" d="M8 5v14l11-7z"/></svg>') center / 22px no-repeat;
+  }
+  .gal-dots { display: flex; justify-content: center; gap: 7px; margin-top: 14px; }
+  .gal-dots button {
+    width: 7px;
+    height: 7px;
+    padding: 0;
+    border: none;
+    border-radius: 999px;
+    background: var(--line);
+    cursor: pointer;
+  }
+  .gal-dots button.active { background: var(--accent); width: 18px; }
+
   /* ---------- DESIGN & CRAFT GRID ---------- */
   .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
   .work-card {
@@ -624,11 +667,19 @@
         </div>
         <h3 data-i18n="work.p1.title">Social media design</h3>
         <p data-i18n="work.p1.text">Static visuals and carousels for Instagram, Facebook, LinkedIn and TikTok — campaign graphics, awareness days and explainer posts, all built to each organisation's brand system.</p>
-        <div class="item-row">
-          <a href="portfolio/items/social-a.jpg" target="_blank" rel="noopener"><img src="portfolio/items/social-a.jpg" alt="An Erasmus+ Love Story social post" loading="lazy"></a>
-          <a href="portfolio/items/social-b.jpg" target="_blank" rel="noopener"><img src="portfolio/items/social-b.jpg" alt="Going on Mobility Starter Pack graphic" loading="lazy"></a>
-          <a href="portfolio/items/social-c.jpg" target="_blank" rel="noopener"><img src="portfolio/items/social-c.jpg" alt="Watch the State of the European Union graphic" loading="lazy"></a>
-          <a href="portfolio/items/social-d.jpg" target="_blank" rel="noopener"><img src="portfolio/items/social-d.jpg" alt="We are Students Helping Students template" loading="lazy"></a>
+        <div class="gal">
+          <div class="gal-source">
+            <img src="portfolio/items/social-1.jpg" alt="An Erasmus+ Love Story social post">
+            <img src="portfolio/items/social-2.jpg" alt="Europe Day 9 May — Young Journalists">
+            <img src="portfolio/items/social-3.jpg" alt="Going on Mobility Starter Pack graphic">
+            <img src="portfolio/items/social-4.jpg" alt="Watch the State of the European Union graphic">
+            <img src="portfolio/items/social-5.jpg" alt="Can you guess? EYE quiz">
+            <img src="portfolio/items/social-6.jpg" alt="We are Students Helping Students, Corfu edition">
+            <img src="portfolio/items/social-7.jpg" alt="ESNcard, Our Partners template">
+            <img src="portfolio/items/social-8.jpg" alt="Join ESN Liechtenstein recruitment graphic">
+          </div>
+          <div class="gal-pages"></div>
+          <div class="gal-dots"></div>
         </div>
         <a class="proj-cta" href="https://anastasiaswork.my.canva.site/portfolio" target="_blank" rel="noopener">
           <span class="lbl" data-i18n="work.p1.cta">See the full set</span>
@@ -684,11 +735,15 @@
         </div>
         <h3 data-i18n="work.p4.title">Event coverage — Instagram Stories</h3>
         <p data-i18n="work.p4.text">Live Stories from the Eurodesk Network Meeting, the Multipliers Seminar and the European Youth Event 2025 — filmed, captioned and published on the day.</p>
-        <div class="item-row">
-          <a href="portfolio/items/event-a.jpg" target="_blank" rel="noopener"><img src="portfolio/items/event-a.jpg" alt="Eurodesk 35th anniversary Instagram Story" loading="lazy"></a>
-          <a href="portfolio/items/event-b.jpg" target="_blank" rel="noopener"><img src="portfolio/items/event-b.jpg" alt="Multipliers Seminar Instagram Story" loading="lazy"></a>
-          <a href="portfolio/items/event-c.jpg" target="_blank" rel="noopener"><img src="portfolio/items/event-c.jpg" alt="Interview with Glenn Micallef Instagram Story" loading="lazy"></a>
-          <a href="portfolio/items/event-d.jpg" target="_blank" rel="noopener"><img src="portfolio/items/event-d.jpg" alt="EYE quiz Instagram Story" loading="lazy"></a>
+        <div class="gal">
+          <div class="gal-source">
+            <img src="portfolio/items/event-a.jpg" alt="Eurodesk 35th anniversary Instagram Story">
+            <img src="portfolio/items/event-b.jpg" alt="Multipliers Seminar Instagram Story">
+            <img src="portfolio/items/event-c.jpg" alt="Interview with Glenn Micallef Instagram Story">
+            <img src="portfolio/items/event-d.jpg" alt="EYE quiz Instagram Story">
+          </div>
+          <div class="gal-pages"></div>
+          <div class="gal-dots"></div>
         </div>
         <a class="proj-cta" href="https://www.instagram.com/anastasiaandreou/" target="_blank" rel="noopener">
           <span class="lbl" data-i18n="work.p4.cta">View the coverage</span>
@@ -708,13 +763,30 @@
         </div>
         <h3 data-i18n="work.p5.title">Photography</h3>
         <p data-i18n="work.p5.text">On-the-ground photography at European youth events — candid moments, portraits, award shots and wide crowd scenes — plus a travel and editorial set from Japan and beyond.</p>
-        <div class="item-row">
-          <a href="portfolio/items/photo-a.jpg" target="_blank" rel="noopener"><img src="portfolio/items/photo-a.jpg" alt="Award trophy photography" loading="lazy"></a>
-          <a href="portfolio/items/photo-b.jpg" target="_blank" rel="noopener"><img src="portfolio/items/photo-b.jpg" alt="Eurodesk booth activity photography" loading="lazy"></a>
-          <a href="portfolio/items/photo-c.jpg" target="_blank" rel="noopener"><img src="portfolio/items/photo-c.jpg" alt="ESN flags crowd photography" loading="lazy"></a>
-          <a href="portfolio/items/photo-d.jpg" target="_blank" rel="noopener"><img src="portfolio/items/photo-d.jpg" alt="Sign language conversation photography" loading="lazy"></a>
-          <a href="portfolio/items/photo-e.jpg" target="_blank" rel="noopener"><img src="portfolio/items/photo-e.jpg" alt="Osaka Castle travel photography" loading="lazy"></a>
-          <a href="portfolio/items/photo-f.jpg" target="_blank" rel="noopener"><img src="portfolio/items/photo-f.jpg" alt="Matcha and wagashi travel photography" loading="lazy"></a>
+        <div class="gal">
+          <div class="gal-source">
+            <img src="portfolio/items/photo-1.jpg" alt="Inclusive Youth Information Award trophy">
+            <img src="portfolio/items/photo-2.jpg" alt="Youth Information Award trophies, trio">
+            <img src="portfolio/items/photo-3.jpg" alt="Creative Youth Information Award trophy">
+            <img src="portfolio/items/photo-4.jpg" alt="Eurodesk booth, Journey Plan cards">
+            <img src="portfolio/items/photo-5.jpg" alt="Eurodesk booth, quiz card">
+            <img src="portfolio/items/photo-6.jpg" alt="Spin-the-wheel activity at the Eurodesk booth">
+            <img src="portfolio/items/photo-7.jpg" alt="Eurodesk Opportunity Finder booth">
+            <img src="portfolio/items/photo-8.jpg" alt="Eurodesk Network Prize trophy">
+            <img src="portfolio/items/photo-9.jpg" alt="Eurodesk Network Prize award ceremony">
+            <img src="portfolio/items/photo-10.jpg" alt="ESN flags at a European youth event">
+            <img src="portfolio/items/photo-11.jpg" alt="Eurodesk Network Prize, winners group photo">
+            <img src="portfolio/items/photo-12.jpg" alt="A conversation in sign language">
+            <img src="portfolio/items/photo-13.jpg" alt="ESN flags at the European Youth Event, Strasbourg">
+            <img src="portfolio/items/photo-14.jpg" alt="Friends at a European youth event">
+            <img src="portfolio/items/photo-15.jpg" alt="Dinner with a view of Osaka Castle">
+            <img src="portfolio/items/photo-16.jpg" alt="Patisserie window display">
+            <img src="portfolio/items/photo-17.jpg" alt="Dotonbori nightlife, Osaka">
+            <img src="portfolio/items/photo-18.jpg" alt="Rooftop sunset, Osaka">
+            <img src="portfolio/items/photo-19.jpg" alt="Macarons display">
+          </div>
+          <div class="gal-pages"></div>
+          <div class="gal-dots"></div>
         </div>
         <a class="proj-cta" href="https://anastasiaswork.my.canva.site/portfolio" target="_blank" rel="noopener">
           <span class="lbl" data-i18n="work.p5.cta">See the photos</span>
@@ -734,11 +806,18 @@
         </div>
         <h3 data-i18n="work.p6.title">Print &amp; brochures</h3>
         <p data-i18n="work.p6.text">Layout and design for printed and downloadable material — mobility guides, the monthly Youth Letter, the Opportunity Finder and mental-health-abroad resources.</p>
-        <div class="item-row">
-          <a href="portfolio/items/print-a.jpg" target="_blank" rel="noopener"><img src="portfolio/items/print-a.jpg" alt="What is Eurodesk brochure page" loading="lazy"></a>
-          <a href="portfolio/items/print-b.jpg" target="_blank" rel="noopener"><img src="portfolio/items/print-b.jpg" alt="Inclusive mobility brochure page" loading="lazy"></a>
-          <a href="portfolio/items/print-c.jpg" target="_blank" rel="noopener"><img src="portfolio/items/print-c.jpg" alt="Sustainability guide brochure page" loading="lazy"></a>
-          <a href="portfolio/items/print-d.jpg" target="_blank" rel="noopener"><img src="portfolio/items/print-d.jpg" alt="Opportunity Finder brochure page" loading="lazy"></a>
+        <div class="gal">
+          <div class="gal-source">
+            <img src="portfolio/items/print-1.jpg" alt="Eurodesk Monthly Youth Letter newsletter">
+            <img src="portfolio/items/print-2.jpg" alt="Time to Mind, a guide to mental health abroad">
+            <img src="portfolio/items/print-3.jpg" alt="Check our publications!">
+            <img src="portfolio/items/print-4.jpg" alt="What is Eurodesk? brochure">
+            <img src="portfolio/items/print-5.jpg" alt="European Programmes are for Everyone, inclusive mobility brochure">
+            <img src="portfolio/items/print-6.jpg" alt="Your Guides on Sustainability">
+            <img src="portfolio/items/print-7.jpg" alt="Opportunity Finder cards">
+          </div>
+          <div class="gal-pages"></div>
+          <div class="gal-dots"></div>
         </div>
         <a class="proj-cta" href="https://anastasiaswork.my.canva.site/portfolio" target="_blank" rel="noopener">
           <span class="lbl" data-i18n="work.p6.cta">See the full set</span>
@@ -760,13 +839,23 @@
         <div class="work-tag" data-i18n="work.p7.role">Erasmus Student Network</div>
         <h3 data-i18n="work.p7.title">Branding &amp; merchandise</h3>
         <p data-i18n="work.p7.text">Logos, roll-up banners, email headers, stickers and a hoodie themed on Cyprus locations.</p>
-        <div class="item-row">
-          <a href="portfolio/items/brand-a.jpg" target="_blank" rel="noopener"><img src="portfolio/items/brand-a.jpg" alt="ESN Nicosia roll-up banner" loading="lazy"></a>
-          <a href="portfolio/items/brand-b.jpg" target="_blank" rel="noopener"><img src="portfolio/items/brand-b.jpg" alt="National Erasmus Games Netherlands logo" loading="lazy"></a>
-          <a href="portfolio/items/brand-c.jpg" target="_blank" rel="noopener"><img src="portfolio/items/brand-c.jpg" alt="The Paphos Trip logo" loading="lazy"></a>
-          <a href="portfolio/items/brand-d.jpg" target="_blank" rel="noopener"><img src="portfolio/items/brand-d.jpg" alt="Finished Cyprus-themed hoodie" loading="lazy"></a>
-          <a class="is-video" href="portfolio/items/brand-video-turtle.mp4" target="_blank" rel="noopener"><img src="portfolio/items/brand-e.jpg" alt="Aphro the turtle animated logo, video" loading="lazy"></a>
-          <a class="is-video" href="portfolio/items/brand-video-green.mp4" target="_blank" rel="noopener"><img src="portfolio/items/brand-f.jpg" alt="Coloring the Green animated logo, video" loading="lazy"></a>
+        <div class="gal">
+          <div class="gal-source">
+            <img src="portfolio/items/brand-1.jpg" alt="ESN Nicosia roll-up banner">
+            <img src="portfolio/items/brand-2.jpg" alt="ESN's Role in European Universities email banner">
+            <img src="portfolio/items/brand-3.jpg" alt="Communication Community Meeting Porto banner">
+            <img src="portfolio/items/brand-4.jpg" alt="Communication Community Meeting Porto banner, alt version">
+            <img src="portfolio/items/brand-5.jpg" alt="SmartBuy Collection eyewear web banner">
+            <img src="portfolio/items/brand-6.jpg" alt="ICE Team Coordinators recruitment graphic">
+            <img src="portfolio/items/brand-7.jpg" alt="National Erasmus Games, Netherlands logo">
+            <img src="portfolio/items/brand-8.jpg" alt="The Paphos Trip logo">
+            <img src="portfolio/items/brand-9.jpg" alt="Cyprus-themed hoodie, colour moodboard">
+            <img src="portfolio/items/brand-10.jpg" alt="Finished Cyprus-themed hoodie">
+            <img src="portfolio/items/brand-11.jpg" alt="Aphro the turtle, animated logo" data-video="portfolio/items/brand-video-turtle.mp4">
+            <img src="portfolio/items/brand-12.jpg" alt="Coloring the Green, animated logo" data-video="portfolio/items/brand-video-green.mp4">
+          </div>
+          <div class="gal-pages"></div>
+          <div class="gal-dots"></div>
         </div>
       </div>
     </div>
@@ -786,11 +875,17 @@
         <div class="work-tag" data-i18n="work.p9.role">Personal work · Procreate</div>
         <h3 data-i18n="work.p9.title">Digital illustration</h3>
         <p data-i18n="work.p9.text">Digital portraits and hand-painted botanical studies drawn in Procreate.</p>
-        <div class="item-row">
-          <a href="portfolio/items/illus-a.jpg" target="_blank" rel="noopener"><img src="portfolio/items/illus-a.jpg" alt="Digital fashion portrait illustration" loading="lazy"></a>
-          <a href="portfolio/items/illus-b.jpg" target="_blank" rel="noopener"><img src="portfolio/items/illus-b.jpg" alt="Botanical illustration, white flowers" loading="lazy"></a>
-          <a href="portfolio/items/illus-c.jpg" target="_blank" rel="noopener"><img src="portfolio/items/illus-c.jpg" alt="Botanical illustration, pink flower" loading="lazy"></a>
-          <a href="portfolio/items/illus-d.jpg" target="_blank" rel="noopener"><img src="portfolio/items/illus-d.jpg" alt="Blue cat illustration" loading="lazy"></a>
+        <div class="gal">
+          <div class="gal-source">
+            <img src="portfolio/items/illus-1.jpg" alt="Edited portrait photography">
+            <img src="portfolio/items/illus-2.jpg" alt="Digital fashion portrait illustration">
+            <img src="portfolio/items/illus-3.jpg" alt="Botanical illustration, white flowers">
+            <img src="portfolio/items/illus-4.jpg" alt="Botanical illustration, pink flower">
+            <img src="portfolio/items/illus-5.jpg" alt="Botanical illustration, green leaves">
+            <img src="portfolio/items/illus-6.jpg" alt="Blue cat illustration">
+          </div>
+          <div class="gal-pages"></div>
+          <div class="gal-dots"></div>
         </div>
       </div>
     </div>
@@ -802,11 +897,14 @@
         <div class="work-tag" data-i18n="work.p10.role">Autodesk Maya</div>
         <h3 data-i18n="work.p10.title">3D modelling</h3>
         <p data-i18n="work.p10.text">Stylised city dioramas — modelling, texturing and lighting a small green metropolis.</p>
-        <div class="item-row">
-          <a href="portfolio/items/model-a.jpg" target="_blank" rel="noopener"><img src="portfolio/items/model-a.jpg" alt="3D city diorama render, view 1" loading="lazy"></a>
-          <a href="portfolio/items/model-b.jpg" target="_blank" rel="noopener"><img src="portfolio/items/model-b.jpg" alt="3D city diorama render, view 2" loading="lazy"></a>
-          <a href="portfolio/items/model-c.jpg" target="_blank" rel="noopener"><img src="portfolio/items/model-c.jpg" alt="3D city diorama render, view 3" loading="lazy"></a>
-          <a href="portfolio/items/model-d.jpg" target="_blank" rel="noopener"><img src="portfolio/items/model-d.jpg" alt="3D city diorama render, view 4" loading="lazy"></a>
+        <div class="gal">
+          <div class="gal-source">
+            <img src="portfolio/items/model-1.jpg" alt="3D city diorama, wide view">
+            <img src="portfolio/items/model-2.jpg" alt="3D city diorama, street-level view">
+            <img src="portfolio/items/model-3.jpg" alt="3D city diorama, aerial view">
+          </div>
+          <div class="gal-pages"></div>
+          <div class="gal-dots"></div>
         </div>
       </div>
     </div>
