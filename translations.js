@@ -103,8 +103,8 @@ window.I18N = {
     "lang.spanish": "Spanish",
     "lang.spanish.lvl": "B2 · Independent",
 
-    "talks.title": "Conversations",
-    "talks.lead": "Interviews and podcasts where I've shared my story — on content creation, inclusion, and building a voice as a creator with a disability.",
+    "talks.title": "My Voice in the Media",
+    "talks.lead": "Through my social platforms, I advocate for greater disability awareness and representation. This work has led to conversations across media, interviews and podcasts. Tap to listen/read.",
     "talks.1.meta": "Newspaper interview · independence, family, and how society sees disability",
     "talks.2.meta": "TV interview · daily life with osteogenesis imperfecta",
     "talks.3.meta": "Podcast · what we don't say out loud about disability",
@@ -382,8 +382,8 @@ window.I18N = {
     "lang.spanish": "Ισπανικά",
     "lang.spanish.lvl": "B2 · Καλή",
 
-    "talks.title": "Συζητήσεις",
-    "talks.lead": "Συνεντεύξεις και podcasts όπου μοιράστηκα την ιστορία μου — για τη δημιουργία περιεχομένου, την ένταξη και το χτίσιμο φωνής ως δημιουργός με αναπηρία.",
+    "talks.title": "Η Φωνή μου στα ΜΜΕ",
+    "talks.lead": "Μέσα από τα social media μου, υποστηρίζω μεγαλύτερη ευαισθητοποίηση και εκπροσώπηση για την αναπηρία. Αυτή η δουλειά οδήγησε σε συζητήσεις σε ΜΜΕ, συνεντεύξεις και podcasts. Πάτησε για να ακούσεις/διαβάσεις.",
     "talks.1.meta": "Συνέντευξη σε εφημερίδα · ανεξαρτησία, οικογένεια και το πώς βλέπει η κοινωνία την αναπηρία",
     "talks.2.meta": "Τηλεοπτική συνέντευξη · η καθημερινότητα με ατελή οστεογένεση",
     "talks.3.meta": "Podcast · όσα δεν λέμε ανοιχτά για την αναπηρία",

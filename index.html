@@ -643,37 +643,59 @@
     max-width: 620px;
     margin: -20px 0 34px;
   }
-  .talks { display: flex; flex-direction: column; }
+  .talks { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
   .talk {
     display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 15px 0;
-    border-top: 1px solid var(--border);
+    flex-direction: column;
     color: inherit;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
   }
-  .talk:last-child { border-bottom: 1px solid var(--border); }
-  .talk-body { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
-  .talk-name { font-size: 15px; font-weight: 600; color: var(--heading); transition: color 0.15s ease; }
-  .talk-meta { font-size: 13px; color: var(--muted); }
-  .talk-date {
-    margin-left: auto;
+  .talk:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 16px 32px -20px rgba(0, 0, 0, 0.4);
+  }
+  .talk-thumb {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: var(--border);
+    overflow: hidden;
+  }
+  .talk-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .talk-thumb-icon { display: flex; align-items: center; justify-content: center; }
+  .talk-icon { width: 34px; height: 34px; color: var(--accent); }
+  .talk-icon svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .talk-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(20, 15, 10, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .talk-play svg { width: 15px; height: 15px; fill: currentColor; margin-left: 2px; }
+  .talk:hover .talk-play { background: var(--accent); color: var(--on-accent); }
+  .talk-body { display: flex; flex-direction: column; gap: 4px; padding: 14px 16px 16px; }
+  .talk-eyebrow {
     font-size: 12.5px;
-    color: var(--muted);
-    white-space: nowrap;
+    font-weight: 700;
+    color: var(--heading);
+    transition: color 0.15s ease;
   }
-  .talk-arrow {
-    flex-shrink: 0;
-    width: 13px;
-    height: 13px;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 2;
-    color: var(--muted);
-    transition: color 0.15s ease, transform 0.15s ease;
-  }
-  a.talk:hover .talk-name { color: var(--accent); }
-  a.talk:hover .talk-arrow { color: var(--accent); transform: translate(2px, -2px); }
+  .talk:hover .talk-eyebrow { color: var(--accent); }
+  .talk-desc { font-size: 12.5px; color: var(--muted); line-height: 1.4; }
+  .talk-date { font-size: 11.5px; color: var(--muted); margin-top: 2px; }
 
   /* ---------- TESTIMONIALS ---------- */
   .quotes {
@@ -1356,10 +1378,12 @@
     .pc-track { gap: 16px; padding: 22px 2px 24px; }
     .pc-card { flex-basis: 166px; }
     .pc-name { font-size: 13px; }
+    .talks { grid-template-columns: 1fr 1fr; gap: 16px; }
   }
   @media (max-width: 520px) {
     .sw-grid { grid-template-columns: 1fr; }
     .svc-grid { grid-template-columns: 1fr; }
+    .talks { grid-template-columns: 1fr; }
   }
   @media (max-width: 400px) {
     .brand a span:not(.logo) { display: none; }
@@ -1891,74 +1915,90 @@
   </div>
 </section>
 
-<!-- CONVERSATIONS (interviews & podcasts) -->
+<!-- MY VOICE IN THE MEDIA (interviews & podcasts) -->
 <section class="wrap section" id="conversations">
-  <h2 class="section-title" data-i18n="talks.title">Conversations</h2>
-  <p class="section-lead" data-i18n="talks.lead">Interviews and podcasts where I've shared my story — on content creation, inclusion, and building a voice as a creator with a disability.</p>
+  <h2 class="section-title" data-i18n="talks.title">My Voice in the Media</h2>
+  <p class="section-lead" data-i18n="talks.lead">Through my social platforms, I advocate for greater disability awareness and representation. This work has led to conversations across media, interviews and podcasts. Tap to listen/read.</p>
   <div class="talks">
     <a class="talk" href="https://simerini.sigmalive.com/article/2026/8/5/anastasia-andreou-e-gunaika-pou-emathe-pos-e-duname-den-metrietai-se-upsos/" target="_blank" rel="noopener">
-      <span class="talk-body">
-        <span class="talk-name">Simerini</span>
-        <span class="talk-meta" data-i18n="talks.1.meta">Newspaper interview · independence, family, and how society sees disability</span>
+      <span class="talk-thumb talk-thumb-icon">
+        <span class="talk-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h13v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5z"/><path d="M17 8h3v10.5A1.5 1.5 0 0 1 18.5 20H17"/><path d="M7.5 9h6M7.5 12h6M7.5 15h3.5"/></svg></span>
       </span>
-      <span class="talk-date">Aug 2026</span>
-      <svg class="talk-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
+      <span class="talk-body">
+        <span class="talk-eyebrow">Simerini</span>
+        <span class="talk-desc" data-i18n="talks.1.meta">Newspaper interview · independence, family, and how society sees disability</span>
+        <span class="talk-date">Aug 2026</span>
+      </span>
     </a>
     <a class="talk" href="https://www.sigmalive.com/lifestyle/showbiz/1301102/anastasia-andreoy-den-theorw-oti-imai-diaforetiki-vinteo" target="_blank" rel="noopener">
-      <span class="talk-body">
-        <span class="talk-name">SigmaLive · Μεσημέρι και Κάτι</span>
-        <span class="talk-meta" data-i18n="talks.2.meta">TV interview · daily life with osteogenesis imperfecta</span>
+      <span class="talk-thumb talk-thumb-icon">
+        <span class="talk-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M8 3l4 3 4-3"/></svg></span>
       </span>
-      <span class="talk-date">Jan 2026</span>
-      <svg class="talk-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
+      <span class="talk-body">
+        <span class="talk-eyebrow">SigmaLive · Μεσημέρι και Κάτι</span>
+        <span class="talk-desc" data-i18n="talks.2.meta">TV interview · daily life with osteogenesis imperfecta</span>
+        <span class="talk-date">Jan 2026</span>
+      </span>
     </a>
     <a class="talk" href="https://www.youtube.com/watch?v=ynCgS41vJw8" target="_blank" rel="noopener">
-      <span class="talk-body">
-        <span class="talk-name">Good Girls · E73</span>
-        <span class="talk-meta" data-i18n="talks.3.meta">Podcast · what we don't say out loud about disability</span>
+      <span class="talk-thumb">
+        <img src="portfolio/talks/talk-3.jpg" alt="" loading="lazy">
+        <span class="talk-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
       </span>
-      <span class="talk-date"></span>
-      <svg class="talk-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
+      <span class="talk-body">
+        <span class="talk-eyebrow">Good Girls · E73</span>
+        <span class="talk-desc" data-i18n="talks.3.meta">Podcast · what we don't say out loud about disability</span>
+      </span>
     </a>
     <a class="talk" href="https://www.youtube.com/watch?v=Ue9YGvi1DJc" target="_blank" rel="noopener">
-      <span class="talk-body">
-        <span class="talk-name">Good Girls · E30</span>
-        <span class="talk-meta" data-i18n="talks.4.meta">Podcast · accessibility and the state</span>
+      <span class="talk-thumb">
+        <img src="portfolio/talks/talk-4.jpg" alt="" loading="lazy">
+        <span class="talk-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
       </span>
-      <span class="talk-date"></span>
-      <svg class="talk-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
+      <span class="talk-body">
+        <span class="talk-eyebrow">Good Girls · E30</span>
+        <span class="talk-desc" data-i18n="talks.4.meta">Podcast · accessibility and the state</span>
+      </span>
     </a>
     <a class="talk" href="https://www.youtube.com/watch?v=MbbFb95YeSA" target="_blank" rel="noopener">
-      <span class="talk-body">
-        <span class="talk-name">Mix FM</span>
-        <span class="talk-meta" data-i18n="talks.5.meta">Radio · Women's Day series, episode 3</span>
+      <span class="talk-thumb">
+        <img src="portfolio/talks/talk-5.jpg" alt="" loading="lazy">
+        <span class="talk-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
       </span>
-      <span class="talk-date"></span>
-      <svg class="talk-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
+      <span class="talk-body">
+        <span class="talk-eyebrow">Mix FM</span>
+        <span class="talk-desc" data-i18n="talks.5.meta">Radio · Women's Day series, episode 3</span>
+      </span>
     </a>
     <a class="talk" href="https://www.youtube.com/watch?v=s-_J2jcArKA" target="_blank" rel="noopener">
-      <span class="talk-body">
-        <span class="talk-name">Μικρή στο σώμα, μεγάλη στην ψυχή</span>
-        <span class="talk-meta" data-i18n="talks.6.meta">TV feature · season-finale portrait</span>
+      <span class="talk-thumb">
+        <img src="portfolio/talks/talk-6.jpg" alt="" loading="lazy">
+        <span class="talk-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
       </span>
-      <span class="talk-date"></span>
-      <svg class="talk-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
+      <span class="talk-body">
+        <span class="talk-eyebrow">Μικρή στο σώμα, μεγάλη στην ψυχή</span>
+        <span class="talk-desc" data-i18n="talks.6.meta">TV feature · season-finale portrait</span>
+      </span>
     </a>
     <a class="talk" href="https://www.youtube.com/watch?v=QVPNCdIxxZg" target="_blank" rel="noopener">
-      <span class="talk-body">
-        <span class="talk-name">Youth Talk on Inclusion</span>
-        <span class="talk-meta" data-i18n="talks.7.meta">Talk · inclusion, from Cyprus</span>
+      <span class="talk-thumb">
+        <img src="portfolio/talks/talk-7.jpg" alt="" loading="lazy">
+        <span class="talk-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
       </span>
-      <span class="talk-date"></span>
-      <svg class="talk-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
+      <span class="talk-body">
+        <span class="talk-eyebrow">Youth Talk on Inclusion</span>
+        <span class="talk-desc" data-i18n="talks.7.meta">Talk · inclusion, from Cyprus</span>
+      </span>
     </a>
     <a class="talk" href="https://www.youtube.com/watch?v=qAJCU0Jsbcc" target="_blank" rel="noopener">
-      <span class="talk-body">
-        <span class="talk-name">HER Moment</span>
-        <span class="talk-meta" data-i18n="talks.8.meta">Talk · strength and finding a voice</span>
+      <span class="talk-thumb">
+        <img src="portfolio/talks/talk-8.jpg" alt="" loading="lazy">
+        <span class="talk-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
       </span>
-      <span class="talk-date"></span>
-      <svg class="talk-arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
+      <span class="talk-body">
+        <span class="talk-eyebrow">HER Moment</span>
+        <span class="talk-desc" data-i18n="talks.8.meta">Talk · strength and finding a voice</span>
+      </span>
     </a>
   </div>
 </section>
