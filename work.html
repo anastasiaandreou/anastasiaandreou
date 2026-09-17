@@ -50,6 +50,46 @@
 
   .wrap { max-width: 1080px; margin: 0 auto; padding: 0 40px; }
 
+  /* ---------- CONSTRUCTION BANNER ---------- */
+  .site-banner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    text-align: center;
+    padding: 10px 44px 10px 16px;
+    background: var(--accent);
+    color: var(--on-accent);
+    font-size: 13.5px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  .site-banner strong { font-weight: 800; }
+  .site-banner-close {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 26px;
+    height: 26px;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--on-accent);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: .8;
+  }
+  .site-banner-close:hover { opacity: 1; background: rgba(0,0,0,.12); }
+  .site-banner-close svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+  @media (max-width: 560px) {
+    .site-banner { font-size: 12.5px; padding: 9px 40px 9px 12px; }
+  }
+
   /* ---------- NAVBAR ---------- */
   .nav {
     position: sticky;
@@ -607,6 +647,14 @@
 </style>
 </head>
 <body>
+
+<!-- CONSTRUCTION BANNER -->
+<div class="site-banner" id="siteBanner" role="note">
+  <span data-i18n="banner.text">🚧 This website is still under construction — feel free to have a look around!</span>
+  <button type="button" class="site-banner-close" id="siteBannerClose" aria-label="Dismiss">
+    <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+</div>
 
 <!-- NAVBAR -->
 <header class="nav">

@@ -29,6 +29,19 @@
   } catch (e) {}
   applyLanguage(initial);
 
+  // Under-construction banner (dismissible, remembered across visits)
+  var siteBanner = document.getElementById("siteBanner");
+  var siteBannerClose = document.getElementById("siteBannerClose");
+  if (siteBanner) {
+    var bannerHidden = false;
+    try { bannerHidden = localStorage.getItem("bannerDismissed") === "1"; } catch (e) {}
+    if (bannerHidden) siteBanner.hidden = true;
+    if (siteBannerClose) siteBannerClose.addEventListener("click", function () {
+      siteBanner.hidden = true;
+      try { localStorage.setItem("bannerDismissed", "1"); } catch (e) {}
+    });
+  }
+
   // Download CV
   var cvBtn = document.getElementById("downloadCv");
   if (cvBtn) cvBtn.addEventListener("click", function () {
