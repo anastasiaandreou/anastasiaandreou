@@ -10,42 +10,42 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Lexend:wght@400;500;600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --accent: #5B7FFF;
-    --accent-dark: #3F5FE0;
-    --accent-rgb: 91, 127, 255;
-    --secondary: #5B7FFF;
-    --card-glass: rgba(18, 16, 23, 0.8);
-    --text: #A6A9BC;
-    --heading: #F2F3FA;
-    --muted: #8D90A0;
-    --border: #272A33;
-    --bg: #121017;
-    --bg-soft: #1B1E28;
+    --accent: #F2653C;
+    --accent-dark: #D9502B;
+    --accent-rgb: 242, 101, 60;
+    --secondary: #F2653C;
+    --card-glass: rgba(28, 22, 17, 0.8);
+    --text: #B7AB9E;
+    --heading: #F6EFE6;
+    --muted: #8E8175;
+    --border: #3A2F26;
+    --bg: #1C1611;
+    --bg-soft: #241D17;
     --radius: 10px;
-    --card: #1B1E28;
-    --nav-bg: rgba(18, 16, 23, 0.82);
-    --on-accent: #121017;
-    --role-dot: #5E6480;
-    --pc-body: #1B1E28;
+    --card: #241D17;
+    --nav-bg: rgba(28, 22, 17, 0.82);
+    --on-accent: #241811;
+    --role-dot: #A56B3C;
+    --pc-body: #2C2521;
   }
 
   html[data-theme="light"] {
-    --accent: #1E3A8A;
-    --accent-dark: #16295E;
-    --accent-rgb: 30, 58, 138;
-    --secondary: #3D5AFE;
-    --card-glass: rgba(248, 249, 254, 0.85);
-    --text: #545B6E;
-    --heading: #191E2C;
-    --muted: #6B7086;
-    --border: #E2E5F0;
-    --bg: #F8F9FE;
-    --bg-soft: #EEF0F9;
+    --accent: #B23D1D;
+    --accent-dark: #942F15;
+    --accent-rgb: 178, 61, 29;
+    --secondary: #F2653C;
+    --card-glass: rgba(247, 243, 234, 0.85);
+    --text: #5A5040;
+    --heading: #241B12;
+    --muted: #8B7E6B;
+    --border: #E4DBCB;
+    --bg: #F7F3EA;
+    --bg-soft: #EFE8D9;
     --card: #FFFFFF;
-    --nav-bg: rgba(248, 249, 254, 0.85);
+    --nav-bg: rgba(247, 243, 234, 0.85);
     --on-accent: #FFFFFF;
-    --role-dot: #7A85A8;
-    --pc-body: #1D2036;
+    --role-dot: #6F4A29;
+    --pc-body: #1B1B1B;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -1125,12 +1125,31 @@
   }
   .status-top { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
   .status-dot {
+    position: relative;
     width: 7px;
     height: 7px;
     border-radius: 50%;
     background: var(--accent);
     flex-shrink: 0;
-    box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.22);
+  }
+  .status-dot::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: statusPing 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+  @keyframes statusPing {
+    0% { transform: scale(1); opacity: 0.65; }
+    75%, 100% { transform: scale(3.2); opacity: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .status-dot::before {
+      animation: none;
+      inset: -3px;
+      opacity: 0.22;
+    }
   }
   .status-label {
     font-family: 'Lexend', sans-serif;
