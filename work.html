@@ -11,27 +11,29 @@
 <style>
   :root {
     --bg: #121017;
-    --bg-2: #1B1822;
-    --bg-3: #241F30;
-    --line: #2A2733;
-    --text: #ACA6BC;
-    --head: #F5F2FA;
-    --muted: #938DA0;
-    --accent: #9163E6;
-    --accent-strong: #7A4FC7;
-    --on-accent: #FFFFFF;
+    --bg-2: #1B1E28;
+    --bg-3: #232735;
+    --line: #272A33;
+    --text: #A6A9BC;
+    --head: #F2F3FA;
+    --muted: #8D90A0;
+    --accent: #5B7FFF;
+    --accent-strong: #3F5FE0;
+    --secondary: #5B7FFF;
+    --on-accent: #121017;
   }
 
   html[data-theme="light"] {
-    --bg: #FAF8FE;
+    --bg: #F8F9FE;
     --bg-2: #FFFFFF;
-    --bg-3: #F2EDF9;
-    --line: #E7E0F0;
-    --text: #5A5468;
-    --head: #1E1B29;
-    --muted: #6E687A;
-    --accent: #7C4FA0;
-    --accent-strong: #63397F;
+    --bg-3: #EEF0F9;
+    --line: #E2E5F0;
+    --text: #545B6E;
+    --head: #191E2C;
+    --muted: #6B7086;
+    --accent: #1E3A8A;
+    --accent-strong: #16295E;
+    --secondary: #3D5AFE;
     --on-accent: #FFFFFF;
   }
 
@@ -260,7 +262,7 @@
   }
   .wh-title em {
     font-style: normal;
-    color: var(--accent);
+    color: var(--secondary);
     position: relative;
   }
   .wh-title em::after {
@@ -269,7 +271,7 @@
     top: -0.35em;
     right: -0.75em;
     font-size: 0.36em;
-    color: var(--accent);
+    color: var(--secondary);
   }
 
   .pill {
