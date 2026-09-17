@@ -13,6 +13,7 @@
     --accent: #F2653C;
     --accent-dark: #D9502B;
     --secondary: #F2653C;
+    --card-glass: rgba(36, 29, 23, 0.6);
     --text: #B7AB9E;
     --heading: #F6EFE6;
     --muted: #8E8175;
@@ -31,6 +32,7 @@
     --accent: #D9502B;
     --accent-dark: #B83D1E;
     --secondary: #D9502B;
+    --card-glass: rgba(239, 232, 217, 0.58);
     --text: #5A5040;
     --heading: #241B12;
     --muted: #8B7E6B;
@@ -1105,17 +1107,18 @@
   /* floating status card beside the profile photo */
   .status-card {
     position: absolute;
-    right: -56px;
+    right: -92px;
     bottom: -12px;
     width: 208px;
     padding: 16px 18px;
     border-radius: 16px;
     border: 1px solid var(--border);
     background:
-      linear-gradient(160deg, rgba(242, 101, 60, 0.16), transparent 60%),
-      var(--bg-soft);
+      linear-gradient(160deg, rgba(242, 101, 60, 0.24), transparent 60%),
+      var(--card-glass);
     box-shadow: 0 24px 48px -28px rgba(0, 0, 0, 0.55);
-    backdrop-filter: blur(6px);
+    backdrop-filter: blur(10px) saturate(160%);
+    -webkit-backdrop-filter: blur(10px) saturate(160%);
     z-index: 2;
   }
   .status-top { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
@@ -1180,7 +1183,7 @@
     letter-spacing: -0.01em;
     color: var(--heading);
   }
-  .mag-statement em { font-style: italic; color: var(--muted); }
+  .mag-statement em { font-style: italic; color: var(--accent); }
   .mag-rule { width: 54px; height: 2px; background: var(--heading); margin: 22px 0; }
   .mag-bio { font-size: 14px; color: var(--muted); max-width: 440px; }
   .mag-body .cta-row { margin-top: 24px; }
@@ -1401,7 +1404,7 @@
 
   /* ---------- RESPONSIVE ---------- */
   @media (max-width: 1180px) and (min-width: 961px) {
-    .status-card { right: -24px; width: 190px; }
+    .status-card { right: -46px; width: 186px; }
   }
 
   @media (max-width: 960px) {
@@ -1410,7 +1413,7 @@
     .mag-head { display: flex; flex-direction: column; align-items: flex-start; gap: 0; }
     .mag-title { font-size: clamp(34px, 9vw, 54px); }
     .mag-photo { order: -1; width: 62%; max-width: 240px; margin: 0 0 18px; }
-    .status-card { position: static; width: 100%; max-width: 320px; margin: 0 0 22px; right: auto; bottom: auto; }
+    .status-card { position: static; width: 100%; max-width: 320px; margin: 20px 0 22px; right: auto; bottom: auto; }
     .mag-body { margin-top: 22px; }
     .stats { grid-template-columns: 1fr; }
     .stat + .stat { border-left: none; border-top: 1px solid var(--border); }
