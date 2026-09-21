@@ -10,10 +10,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Lexend:wght@400;500;600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --accent: #4F9668;
-    --accent-dark: #3C7B52;
-    --accent-rgb: 79, 150, 104;
-    --secondary: #4F9668;
+    --accent: #FF8559;
+    --accent-dark: #E06B3F;
+    --accent-rgb: 255, 133, 89;
+    --secondary: #FF8559;
     --card-glass: rgba(28, 22, 17, 0.8);
     --text: #B7AB9E;
     --heading: #F6EFE6;
@@ -24,16 +24,16 @@
     --radius: 10px;
     --card: #241D17;
     --nav-bg: rgba(28, 22, 17, 0.82);
-    --on-accent: #0F1C14;
+    --on-accent: #241811;
     --role-dot: #A56B3C;
     --pc-body: #2C2521;
   }
 
   html[data-theme="light"] {
-    --accent: #2E6B45;
-    --accent-dark: #234F34;
-    --accent-rgb: 46, 107, 69;
-    --secondary: #4F9668;
+    --accent: #B84D1C;
+    --accent-dark: #953D16;
+    --accent-rgb: 184, 77, 28;
+    --secondary: #FF8559;
     --card-glass: rgba(247, 243, 234, 0.85);
     --text: #5A5040;
     --heading: #241B12;
@@ -806,9 +806,10 @@
     aspect-ratio: 1;
     border-radius: 18px;
     background: var(--pc-body);
+    border: 1px solid var(--border);
     overflow: hidden;
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06), 0 34px 58px -24px rgba(0, 0, 0, 0.65);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 14px 30px -20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   }
   .pc-screen {
     position: relative;
@@ -854,11 +855,16 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
-  .pc-card:hover .pc-phone { transform: translateY(-10px); }
+  .pc-card:hover .pc-phone {
+    transform: translateY(-10px);
+    box-shadow: 0 26px 48px -22px rgba(0, 0, 0, 0.55);
+    border-color: var(--accent);
+  }
   .pc-card:focus-visible { outline: none; }
   .pc-card:focus-visible .pc-phone {
     transform: translateY(-10px);
-    box-shadow: 0 0 0 3px var(--accent), 0 34px 58px -26px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 0 3px var(--accent), 0 26px 48px -22px rgba(0, 0, 0, 0.55);
+    border-color: var(--accent);
   }
   .pc-nav {
     position: absolute;
