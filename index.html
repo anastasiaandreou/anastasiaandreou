@@ -470,11 +470,43 @@
     .marquee-track { animation: none; transform: none; }
   }
 
-  /* ---------- MY WORK ---------- */
+  /* ---------- SELECTED WORK ---------- */
+  .sw-headline {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--heading);
+    margin: 14px 0 14px;
+    max-width: 16ch;
+  }
+  .sw-lead {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 620px;
+    margin: 0 0 28px;
+  }
+  .sw-filters { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 32px; }
+  .sw-filter {
+    font-family: 'Lexend', sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+  }
+  .sw-filter:hover { border-color: var(--accent); color: var(--heading); }
+  .sw-filter.active { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+
   .work-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
   }
   .work-card {
     display: block;
@@ -485,6 +517,7 @@
     background: var(--card);
     transition: border-color 0.15s ease, box-shadow 0.15s ease;
   }
+  .work-card[hidden] { display: none; }
   .work-card:hover {
     border-color: var(--muted);
     box-shadow: 0 10px 26px -14px rgba(2, 6, 23, 0.12);
@@ -509,26 +542,52 @@
     display: block;
     transition: transform 0.4s ease;
   }
+  .work-thumb-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+  }
   .work-card:hover .work-thumb img { transform: scale(1.04); }
   .work-body { padding: 20px 22px 24px; }
-  .work-tag {
-    font-size: 11px;
+  .work-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .work-tags span {
+    font-size: 10.5px;
     font-weight: 600;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.02em;
     text-transform: uppercase;
     color: var(--accent);
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    padding: 4px 9px;
+    border-radius: 999px;
   }
   .work-body h3 {
     font-family: 'Lexend', sans-serif;
     font-size: 16px;
     font-weight: 700;
     color: var(--heading);
-    margin: 8px 0 8px;
+    margin: 0 0 8px;
   }
-  .work-body p {
-    font-size: 13.5px;
-    color: var(--muted);
+  .work-body p { font-size: 13.5px; color: var(--muted); }
+  .work-meta { margin-top: 2px; }
+  .work-readcase {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 16px;
+    font-family: 'Lexend', sans-serif;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--accent);
+    transition: color 0.15s ease;
   }
+  .work-readcase svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2; }
+  .work-card:hover .work-readcase { color: var(--accent-dark); }
 
   /* ---------- CONTACT ---------- */
   .contact-lead {
@@ -758,216 +817,6 @@
   }
   .socials a:hover { color: var(--accent); border-color: var(--accent); }
   .socials svg { width: 15px; height: 15px; fill: currentColor; }
-
-  /* ---------- WORK PHONE CAROUSEL ---------- */
-  .pc-hint { font-size: 13px; color: var(--muted); margin: 0 0 4px; }
-  .pc-wrap { position: relative; }
-  .pc-track {
-    display: flex;
-    gap: 22px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding: 28px 2px 30px;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  .pc-track::-webkit-scrollbar { display: none; }
-  .pc-card {
-    position: relative;
-    scroll-snap-align: center;
-    flex: 0 0 188px;
-    border: none;
-    background: none;
-    padding: 0;
-    margin: 0;
-    cursor: pointer;
-    font-family: inherit;
-    -webkit-tap-highlight-color: transparent;
-  }
-  .pc-card::before {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 16%;
-    width: 108%;
-    aspect-ratio: 1;
-    transform: translateX(-50%);
-    border-radius: 50%;
-    background: radial-gradient(circle, var(--pc-glow, rgba(var(--accent-rgb), 0.26)), transparent 66%);
-    filter: blur(24px);
-    z-index: 0;
-    pointer-events: none;
-  }
-  .pc-phone {
-    position: relative;
-    z-index: 1;
-    display: block;
-    width: 100%;
-    aspect-ratio: 1;
-    border-radius: 18px;
-    background: var(--pc-body);
-    border: 1px solid var(--border);
-    overflow: hidden;
-    box-shadow: 0 14px 30px -20px rgba(0, 0, 0, 0.5);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-  }
-  .pc-screen {
-    position: relative;
-    display: block;
-    width: 100%;
-    height: 100%;
-    border-radius: 18px;
-    overflow: hidden;
-    background: var(--bg-soft);
-  }
-  .pc-screen img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .pc-screen::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(10, 8, 6, 0.14);
-    z-index: 1;
-  }
-  .pc-screen::after {
-    content: "";
-    position: absolute;
-    inset: auto 0 0 0;
-    height: 50%;
-    z-index: 1;
-    background: linear-gradient(to top, rgba(6, 4, 3, 0.96) 6%, rgba(6, 4, 3, 0.62) 44%, rgba(6, 4, 3, 0.05) 86%, transparent);
-  }
-  .pc-name {
-    position: absolute;
-    left: 14px;
-    right: 14px;
-    bottom: 15px;
-    z-index: 2;
-    font-family: 'Lexend', sans-serif;
-    font-size: 13.5px;
-    font-weight: 700;
-    line-height: 1.25;
-    color: #fff;
-    text-align: left;
-    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.55);
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  .pc-card:hover .pc-phone {
-    transform: translateY(-10px);
-    box-shadow: 0 26px 48px -22px rgba(0, 0, 0, 0.55);
-    border-color: var(--accent);
-  }
-  .pc-card:focus-visible { outline: none; }
-  .pc-card:focus-visible .pc-phone {
-    transform: translateY(-10px);
-    box-shadow: 0 0 0 3px var(--accent), 0 26px 48px -22px rgba(0, 0, 0, 0.55);
-    border-color: var(--accent);
-  }
-  .pc-nav {
-    position: absolute;
-    top: 44%;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 1px solid var(--border);
-    background: var(--bg);
-    color: var(--heading);
-    font-size: 18px;
-    line-height: 1;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 3;
-    transition: border-color 0.15s ease, color 0.15s ease;
-  }
-  .pc-nav:hover { border-color: var(--accent); color: var(--accent); }
-  .pc-prev { left: -6px; }
-  .pc-next { right: -6px; }
-
-  .wc-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 2px; }
-  .wc-tags span {
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--on-accent);
-    background: var(--accent);
-    border-radius: 999px;
-    padding: 5px 11px;
-  }
-  .wc-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 20px;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--accent);
-    transition: color 0.15s ease;
-  }
-  .wc-link svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; }
-  .wc-link:hover { color: var(--accent-dark); }
-
-  .item-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 2px; }
-  .item-row a {
-    display: block;
-    width: 54px;
-    height: 54px;
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    flex-shrink: 0;
-    transition: border-color 0.15s ease, transform 0.15s ease;
-  }
-  .item-row a:hover { border-color: var(--accent); transform: translateY(-2px); }
-  .item-row img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-  /* ---------- CATEGORY GALLERY (big photo + stack, paginated) ---------- */
-  .gal { margin: 18px 0 2px; }
-  .gal-source { display: none; }
-  .gal-page { display: none; grid-template-columns: 1fr 1.55fr; gap: 12px; }
-  .gal-page.active { display: grid; }
-  .gal-stack { display: flex; flex-direction: column; gap: 12px; }
-  .gal-cell, .gal-hero {
-    display: block;
-    position: relative;
-    border-radius: 14px;
-    overflow: hidden;
-    background: var(--bg-soft);
-    border: 1px solid var(--border);
-    padding: 8px;
-  }
-  .gal-cell { aspect-ratio: 1 / 1; }
-  .gal-hero { height: 100%; min-height: 160px; }
-  .gal-hero.gal-solo { grid-column: 1 / -1; aspect-ratio: 16 / 9; height: auto; }
-  .gal-cell img, .gal-hero img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center;
-    display: block;
-    transition: transform 0.3s ease;
-  }
-  .gal-cell:hover img, .gal-hero:hover img { transform: scale(1.05); }
-  .gal-cell.is-video::after, .gal-hero.is-video::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(20, 15, 10, 0.32) url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23fff" d="M8 5v14l11-7z"/></svg>') center / 22px no-repeat;
-  }
-  .gal-dots { display: flex; justify-content: center; gap: 7px; margin-top: 14px; }
-  .gal-dots button {
-    width: 7px;
-    height: 7px;
-    padding: 0;
-    border: none;
-    border-radius: 999px;
-    background: var(--border);
-    cursor: pointer;
-  }
-  .gal-dots button.active { background: var(--accent); width: 18px; }
 
   /* ---------- ABOUT MODAL ---------- */
   .modal {
@@ -1259,19 +1108,6 @@
   .mag-cols { display: grid; grid-template-columns: 1.4fr 1fr; gap: 56px; }
   .sw-head { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; }
   .sw-head::after { content: ""; flex: 1; height: 1px; background: var(--border); }
-  .sw-viewall {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--heading);
-    white-space: nowrap;
-  }
-  .sw-viewall svg { width: 24px; height: 12px; fill: none; stroke: currentColor; stroke-width: 1.6; }
-  .sw-viewall:hover { color: var(--accent); }
   .sw-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
   .sw-card { display: block; color: inherit; }
   .sw-thumb {
@@ -1452,10 +1288,7 @@
     .pstep:not(:last-child)::after { display: none; }
     .kind-grid { grid-template-columns: 1fr; }
     .mag-cta { flex-direction: column; align-items: flex-start; padding: 30px 26px; }
-    .pc-nav { display: none; }
-    .pc-track { gap: 16px; padding: 22px 2px 24px; }
-    .pc-card { flex-basis: 166px; }
-    .pc-name { font-size: 13px; }
+    .work-grid { grid-template-columns: 1fr; }
     .talks { grid-template-columns: 1fr 1fr; gap: 16px; }
   }
   @media (max-width: 520px) {
@@ -1699,62 +1532,90 @@
       </div>
     </div>
   </div>
-  <a class="svc-more" href="work.html"><span data-i18n="svc.more">And more</span></a>
+  <a class="svc-more" href="#work"><span data-i18n="svc.more">And more</span></a>
 </section>
 
 
 <!-- SELECTED WORKS + SERVICES -->
 <section class="wrap section" id="work">
   <div class="sw-head">
-    <span class="mag-label" data-i18n="sw.title">Selected works</span>
-    <a class="sw-viewall" href="work.html">
-      <span data-i18n="sw.viewall">View all projects</span>
-      <svg viewBox="0 0 24 12"><path d="M0 6h22M17 1l5 5-5 5"/></svg>
-    </a>
+    <span class="mag-label" data-i18n="sw.title">Selected work</span>
   </div>
-  <p class="pc-hint" data-i18n="work.pchint">Tap a phone to open that part of my work.</p>
+  <h2 class="sw-headline" data-i18n="sw.headline">Content that builds communities.</h2>
+  <p class="sw-lead" data-i18n="sw.lead">Strategy, community management and content creation, from international networks to local brands.</p>
 
-  <div class="pc-wrap">
-    <button class="pc-nav pc-prev" type="button" aria-label="Previous">&#8249;</button>
-    <div class="pc-track">
-      <button class="pc-card" type="button" data-open-modal="wc-1" aria-haspopup="dialog" style="--pc-glow: rgba(var(--accent-rgb), 0.30);">
-        <span class="pc-phone"><span class="pc-screen">
-          <img src="portfolio/social-design.jpg" alt="" loading="lazy">
-          <span class="pc-name" data-i18n="work.pc1">Social media design</span>
-        </span></span>
-      </button>
-      <button class="pc-card" type="button" data-open-modal="wc-2" aria-haspopup="dialog" style="--pc-glow: rgba(200, 120, 80, 0.28);">
-        <span class="pc-phone"><span class="pc-screen">
-          <img src="portfolio/video-reels.jpg" alt="" loading="lazy">
-          <span class="pc-name" data-i18n="work.pc2">Short-form video &amp; reels</span>
-        </span></span>
-      </button>
-      <button class="pc-card" type="button" data-open-modal="wc-3" aria-haspopup="dialog" style="--pc-glow: rgba(214, 180, 120, 0.26);">
-        <span class="pc-phone"><span class="pc-screen">
-          <img src="portfolio/video-production.jpg" alt="" loading="lazy">
-          <span class="pc-name" data-i18n="work.pc3">Video production</span>
-        </span></span>
-      </button>
-      <button class="pc-card" type="button" data-open-modal="wc-4" aria-haspopup="dialog" style="--pc-glow: rgba(196, 140, 140, 0.24);">
-        <span class="pc-phone"><span class="pc-screen">
-          <img src="portfolio/event-coverage.jpg" alt="" loading="lazy">
-          <span class="pc-name" data-i18n="work.pc4">Event coverage</span>
-        </span></span>
-      </button>
-      <button class="pc-card" type="button" data-open-modal="wc-5" aria-haspopup="dialog" style="--pc-glow: rgba(150, 165, 130, 0.22);">
-        <span class="pc-phone"><span class="pc-screen">
-          <img src="portfolio/photography.jpg" alt="" loading="lazy">
-          <span class="pc-name" data-i18n="work.pc5">Photography</span>
-        </span></span>
-      </button>
-      <button class="pc-card" type="button" data-open-modal="wc-6" aria-haspopup="dialog" style="--pc-glow: rgba(150, 160, 180, 0.20);">
-        <span class="pc-phone"><span class="pc-screen">
-          <img src="portfolio/print-brochures.jpg" alt="" loading="lazy">
-          <span class="pc-name" data-i18n="work.pc6">Print &amp; brochures</span>
-        </span></span>
-      </button>
+  <div class="sw-filters" role="group" aria-label="Filter selected work">
+    <button class="sw-filter active" type="button" data-filter="all" data-i18n="sw.filter.all">All</button>
+    <button class="sw-filter" type="button" data-filter="strategy" data-i18n="sw.filter.strategy">Strategy &amp; Community</button>
+    <button class="sw-filter" type="button" data-filter="content" data-i18n="sw.filter.content">Content Creation</button>
+    <button class="sw-filter" type="button" data-filter="events" data-i18n="sw.filter.events">Events Coverage</button>
+  </div>
+
+  <div class="work-grid">
+    <div class="work-card" data-category="strategy">
+      <div class="work-thumb"><span class="work-thumb-placeholder" data-i18n="work.c1.cover">[Cover: spotlight series collage]</span></div>
+      <div class="work-body">
+        <div class="work-tags">
+          <span data-i18n="work.c1.tag1">Community Management</span>
+          <span data-i18n="work.c1.tag2">Content Strategy</span>
+          <span data-i18n="work.c1.tag3">Internal Comms</span>
+        </div>
+        <h3 data-i18n="work.c1.title">Building a voice for [500+] local sections</h3>
+        <p class="work-meta" data-i18n="work.c1.meta">ESN International · Communication Community Manager</p>
+        <a class="work-readcase" href="#">
+          <span data-i18n="sw.readcase">Read case study</span>
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
     </div>
-    <button class="pc-nav pc-next" type="button" aria-label="Next">&#8250;</button>
+    <div class="work-card" data-category="strategy">
+      <div class="work-thumb"><span class="work-thumb-placeholder" data-i18n="work.c2.cover">[Cover: brand kit spread]</span></div>
+      <div class="work-body">
+        <div class="work-tags">
+          <span data-i18n="work.c2.tag1">Leadership</span>
+          <span data-i18n="work.c2.tag2">Brand Consistency</span>
+          <span data-i18n="work.c2.tag3">Campaigns</span>
+        </div>
+        <h3 data-i18n="work.c2.title">From local to national: one voice for ESN Cyprus</h3>
+        <p class="work-meta" data-i18n="work.c2.meta">ESN Cyprus · Communication Manager → National President</p>
+        <a class="work-readcase" href="#">
+          <span data-i18n="sw.readcase">Read case study</span>
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="work-card" data-category="content">
+      <div class="work-thumb"><span class="work-thumb-placeholder" data-i18n="work.c3.cover">[Cover: Reel still, 4:5]</span></div>
+      <div class="work-body">
+        <div class="work-tags">
+          <span data-i18n="work.c3.tag1">Short-form Video</span>
+          <span data-i18n="work.c3.tag2">Local Business</span>
+          <span data-i18n="work.c3.tag3">Instagram</span>
+        </div>
+        <h3 data-i18n="work.c3.title">A 30-day Reels series that [doubled] a café's reach</h3>
+        <p class="work-meta" data-i18n="work.c3.meta">[Client name], Nicosia · Content creation</p>
+        <a class="work-readcase" href="#">
+          <span data-i18n="sw.readcase">Read case study</span>
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="work-card" data-category="events">
+      <div class="work-thumb"><span class="work-thumb-placeholder" data-i18n="work.c4.cover">[Cover: live story frames + recap still]</span></div>
+      <div class="work-body">
+        <div class="work-tags">
+          <span data-i18n="work.c4.tag1">Events Coverage</span>
+          <span data-i18n="work.c4.tag2">Live Content</span>
+          <span data-i18n="work.c4.tag3">Instagram Stories</span>
+        </div>
+        <h3 data-i18n="work.c4.title">Live coverage of [event] that reached [X] people in [3] days</h3>
+        <p class="work-meta" data-i18n="work.c4.meta">[Organiser] · [Location, dates] · Events coverage</p>
+        <a class="work-readcase" href="#">
+          <span data-i18n="sw.readcase">Read case study</span>
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
   </div>
 
   <div class="tools-magrow tools-marquee">
@@ -2027,172 +1888,6 @@
     <div data-i18n="footer.rights">© 2026 Anastasia Andreou</div>
   </div>
 </footer>
-
-<!-- WORK CATEGORY MODALS -->
-<div class="modal" id="wc-1" role="dialog" aria-modal="true" aria-labelledby="wc-1-t" data-work-modal>
-  <div class="modal-panel">
-    <button class="modal-close" type="button" data-close-modal>Close &times;</button>
-    <div class="modal-eyebrow" data-i18n="work.p1.role">Eurodesk · Erasmus Student Network</div>
-    <h2 id="wc-1-t" data-i18n="work.p1.title">Social media design</h2>
-    <div class="wc-tags">
-      <span data-i18n="work.p1.t1">Instagram carousels</span>
-      <span data-i18n="work.p1.t2">Campaign graphics</span>
-      <span data-i18n="work.p1.t3">Canva &amp; Adobe</span>
-    </div>
-    <p data-i18n="work.p1.text">Static visuals and carousels for Instagram, Facebook, LinkedIn and TikTok — campaign graphics, awareness days and explainer posts, all built to each organisation's brand system.</p>
-    <div class="gal">
-      <div class="gal-source">
-        <img src="portfolio/items/social-1.jpg" alt="An Erasmus+ Love Story social post">
-        <img src="portfolio/items/social-2.jpg" alt="Europe Day 9 May — Young Journalists">
-        <img src="portfolio/items/social-3.jpg" alt="Going on Mobility Starter Pack graphic">
-        <img src="portfolio/items/social-4.jpg" alt="Watch the State of the European Union graphic">
-        <img src="portfolio/items/social-5.jpg" alt="Can you guess? EYE quiz">
-        <img src="portfolio/items/social-6.jpg" alt="We are Students Helping Students, Corfu edition">
-        <img src="portfolio/items/social-7.jpg" alt="ESNcard, Our Partners template">
-        <img src="portfolio/items/social-8.jpg" alt="Join ESN Liechtenstein recruitment graphic">
-      </div>
-      <div class="gal-pages"></div>
-      <div class="gal-dots"></div>
-    </div>
-    <a class="wc-link" href="https://anastasiaswork.my.canva.site/portfolio" target="_blank" rel="noopener">
-      <span data-i18n="work.p1.cta">See the full set</span>
-      <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
-    </a>
-  </div>
-</div>
-<div class="modal" id="wc-2" role="dialog" aria-modal="true" aria-labelledby="wc-2-t" data-work-modal>
-  <div class="modal-panel">
-    <button class="modal-close" type="button" data-close-modal>Close &times;</button>
-    <div class="modal-eyebrow" data-i18n="work.p2.role">Eurodesk · Erasmus Student Network</div>
-    <h2 id="wc-2-t" data-i18n="work.p2.title">Short-form video &amp; reels</h2>
-    <div class="wc-tags">
-      <span data-i18n="work.p2.t1">Reels &amp; TikTok</span>
-      <span data-i18n="work.p2.t2">60k+ views</span>
-      <span data-i18n="work.p2.t3">CapCut &amp; Premiere Pro</span>
-    </div>
-    <p data-i18n="work.p2.text">Concept, filming and editing for reels and TikToks — trend-led formats, event recaps and talking-head explainers for youth audiences. Includes the Nicosia campaign that passed 60k views and helped the city place second for Erasmus Destination of the Year 2024.</p>
-    <a class="wc-link" href="https://www.tiktok.com/@anastasiaandreou99" target="_blank" rel="noopener">
-      <span data-i18n="work.p2.cta">Watch on TikTok</span>
-      <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
-    </a>
-  </div>
-</div>
-<div class="modal" id="wc-3" role="dialog" aria-modal="true" aria-labelledby="wc-3-t" data-work-modal>
-  <div class="modal-panel">
-    <button class="modal-close" type="button" data-close-modal>Close &times;</button>
-    <div class="modal-eyebrow" data-i18n="work.p3.role">CyBC · independent projects</div>
-    <h2 id="wc-3-t" data-i18n="work.p3.title">Video production</h2>
-    <div class="wc-tags">
-      <span data-i18n="work.p3.t1">Documentary</span>
-      <span data-i18n="work.p3.t2">Animation</span>
-      <span data-i18n="work.p3.t3">News &amp; storytelling</span>
-    </div>
-    <p data-i18n="work.p3.text">Longer-form work beyond social — a documentary, a stop-motion animation, TV news bulletins and story-led films, from scripting and shooting through to the edit.</p>
-    <a class="wc-link" href="https://anastasiaswork.my.canva.site/portfolio" target="_blank" rel="noopener">
-      <span data-i18n="work.p3.cta">See the reel</span>
-      <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
-    </a>
-  </div>
-</div>
-<div class="modal" id="wc-4" role="dialog" aria-modal="true" aria-labelledby="wc-4-t" data-work-modal>
-  <div class="modal-panel">
-    <button class="modal-close" type="button" data-close-modal>Close &times;</button>
-    <div class="modal-eyebrow" data-i18n="work.p4.role">Brussels &amp; Strasbourg · 2025</div>
-    <h2 id="wc-4-t" data-i18n="work.p4.title">Event coverage — Instagram Stories</h2>
-    <div class="wc-tags">
-      <span data-i18n="work.p4.t1">Instagram Stories</span>
-      <span data-i18n="work.p4.t2">Live coverage</span>
-      <span data-i18n="work.p4.t3">Interviews</span>
-    </div>
-    <p data-i18n="work.p4.text">Live Stories from the Eurodesk Network Meeting, the Multipliers Seminar and the European Youth Event 2025 — filmed, captioned and published on the day.</p>
-    <div class="gal">
-      <div class="gal-source">
-        <img src="portfolio/items/event-a.jpg" alt="Eurodesk 35th anniversary Instagram Story">
-        <img src="portfolio/items/event-b.jpg" alt="Multipliers Seminar Instagram Story">
-        <img src="portfolio/items/event-c.jpg" alt="Interview with Glenn Micallef Instagram Story">
-        <img src="portfolio/items/event-d.jpg" alt="EYE quiz Instagram Story">
-      </div>
-      <div class="gal-pages"></div>
-      <div class="gal-dots"></div>
-    </div>
-    <a class="wc-link" href="https://www.instagram.com/anastasiaandreou/" target="_blank" rel="noopener">
-      <span data-i18n="work.p4.cta">View the coverage</span>
-      <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
-    </a>
-  </div>
-</div>
-<div class="modal" id="wc-5" role="dialog" aria-modal="true" aria-labelledby="wc-5-t" data-work-modal>
-  <div class="modal-panel">
-    <button class="modal-close" type="button" data-close-modal>Close &times;</button>
-    <div class="modal-eyebrow" data-i18n="work.p5.role">European youth events · travel</div>
-    <h2 id="wc-5-t" data-i18n="work.p5.title">Photography</h2>
-    <div class="wc-tags">
-      <span data-i18n="work.p5.t1">Event photography</span>
-      <span data-i18n="work.p5.t2">Portraits</span>
-      <span data-i18n="work.p5.t3">Travel &amp; editorial</span>
-    </div>
-    <p data-i18n="work.p5.text">On-the-ground photography at European youth events — candid moments, portraits, award shots and wide crowd scenes — plus a travel and editorial set from Japan and beyond.</p>
-    <div class="gal">
-      <div class="gal-source">
-        <img src="portfolio/items/photo-1.jpg" alt="Inclusive Youth Information Award trophy">
-        <img src="portfolio/items/photo-2.jpg" alt="Youth Information Award trophies, trio">
-        <img src="portfolio/items/photo-3.jpg" alt="Creative Youth Information Award trophy">
-        <img src="portfolio/items/photo-4.jpg" alt="Eurodesk booth, Journey Plan cards">
-        <img src="portfolio/items/photo-5.jpg" alt="Eurodesk booth, quiz card">
-        <img src="portfolio/items/photo-6.jpg" alt="Spin-the-wheel activity at the Eurodesk booth">
-        <img src="portfolio/items/photo-7.jpg" alt="Eurodesk Opportunity Finder booth">
-        <img src="portfolio/items/photo-8.jpg" alt="Eurodesk Network Prize trophy">
-        <img src="portfolio/items/photo-9.jpg" alt="Eurodesk Network Prize award ceremony">
-        <img src="portfolio/items/photo-10.jpg" alt="ESN flags at a European youth event">
-        <img src="portfolio/items/photo-11.jpg" alt="Eurodesk Network Prize, winners group photo">
-        <img src="portfolio/items/photo-12.jpg" alt="A conversation in sign language">
-        <img src="portfolio/items/photo-13.jpg" alt="ESN flags at the European Youth Event, Strasbourg">
-        <img src="portfolio/items/photo-14.jpg" alt="Friends at a European youth event">
-        <img src="portfolio/items/photo-15.jpg" alt="Dinner with a view of Osaka Castle">
-        <img src="portfolio/items/photo-16.jpg" alt="Patisserie window display">
-        <img src="portfolio/items/photo-17.jpg" alt="Dotonbori nightlife, Osaka">
-        <img src="portfolio/items/photo-18.jpg" alt="Rooftop sunset, Osaka">
-        <img src="portfolio/items/photo-19.jpg" alt="Macarons display">
-      </div>
-      <div class="gal-pages"></div>
-      <div class="gal-dots"></div>
-    </div>
-    <a class="wc-link" href="https://anastasiaswork.my.canva.site/portfolio" target="_blank" rel="noopener">
-      <span data-i18n="work.p5.cta">See the photos</span>
-      <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
-    </a>
-  </div>
-</div>
-<div class="modal" id="wc-6" role="dialog" aria-modal="true" aria-labelledby="wc-6-t" data-work-modal>
-  <div class="modal-panel">
-    <button class="modal-close" type="button" data-close-modal>Close &times;</button>
-    <div class="modal-eyebrow" data-i18n="work.p6.role">Eurodesk Brussels Link · 2025</div>
-    <h2 id="wc-6-t" data-i18n="work.p6.title">Print &amp; brochures</h2>
-    <div class="wc-tags">
-      <span data-i18n="work.p6.t1">Editorial layout</span>
-      <span data-i18n="work.p6.t2">Brochures</span>
-      <span data-i18n="work.p6.t3">InDesign &amp; Canva</span>
-    </div>
-    <p data-i18n="work.p6.text">Layout and design for printed and downloadable material — mobility guides, the monthly Youth Letter, the Opportunity Finder and mental-health-abroad resources.</p>
-    <div class="gal">
-      <div class="gal-source">
-        <img src="portfolio/items/print-1.jpg" alt="Eurodesk Monthly Youth Letter newsletter">
-        <img src="portfolio/items/print-2.jpg" alt="Time to Mind, a guide to mental health abroad">
-        <img src="portfolio/items/print-3.jpg" alt="Check our publications!">
-        <img src="portfolio/items/print-4.jpg" alt="What is Eurodesk? brochure">
-        <img src="portfolio/items/print-5.jpg" alt="European Programmes are for Everyone, inclusive mobility brochure">
-        <img src="portfolio/items/print-6.jpg" alt="Your Guides on Sustainability">
-        <img src="portfolio/items/print-7.jpg" alt="Opportunity Finder cards">
-      </div>
-      <div class="gal-pages"></div>
-      <div class="gal-dots"></div>
-    </div>
-    <a class="wc-link" href="https://anastasiaswork.my.canva.site/portfolio" target="_blank" rel="noopener">
-      <span data-i18n="work.p6.cta">See the full set</span>
-      <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></svg>
-    </a>
-  </div>
-</div>
 
 <!-- ABOUT MODAL -->
 <div class="modal" id="about-modal" role="dialog" aria-modal="true" aria-labelledby="about-modal-title">

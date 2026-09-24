@@ -147,122 +147,20 @@
     });
   }
 
-  // Phone-card carousel (Selected works)
-  var pcTrack = document.querySelector(".pc-track");
-  if (pcTrack) {
-    var pcStep = function () {
-      var c = pcTrack.querySelector(".pc-card");
-      return (c ? c.getBoundingClientRect().width + 22 : 220) * 1.4;
-    };
-    var pcPrev = document.querySelector(".pc-prev");
-    var pcNext = document.querySelector(".pc-next");
-    if (pcPrev) pcPrev.addEventListener("click", function () {
-      pcTrack.scrollBy({ left: -pcStep(), behavior: "smooth" });
-    });
-    if (pcNext) pcNext.addEventListener("click", function () {
-      pcTrack.scrollBy({ left: pcStep(), behavior: "smooth" });
-    });
-  }
-
-  // Work-category modals (opened from the phone cards)
-  var wcModals = document.querySelectorAll(".modal[data-work-modal]");
-  if (wcModals.length) {
-    var wcLast = null;
-    var wcCloseAll = function () {
-      wcModals.forEach(function (m) { m.classList.remove("open"); });
-      document.body.classList.remove("modal-open");
-      if (wcLast && wcLast.focus) wcLast.focus();
-    };
-    document.querySelectorAll("[data-open-modal]").forEach(function (btn) {
+  // Selected-work filter pills
+  var swFilters = document.querySelectorAll(".sw-filter");
+  var workCards = document.querySelectorAll(".work-card");
+  if (swFilters.length && workCards.length) {
+    swFilters.forEach(function (btn) {
       btn.addEventListener("click", function () {
-        var m = document.getElementById(btn.getAttribute("data-open-modal"));
-        if (!m) return;
-        wcLast = btn;
-        m.classList.add("open");
-        document.body.classList.add("modal-open");
-        var cl = m.querySelector("[data-close-modal]");
-        if (cl) cl.focus();
+        swFilters.forEach(function (b) { b.classList.remove("active"); });
+        btn.classList.add("active");
+        var filter = btn.getAttribute("data-filter");
+        workCards.forEach(function (card) {
+          var show = filter === "all" || card.getAttribute("data-category") === filter;
+          card.hidden = !show;
+        });
       });
-    });
-    wcModals.forEach(function (m) {
-      m.addEventListener("click", function (e) {
-        if (e.target === m || (e.target.closest && e.target.closest("[data-close-modal]"))) wcCloseAll();
-      });
-    });
-    document.addEventListener("keydown", function (e) {
-      if (e.key !== "Escape") return;
-      for (var i = 0; i < wcModals.length; i++) {
-        if (wcModals[i].classList.contains("open")) { wcCloseAll(); break; }
-      }
     });
   }
-
-  // Category visual galleries: big photo + stacked photos, paginated with dots
-  document.querySelectorAll(".gal").forEach(function (gal) {
-    var srcImgs = gal.querySelectorAll(".gal-source img");
-    if (!srcImgs.length) return;
-    var items = Array.prototype.map.call(srcImgs, function (img) {
-      return {
-        src: img.getAttribute("src"),
-        alt: img.getAttribute("alt") || "",
-        video: img.getAttribute("data-video")
-      };
-    });
-    var pagesEl = gal.querySelector(".gal-pages");
-    var dotsEl = gal.querySelector(".gal-dots");
-    if (!pagesEl || !dotsEl) return;
-
-    var pageSize = 4;
-    var pages = [];
-    for (var i = 0; i < items.length; i += pageSize) pages.push(items.slice(i, i + pageSize));
-
-    function makeCell(item, cls) {
-      var a = document.createElement("a");
-      a.className = cls + (item.video ? " is-video" : "");
-      a.href = item.video || item.src;
-      a.target = "_blank";
-      a.rel = "noopener";
-      var img = document.createElement("img");
-      img.src = item.src;
-      img.alt = item.alt;
-      img.loading = "lazy";
-      a.appendChild(img);
-      return a;
-    }
-
-    pages.forEach(function (pageItems, pi) {
-      var pageEl = document.createElement("div");
-      pageEl.className = "gal-page" + (pi === 0 ? " active" : "");
-      if (pageItems.length === 1) {
-        pageEl.appendChild(makeCell(pageItems[0], "gal-hero gal-solo"));
-      } else {
-        var stack = document.createElement("div");
-        stack.className = "gal-stack";
-        pageItems.slice(1).forEach(function (it) {
-          stack.appendChild(makeCell(it, "gal-cell"));
-        });
-        pageEl.appendChild(stack);
-        pageEl.appendChild(makeCell(pageItems[0], "gal-hero"));
-      }
-      pagesEl.appendChild(pageEl);
-    });
-
-    if (pages.length > 1) {
-      pages.forEach(function (_, pi) {
-        var b = document.createElement("button");
-        b.type = "button";
-        b.setAttribute("aria-label", "Show set " + (pi + 1) + " of " + pages.length);
-        if (pi === 0) b.className = "active";
-        b.addEventListener("click", function () {
-          pagesEl.querySelectorAll(".gal-page").forEach(function (p, idx) {
-            p.classList.toggle("active", idx === pi);
-          });
-          dotsEl.querySelectorAll("button").forEach(function (d, idx) {
-            d.classList.toggle("active", idx === pi);
-          });
-        });
-        dotsEl.appendChild(b);
-      });
-    }
-  });
 })();
