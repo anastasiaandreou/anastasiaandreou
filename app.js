@@ -182,20 +182,4 @@
     });
   }
 
-  // Selected-work filter pills
-  var swFilters = document.querySelectorAll(".sw-filter");
-  var workCards = document.querySelectorAll(".work-card");
-  if (swFilters.length && workCards.length) {
-    swFilters.forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        swFilters.forEach(function (b) { b.classList.remove("active"); });
-        btn.classList.add("active");
-        var filter = btn.getAttribute("data-filter");
-        workCards.forEach(function (card) {
-          var show = filter === "all" || card.getAttribute("data-category") === filter;
-          card.hidden = !show;
-        });
-      });
-    });
-  }
 })();

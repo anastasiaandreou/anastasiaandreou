@@ -487,25 +487,21 @@
     max-width: 620px;
     margin: 0 0 28px;
   }
-  .sw-filters { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 32px; }
-  .sw-filter {
+  .sw-category { margin-top: 36px; }
+  .sw-category:first-of-type { margin-top: 32px; }
+  .sw-cat-title {
     font-family: 'Lexend', sans-serif;
-    font-size: 12.5px;
-    font-weight: 600;
-    padding: 8px 16px;
-    border-radius: 999px;
-    border: 1px solid var(--border);
-    background: transparent;
-    color: var(--muted);
-    cursor: pointer;
-    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 18px;
   }
-  .sw-filter:hover { border-color: var(--accent); color: var(--heading); }
-  .sw-filter.active { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
 
   .work-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
   }
   .work-card {
@@ -941,28 +937,6 @@
     color: var(--muted);
     margin-bottom: 30px;
   }
-  .cs-hero-row { display: grid; grid-template-columns: 1.4fr 1fr; gap: 14px; margin-bottom: 30px; }
-  .cs-hero-row .cs-hero { margin-bottom: 0; height: 100%; aspect-ratio: auto; }
-  .cs-hero-row .cs-hero-stack { display: flex; flex-direction: column; gap: 14px; }
-  .cs-hero-row .cs-hero-stack .cs-hero { aspect-ratio: 4 / 3; margin-bottom: 0; flex: 1; }
-
-  .cs-block { margin: 26px 0; }
-  .cs-block-num {
-    font-family: 'Lexend', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--accent);
-    margin-bottom: 6px;
-  }
-  .cs-block h3 {
-    font-family: 'Lexend', sans-serif;
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--heading);
-    margin: 0 0 10px;
-  }
-  .cs-block p { font-size: 13.5px; line-height: 1.7; color: var(--muted); }
-
   .cs-info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 26px 0; }
   .cs-info-item .cs-info-label {
     display: block;
@@ -975,16 +949,6 @@
     margin-bottom: 8px;
   }
   .cs-info-item p { font-size: 13px; line-height: 1.6; color: var(--muted); }
-
-  .cs-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 18px 0 26px; }
-  .cs-pillar { border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
-  .cs-pillar-mark { font-family: 'Fraunces', Georgia, serif; font-size: 30px; color: var(--accent); line-height: 1; margin-bottom: 8px; }
-  .cs-pillar h4 { font-family: 'Lexend', sans-serif; font-size: 13.5px; font-weight: 700; color: var(--heading); margin: 0 0 6px; }
-  .cs-pillar p { font-size: 12.5px; line-height: 1.55; color: var(--muted); }
-
-  .cs-exec-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin: 18px 0 26px; }
-  .cs-exec-item .cs-hero { margin-bottom: 10px; aspect-ratio: 4 / 3; }
-  .cs-exec-item p { font-size: 12.5px; line-height: 1.55; color: var(--muted); }
 
   .cs-stats-row { display: flex; flex-wrap: wrap; gap: 28px; margin: 24px 0; padding: 22px 0; border-top: 1px solid var(--border); }
   .cs-stat-num {
@@ -1002,41 +966,8 @@
   .cs-media-item .cs-hero { aspect-ratio: 1 / 1; margin-bottom: 8px; }
   .cs-media-item p { font-size: 11.5px; line-height: 1.5; color: var(--muted); }
 
-  .cs-quote {
-    background: var(--bg-soft);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 28px 30px;
-    margin: 28px 0;
-  }
-  .cs-quote-mark { font-family: 'Fraunces', Georgia, serif; font-size: 34px; color: var(--accent); line-height: 0.7; margin-bottom: 10px; display: block; }
-  .cs-quote p { font-family: 'Fraunces', Georgia, serif; font-size: 16px; font-style: italic; line-height: 1.5; color: var(--heading); margin-bottom: 12px; }
-  .cs-quote-attr { font-size: 12.5px; color: var(--muted); }
-
-  .cs-next {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    width: 100%;
-    margin-top: 34px;
-    padding: 24px 0 0;
-    border: none;
-    border-top: 1px solid var(--border);
-    background: none;
-    font-family: inherit;
-    text-align: left;
-    color: inherit;
-    cursor: pointer;
-  }
-  .cs-next-label { font-family: 'Lexend', sans-serif; font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 4px; }
-  .cs-next-title { font-family: 'Lexend', sans-serif; font-size: 14.5px; font-weight: 700; color: var(--heading); }
-  .cs-next svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; color: var(--accent); flex-shrink: 0; }
-  .cs-next:hover .cs-next-title { color: var(--accent); }
-
   @media (max-width: 640px) {
-    .cs-hero-row { grid-template-columns: 1fr; }
-    .cs-info-grid, .cs-pillars, .cs-exec-grid { grid-template-columns: 1fr; }
+    .cs-info-grid { grid-template-columns: 1fr; }
     .cs-media-grid { grid-template-columns: 1fr 1fr; }
   }
 
@@ -1442,13 +1373,14 @@
     .pstep:not(:last-child)::after { display: none; }
     .kind-grid { grid-template-columns: 1fr; }
     .mag-cta { flex-direction: column; align-items: flex-start; padding: 30px 26px; }
-    .work-grid { grid-template-columns: 1fr; }
+    .work-grid { grid-template-columns: 1fr 1fr; }
     .talks { grid-template-columns: 1fr 1fr; gap: 16px; }
   }
   @media (max-width: 520px) {
     .sw-grid { grid-template-columns: 1fr; }
     .svc-grid { grid-template-columns: 1fr; }
     .talks { grid-template-columns: 1fr; }
+    .work-grid { grid-template-columns: 1fr; }
   }
   @media (max-width: 400px) {
     .brand a span:not(.logo) { display: none; }
@@ -1693,81 +1625,115 @@
 <!-- SELECTED WORKS + SERVICES -->
 <section class="wrap section" id="work">
   <div class="sw-head">
-    <span class="mag-label" data-i18n="sw.title">Selected work</span>
+    <span class="mag-label" data-i18n="sw.title">My highlights</span>
   </div>
   <h2 class="sw-headline" data-i18n="sw.headline">Content that builds communities.</h2>
-  <p class="sw-lead" data-i18n="sw.lead">Strategy, community management and content creation, from international networks to local brands.</p>
+  <p class="sw-lead" data-i18n="sw.lead">Event coverage and social media strategy, from international networks to local brands.</p>
 
-  <div class="sw-filters" role="group" aria-label="Filter selected work">
-    <button class="sw-filter active" type="button" data-filter="all" data-i18n="sw.filter.all">All</button>
-    <button class="sw-filter" type="button" data-filter="strategy" data-i18n="sw.filter.strategy">Strategy &amp; Community</button>
-    <button class="sw-filter" type="button" data-filter="content" data-i18n="sw.filter.content">Content Creation</button>
-    <button class="sw-filter" type="button" data-filter="events" data-i18n="sw.filter.events">Events Coverage</button>
+  <div class="sw-category">
+    <h3 class="sw-cat-title" data-i18n="sw.cat.events">Event Coverage</h3>
+    <div class="work-grid">
+      <div class="work-card">
+        <div class="work-thumb"><span class="work-thumb-placeholder" data-i18n="work.c1.cover">[Cover: European Youth Event highlights]</span></div>
+        <div class="work-body">
+          <div class="work-tags">
+            <span data-i18n="work.c1.tag1">Events Coverage</span>
+            <span data-i18n="work.c1.tag2">Live Content</span>
+            <span data-i18n="work.c1.tag3">Instagram Stories</span>
+          </div>
+          <h3 data-i18n="work.c1.title">The European Youth Event that reached 9,000 people in 2 days</h3>
+          <p class="work-meta" data-i18n="work.c1.meta">[Organiser] · Nicosia, Cyprus</p>
+          <button class="work-readcase" type="button" data-open-modal="cs-1">
+            <span data-i18n="sw.readcase">Read case study</span>
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-thumb"><span class="work-thumb-placeholder" data-i18n="work.c2.cover">[Cover: EGM Seville highlights]</span></div>
+        <div class="work-body">
+          <div class="work-tags">
+            <span data-i18n="work.c2.tag1">Events Coverage</span>
+            <span data-i18n="work.c2.tag2">International</span>
+            <span data-i18n="work.c2.tag3">Erasmus Student Network</span>
+          </div>
+          <h3 data-i18n="work.c2.title">The biggest meeting of the Erasmus Generation — EGM Seville 2024</h3>
+          <p class="work-meta" data-i18n="work.c2.meta">Erasmus Student Network · Seville, Spain</p>
+          <button class="work-readcase" type="button" data-open-modal="cs-2">
+            <span data-i18n="sw.readcase">Read case study</span>
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-thumb"><span class="work-thumb-placeholder" data-i18n="work.c3.cover">[Cover: Eurodesk network meeting, Brussels]</span></div>
+        <div class="work-body">
+          <div class="work-tags">
+            <span data-i18n="work.c3.tag1">Events Coverage</span>
+            <span data-i18n="work.c3.tag2">Network Meeting</span>
+            <span data-i18n="work.c3.tag3">Eurodesk</span>
+          </div>
+          <h3 data-i18n="work.c3.title">Where the Eurodesk network community met — Brussels</h3>
+          <p class="work-meta" data-i18n="work.c3.meta">Eurodesk · Brussels, Belgium</p>
+          <button class="work-readcase" type="button" data-open-modal="cs-3">
+            <span data-i18n="sw.readcase">Read case study</span>
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div class="work-grid">
-    <div class="work-card" data-category="strategy">
-      <div class="work-thumb"><span class="work-thumb-placeholder" data-i18n="work.c1.cover">[Cover: spotlight series collage]</span></div>
-      <div class="work-body">
-        <div class="work-tags">
-          <span data-i18n="work.c1.tag1">Community Management</span>
-          <span data-i18n="work.c1.tag2">Content Strategy</span>
-          <span data-i18n="work.c1.tag3">Internal Comms</span>
+  <div class="sw-category">
+    <h3 class="sw-cat-title" data-i18n="sw.cat.social">Social Media Strategies</h3>
+    <div class="work-grid">
+      <div class="work-card">
+        <div class="work-thumb"><span class="work-thumb-placeholder" data-i18n="work.c4.cover">[Cover: Nicosia Erasmus Destination of the Year]</span></div>
+        <div class="work-body">
+          <div class="work-tags">
+            <span data-i18n="work.c4.tag1">Social Media Strategy</span>
+            <span data-i18n="work.c4.tag2">Campaign</span>
+            <span data-i18n="work.c4.tag3">Destination Branding</span>
+          </div>
+          <h3 data-i18n="work.c4.title">Nicosia, the Erasmus Destination of the Year</h3>
+          <p class="work-meta" data-i18n="work.c4.meta">[Organisation] · Nicosia, Cyprus</p>
+          <button class="work-readcase" type="button" data-open-modal="cs-4">
+            <span data-i18n="sw.readcase">Read case study</span>
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
         </div>
-        <h3 data-i18n="work.c1.title">Building a voice for [500+] local sections</h3>
-        <p class="work-meta" data-i18n="work.c1.meta">ESN International · Communication Community Manager</p>
-        <button class="work-readcase" type="button" data-open-modal="cs-1">
-          <span data-i18n="sw.readcase">Read case study</span>
-          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </button>
       </div>
-    </div>
-    <div class="work-card" data-category="strategy">
-      <div class="work-thumb"><span class="work-thumb-placeholder" data-i18n="work.c2.cover">[Cover: brand kit spread]</span></div>
-      <div class="work-body">
-        <div class="work-tags">
-          <span data-i18n="work.c2.tag1">Leadership</span>
-          <span data-i18n="work.c2.tag2">Brand Consistency</span>
-          <span data-i18n="work.c2.tag3">Campaigns</span>
+      <div class="work-card">
+        <div class="work-thumb"><span class="work-thumb-placeholder" data-i18n="work.c5.cover">[Cover: Pretty Girls Drink Matcha]</span></div>
+        <div class="work-body">
+          <div class="work-tags">
+            <span data-i18n="work.c5.tag1">Social Media Strategy</span>
+            <span data-i18n="work.c5.tag2">Content Series</span>
+            <span data-i18n="work.c5.tag3">Instagram</span>
+          </div>
+          <h3 data-i18n="work.c5.title">Pretty Girls Drink Matcha</h3>
+          <p class="work-meta" data-i18n="work.c5.meta">[Client name] · Content creation</p>
+          <button class="work-readcase" type="button" data-open-modal="cs-5">
+            <span data-i18n="sw.readcase">Read case study</span>
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
         </div>
-        <h3 data-i18n="work.c2.title">From local to national: one voice for ESN Cyprus</h3>
-        <p class="work-meta" data-i18n="work.c2.meta">ESN Cyprus · Communication Manager → National President</p>
-        <button class="work-readcase" type="button" data-open-modal="cs-2">
-          <span data-i18n="sw.readcase">Read case study</span>
-          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </button>
       </div>
-    </div>
-    <div class="work-card" data-category="content">
-      <div class="work-thumb"><span class="work-thumb-placeholder" data-i18n="work.c3.cover">[Cover: Reel still, 4:5]</span></div>
-      <div class="work-body">
-        <div class="work-tags">
-          <span data-i18n="work.c3.tag1">Short-form Video</span>
-          <span data-i18n="work.c3.tag2">Local Business</span>
-          <span data-i18n="work.c3.tag3">Instagram</span>
+      <div class="work-card">
+        <div class="work-thumb"><span class="work-thumb-placeholder" data-i18n="work.c6.cover">[Cover: Eurodesk Brussels Link new website]</span></div>
+        <div class="work-body">
+          <div class="work-tags">
+            <span data-i18n="work.c6.tag1">Social Media Strategy</span>
+            <span data-i18n="work.c6.tag2">Campaign</span>
+            <span data-i18n="work.c6.tag3">Website Launch</span>
+          </div>
+          <h3 data-i18n="work.c6.title">Launching a new website for Eurodesk Brussels Link</h3>
+          <p class="work-meta" data-i18n="work.c6.meta">Eurodesk Brussels Link · Brussels, Belgium</p>
+          <button class="work-readcase" type="button" data-open-modal="cs-6">
+            <span data-i18n="sw.readcase">Read case study</span>
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
         </div>
-        <h3 data-i18n="work.c3.title">A 30-day Reels series that [doubled] a café's reach</h3>
-        <p class="work-meta" data-i18n="work.c3.meta">[Client name], Nicosia · Content creation</p>
-        <button class="work-readcase" type="button" data-open-modal="cs-3">
-          <span data-i18n="sw.readcase">Read case study</span>
-          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </button>
-      </div>
-    </div>
-    <div class="work-card" data-category="events">
-      <div class="work-thumb"><span class="work-thumb-placeholder" data-i18n="work.c4.cover">[Cover: live story frames + recap still]</span></div>
-      <div class="work-body">
-        <div class="work-tags">
-          <span data-i18n="work.c4.tag1">Events Coverage</span>
-          <span data-i18n="work.c4.tag2">Live Content</span>
-          <span data-i18n="work.c4.tag3">Instagram Stories</span>
-        </div>
-        <h3 data-i18n="work.c4.title">Live coverage of [event] that reached [X] people in [3] days</h3>
-        <p class="work-meta" data-i18n="work.c4.meta">[Organiser] · [Location, dates] · Events coverage</p>
-        <button class="work-readcase" type="button" data-open-modal="cs-4">
-          <span data-i18n="sw.readcase">Read case study</span>
-          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </button>
       </div>
     </div>
   </div>
@@ -2048,62 +2014,34 @@
   <div class="modal-panel cs-panel">
     <button class="modal-close" type="button" data-close-modal>Close &times;</button>
     <div class="cs-tags">
-      <span data-i18n="work.c1.tag1">Community Management</span>
-      <span data-i18n="work.c1.tag2">Content Strategy</span>
-      <span data-i18n="work.c1.tag3">Internal Comms</span>
+      <span data-i18n="work.c1.tag1">Events Coverage</span>
+      <span data-i18n="work.c1.tag2">Live Content</span>
+      <span data-i18n="work.c1.tag3">Instagram Stories</span>
     </div>
-    <h2 id="cs-1-t" data-i18n="work.c1.title">Building a voice for [500+] local sections</h2>
+    <h2 id="cs-1-t" data-i18n="work.c1.title">The European Youth Event that reached 9,000 people in 2 days</h2>
     <div class="cs-meta-row">
-      <div class="cs-meta-item"><span class="cs-meta-label" data-i18n="cs.lbl.org">Organisation</span><span class="cs-meta-value" data-i18n="cs1.meta.org">ESN International</span></div>
-      <div class="cs-meta-item"><span class="cs-meta-label" data-i18n="cs.lbl.role">Role</span><span class="cs-meta-value" data-i18n="cs1.meta.role">Communication Community Manager</span></div>
-      <div class="cs-meta-item"><span class="cs-meta-label" data-i18n="cs.lbl.timeline">Timeline</span><span class="cs-meta-value" data-i18n="cs1.meta.timeline">[Year – Year]</span></div>
-      <div class="cs-meta-item"><span class="cs-meta-label" data-i18n="cs.lbl.channels">Channels</span><span class="cs-meta-value" data-i18n="cs1.meta.channels">[Instagram, Facebook groups, newsletter]</span></div>
+      <div class="cs-meta-item"><span class="cs-meta-label" data-i18n="cs.lbl.event">Event</span><span class="cs-meta-value" data-i18n="cs1.meta.event">European Youth Event</span></div>
+      <div class="cs-meta-item"><span class="cs-meta-label" data-i18n="cs.lbl.location">Location</span><span class="cs-meta-value" data-i18n="cs1.meta.location">Nicosia, Cyprus</span></div>
+      <div class="cs-meta-item"><span class="cs-meta-label" data-i18n="cs.lbl.dates">Dates</span><span class="cs-meta-value" data-i18n="cs1.meta.dates">[Dates]</span></div>
+      <div class="cs-meta-item"><span class="cs-meta-label" data-i18n="cs.lbl.reach">Reach</span><span class="cs-meta-value" data-i18n="cs1.meta.reach">9,000 people</span></div>
     </div>
-    <div class="cs-hero" data-i18n="cs1.hero">[Hero image: collage of section spotlight posts]</div>
-
-    <div class="cs-block">
-      <div class="cs-block-num">01</div>
-      <h3 data-i18n="cs.lbl.challenge">The challenge</h3>
-      <p data-i18n="cs1.challenge">ESN International connects [number] local sections across [number] countries, each run by volunteers with very different levels of communication experience. The network needed consistent, engaging communication that kept volunteers informed and motivated, without sounding like corporate announcements.</p>
+    <div class="cs-hero" data-i18n="work.c1.cover">[Cover: European Youth Event highlights]</div>
+    <div class="cs-info-grid">
+      <div class="cs-info-item"><span class="cs-info-label" data-i18n="cs.lbl.brief">Brief</span><p data-i18n="cs1.brief">[Organiser] needed live coverage that brought the European Youth Event to people who couldn't attend in person.</p></div>
+      <div class="cs-info-item"><span class="cs-info-label" data-i18n="cs.lbl.approach">Approach</span><p data-i18n="cs1.approach">A shot list for each session, a posting schedule and clear team roles for continuous live coverage across the event.</p></div>
+      <div class="cs-info-item"><span class="cs-info-label" data-i18n="cs.lbl.outcome">Outcome</span><p data-i18n="cs1.outcome">9,000 people reached across Instagram Stories and posts in 2 days.</p></div>
     </div>
-    <div class="cs-block">
-      <div class="cs-block-num">02</div>
-      <h3 data-i18n="cs1.role.h">My role</h3>
-      <p data-i18n="cs1.role.p">I led [community channels / content planning / a volunteer comms team of X], working alongside [teams you coordinated with] to shape how the network talked to itself.</p>
-    </div>
-    <div class="cs-block">
-      <div class="cs-block-num">03</div>
-      <h3 data-i18n="cs1.strategy.h">Strategy</h3>
-      <p data-i18n="cs1.strategy.p">Three content pillars, and a shift from formal announcements to a warmer, peer-to-peer voice.</p>
-    </div>
-    <div class="cs-pillars">
-      <div class="cs-pillar"><div class="cs-pillar-mark">R</div><h4 data-i18n="cs1.p1.title">Recognition</h4><p data-i18n="cs1.p1.desc">Celebrating local sections' work so volunteers see their effort matters.</p></div>
-      <div class="cs-pillar"><div class="cs-pillar-mark">R</div><h4 data-i18n="cs1.p2.title">Resources</h4><p data-i18n="cs1.p2.desc">Practical toolkits and templates any section could pick up and use.</p></div>
-      <div class="cs-pillar"><div class="cs-pillar-mark">B</div><h4 data-i18n="cs1.p3.title">Belonging</h4><p data-i18n="cs1.p3.desc">Content that made volunteers feel part of something international.</p></div>
-    </div>
-    <div class="cs-block">
-      <div class="cs-block-num">04</div>
-      <h3 data-i18n="cs1.exec.h">Execution</h3>
-      <p data-i18n="cs1.exec.p">Each visual has a caption explaining why it works, not just what it is.</p>
-    </div>
-    <div class="cs-exec-grid">
-      <div class="cs-exec-item"><div class="cs-hero" data-i18n="cs1.e1.cover">[Content calendar screenshot]</div><p data-i18n="cs1.e1.caption">A monthly calendar balancing the three pillars so no single message type dominated.</p></div>
-      <div class="cs-exec-item"><div class="cs-hero" data-i18n="cs1.e2.cover">[Section spotlight posts]</div><p data-i18n="cs1.e2.caption">A recurring spotlight format that turned local wins into shareable content, giving sections a reason to engage.</p></div>
-    </div>
-    <div class="cs-block">
-      <div class="cs-block-num">05</div>
-      <h3 data-i18n="cs.lbl.results">Results</h3>
+    <div class="cs-media-grid">
+      <div class="cs-media-item"><div class="cs-hero" data-i18n="cs1.m1">[Story 1]</div></div>
+      <div class="cs-media-item"><div class="cs-hero" data-i18n="cs1.m2">[Story 2]</div></div>
+      <div class="cs-media-item"><div class="cs-hero" data-i18n="cs1.m3">[Behind the scenes]</div></div>
+      <div class="cs-media-item"><div class="cs-hero" data-i18n="cs1.m4">[Recap reel]</div></div>
     </div>
     <div class="cs-stats-row">
-      <div><span class="cs-stat-num" data-i18n="cs1.s1.num">[X%]</span><span class="cs-stat-label" data-i18n="cs1.s1.label">increase in engagement across community channels</span></div>
-      <div><span class="cs-stat-num" data-i18n="cs1.s2.num">[X]</span><span class="cs-stat-label" data-i18n="cs1.s2.label">sections featured in the spotlight series</span></div>
-      <div><span class="cs-stat-num" data-i18n="cs1.s3.num">[X]</span><span class="cs-stat-label" data-i18n="cs1.s3.label">national organisations adopted the templates</span></div>
+      <div><span class="cs-stat-num" data-i18n="cs1.s1.num">9,000</span><span class="cs-stat-label" data-i18n="cs1.s1.label">people reached</span></div>
+      <div><span class="cs-stat-num" data-i18n="cs1.s2.num">2</span><span class="cs-stat-label" data-i18n="cs1.s2.label">days of live coverage</span></div>
+      <div><span class="cs-stat-num" data-i18n="cs1.s3.num">[X]</span><span class="cs-stat-label" data-i18n="cs1.s3.label">stories published</span></div>
     </div>
-
-    <button class="cs-next" type="button" data-open-modal="cs-2">
-      <span><span class="cs-next-label" data-i18n="cs.next.label">Next project</span><span class="cs-next-title" data-i18n="work.c2.title">From local to national: one voice for ESN Cyprus</span></span>
-      <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    </button>
   </div>
 </div>
 
@@ -2111,38 +2049,34 @@
   <div class="modal-panel cs-panel">
     <button class="modal-close" type="button" data-close-modal>Close &times;</button>
     <div class="cs-tags">
-      <span data-i18n="work.c2.tag1">Leadership</span>
-      <span data-i18n="work.c2.tag2">Brand Consistency</span>
-      <span data-i18n="work.c2.tag3">Campaigns</span>
+      <span data-i18n="work.c2.tag1">Events Coverage</span>
+      <span data-i18n="work.c2.tag2">International</span>
+      <span data-i18n="work.c2.tag3">Erasmus Student Network</span>
     </div>
-    <h2 id="cs-2-t" data-i18n="work.c2.title">From local to national: one voice for ESN Cyprus</h2>
+    <h2 id="cs-2-t" data-i18n="work.c2.title">The biggest meeting of the Erasmus Generation — EGM Seville 2024</h2>
     <div class="cs-meta-row">
-      <div class="cs-meta-item"><span class="cs-meta-label" data-i18n="cs.lbl.role">Role</span><span class="cs-meta-value" data-i18n="work.c2.meta">ESN Cyprus · Communication Manager → National President</span></div>
-      <div class="cs-meta-item"><span class="cs-meta-label" data-i18n="cs.lbl.timeline">Timeline</span><span class="cs-meta-value" data-i18n="cs2.meta.timeline">[Year – Year]</span></div>
-      <div class="cs-meta-item"><span class="cs-meta-label" data-i18n="cs.lbl.deliverables">Deliverables</span><span class="cs-meta-value" data-i18n="cs2.meta.deliverables">Brand kit, guidelines, [campaign name]</span></div>
+      <div class="cs-meta-item"><span class="cs-meta-label" data-i18n="cs.lbl.event">Event</span><span class="cs-meta-value" data-i18n="cs2.meta.event">Erasmus Generation Meeting (EGM)</span></div>
+      <div class="cs-meta-item"><span class="cs-meta-label" data-i18n="cs.lbl.location">Location</span><span class="cs-meta-value" data-i18n="cs2.meta.location">Seville, Spain</span></div>
+      <div class="cs-meta-item"><span class="cs-meta-label" data-i18n="cs.lbl.dates">Dates</span><span class="cs-meta-value" data-i18n="cs2.meta.dates">2024</span></div>
+      <div class="cs-meta-item"><span class="cs-meta-label" data-i18n="cs.lbl.reach">Reach</span><span class="cs-meta-value" data-i18n="cs2.meta.reach">[Number]</span></div>
     </div>
-    <div class="cs-hero-row">
-      <div class="cs-hero" data-i18n="cs2.hero.main">[Brand kit overview]</div>
-      <div class="cs-hero-stack">
-        <div class="cs-hero" data-i18n="cs2.hero.before">[Section post, before]</div>
-        <div class="cs-hero" data-i18n="cs2.hero.after">[Section post, after]</div>
-      </div>
-    </div>
+    <div class="cs-hero" data-i18n="work.c2.cover">[Cover: EGM Seville highlights]</div>
     <div class="cs-info-grid">
-      <div class="cs-info-item"><span class="cs-info-label" data-i18n="cs.lbl.challenge">The challenge</span><p data-i18n="cs2.challenge">Each section communicated independently, so the national identity felt fragmented to students and partners.</p></div>
-      <div class="cs-info-item"><span class="cs-info-label" data-i18n="cs.lbl.whatidid">What I did</span><p data-i18n="cs2.whatidid">Created a shared brand kit and content guidelines so sections could stay locally authentic while looking recognisably ESN Cyprus. Launched [campaign name] to [goal].</p></div>
-      <div class="cs-info-item"><span class="cs-info-label" data-i18n="cs.lbl.results">Results</span><p data-i18n="cs2.results">[Follower growth] · [Event attendance] · [Partnership outcomes]</p></div>
+      <div class="cs-info-item"><span class="cs-info-label" data-i18n="cs.lbl.brief">Brief</span><p data-i18n="cs2.brief">[Organiser] needed coverage that captured the scale and energy of the biggest Erasmus Generation meeting.</p></div>
+      <div class="cs-info-item"><span class="cs-info-label" data-i18n="cs.lbl.approach">Approach</span><p data-i18n="cs2.approach">[Shot list, posting schedule and team roles across sessions and networking spaces.]</p></div>
+      <div class="cs-info-item"><span class="cs-info-label" data-i18n="cs.lbl.outcome">Outcome</span><p data-i18n="cs2.outcome">[Reach] · [Stories published] · [Delegate feedback]</p></div>
     </div>
-    <div class="cs-quote">
-      <span class="cs-quote-mark">&ldquo;</span>
-      <p data-i18n="cs2.quote.text">[Quote from a board member or partner about the impact of the work.]</p>
-      <div class="cs-quote-attr" data-i18n="cs2.quote.attr">[Name], [Role, Organisation]</div>
+    <div class="cs-media-grid">
+      <div class="cs-media-item"><div class="cs-hero" data-i18n="cs2.m1">[Story 1]</div></div>
+      <div class="cs-media-item"><div class="cs-hero" data-i18n="cs2.m2">[Story 2]</div></div>
+      <div class="cs-media-item"><div class="cs-hero" data-i18n="cs2.m3">[Behind the scenes]</div></div>
+      <div class="cs-media-item"><div class="cs-hero" data-i18n="cs2.m4">[Recap reel]</div></div>
     </div>
-
-    <button class="cs-next" type="button" data-open-modal="cs-3">
-      <span><span class="cs-next-label" data-i18n="cs.next.label">Next project</span><span class="cs-next-title" data-i18n="work.c3.title">A 30-day Reels series that [doubled] a café's reach</span></span>
-      <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    </button>
+    <div class="cs-stats-row">
+      <div><span class="cs-stat-num" data-i18n="cs2.s1.num">[X]</span><span class="cs-stat-label" data-i18n="cs2.s1.label">delegates attended</span></div>
+      <div><span class="cs-stat-num" data-i18n="cs2.s2.num">[X]</span><span class="cs-stat-label" data-i18n="cs2.s2.label">countries represented</span></div>
+      <div><span class="cs-stat-num" data-i18n="cs2.s3.num">[X]</span><span class="cs-stat-label" data-i18n="cs2.s3.label">posts published</span></div>
+    </div>
   </div>
 </div>
 
@@ -2150,27 +2084,34 @@
   <div class="modal-panel cs-panel">
     <button class="modal-close" type="button" data-close-modal>Close &times;</button>
     <div class="cs-tags">
-      <span data-i18n="work.c3.tag1">Short-form Video</span>
-      <span data-i18n="work.c3.tag2">Local Business</span>
-      <span data-i18n="work.c3.tag3">Instagram</span>
+      <span data-i18n="work.c3.tag1">Events Coverage</span>
+      <span data-i18n="work.c3.tag2">Network Meeting</span>
+      <span data-i18n="work.c3.tag3">Eurodesk</span>
     </div>
-    <h2 id="cs-3-t" data-i18n="work.c3.title">A 30-day Reels series that [doubled] a café's reach</h2>
+    <h2 id="cs-3-t" data-i18n="work.c3.title">Where the Eurodesk network community met — Brussels</h2>
+    <div class="cs-meta-row">
+      <div class="cs-meta-item"><span class="cs-meta-label" data-i18n="cs.lbl.event">Event</span><span class="cs-meta-value" data-i18n="cs3.meta.event">Eurodesk Network Meeting</span></div>
+      <div class="cs-meta-item"><span class="cs-meta-label" data-i18n="cs.lbl.location">Location</span><span class="cs-meta-value" data-i18n="cs3.meta.location">Brussels, Belgium</span></div>
+      <div class="cs-meta-item"><span class="cs-meta-label" data-i18n="cs.lbl.dates">Dates</span><span class="cs-meta-value" data-i18n="cs3.meta.dates">[Dates]</span></div>
+      <div class="cs-meta-item"><span class="cs-meta-label" data-i18n="cs.lbl.reach">Reach</span><span class="cs-meta-value" data-i18n="cs3.meta.reach">[Number]</span></div>
+    </div>
+    <div class="cs-hero" data-i18n="work.c3.cover">[Cover: Eurodesk network meeting, Brussels]</div>
     <div class="cs-info-grid">
-      <div class="cs-info-item"><span class="cs-info-label" data-i18n="cs.lbl.brief">Brief</span><p data-i18n="cs3.brief">A neighbourhood café wanted to reach students and young professionals, not just regulars.</p></div>
-      <div class="cs-info-item"><span class="cs-info-label" data-i18n="cs.lbl.approach">Approach</span><p data-i18n="cs3.approach">A behind-the-counter series about the people and rituals of the café, rather than just the product.</p></div>
-      <div class="cs-info-item"><span class="cs-info-label" data-i18n="cs.lbl.outcome">Outcome</span><p data-i18n="cs3.outcome">[Reach growth] · [Follower growth] · [Staff heard new customers mention the videos]</p></div>
+      <div class="cs-info-item"><span class="cs-info-label" data-i18n="cs.lbl.brief">Brief</span><p data-i18n="cs3.brief">[Organiser] wanted the Eurodesk network's in-person meeting in Brussels documented for members who couldn't attend.</p></div>
+      <div class="cs-info-item"><span class="cs-info-label" data-i18n="cs.lbl.approach">Approach</span><p data-i18n="cs3.approach">[Shot list, posting schedule and team roles.]</p></div>
+      <div class="cs-info-item"><span class="cs-info-label" data-i18n="cs.lbl.outcome">Outcome</span><p data-i18n="cs3.outcome">[Reach] · [Stories published] · [Member feedback]</p></div>
     </div>
     <div class="cs-media-grid">
-      <div class="cs-media-item"><div class="cs-hero" data-i18n="cs3.reel1">[Reel 1 · 9:16]</div></div>
-      <div class="cs-media-item"><div class="cs-hero" data-i18n="cs3.reel2">[Reel 2 · 9:16]</div></div>
-      <div class="cs-media-item"><div class="cs-hero" data-i18n="cs3.reel3">[Reel 3 · 9:16]</div></div>
-      <div class="cs-media-item"><div class="cs-hero" data-i18n="cs3.reel4">[Reel 4 · 9:16]</div></div>
+      <div class="cs-media-item"><div class="cs-hero" data-i18n="cs3.m1">[Story 1]</div></div>
+      <div class="cs-media-item"><div class="cs-hero" data-i18n="cs3.m2">[Story 2]</div></div>
+      <div class="cs-media-item"><div class="cs-hero" data-i18n="cs3.m3">[Behind the scenes]</div></div>
+      <div class="cs-media-item"><div class="cs-hero" data-i18n="cs3.m4">[Recap reel]</div></div>
     </div>
-
-    <button class="cs-next" type="button" data-open-modal="cs-4">
-      <span><span class="cs-next-label" data-i18n="cs.next.label">Next project</span><span class="cs-next-title" data-i18n="work.c4.title">Live coverage of [event] that reached [X] people in [3] days</span></span>
-      <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    </button>
+    <div class="cs-stats-row">
+      <div><span class="cs-stat-num" data-i18n="cs3.s1.num">[X]</span><span class="cs-stat-label" data-i18n="cs3.s1.label">network members attended</span></div>
+      <div><span class="cs-stat-num" data-i18n="cs3.s2.num">[X]</span><span class="cs-stat-label" data-i18n="cs3.s2.label">countries represented</span></div>
+      <div><span class="cs-stat-num" data-i18n="cs3.s3.num">[X]</span><span class="cs-stat-label" data-i18n="cs3.s3.label">stories published</span></div>
+    </div>
   </div>
 </div>
 
@@ -2178,40 +2119,103 @@
   <div class="modal-panel cs-panel">
     <button class="modal-close" type="button" data-close-modal>Close &times;</button>
     <div class="cs-tags">
-      <span data-i18n="work.c4.tag1">Events Coverage</span>
-      <span data-i18n="work.c4.tag2">Live Content</span>
-      <span data-i18n="work.c4.tag3">Instagram Stories</span>
+      <span data-i18n="work.c4.tag1">Social Media Strategy</span>
+      <span data-i18n="work.c4.tag2">Campaign</span>
+      <span data-i18n="work.c4.tag3">Destination Branding</span>
     </div>
-    <h2 id="cs-4-t" data-i18n="work.c4.title">Live coverage of [event] that reached [X] people in [3] days</h2>
+    <h2 id="cs-4-t" data-i18n="work.c4.title">Nicosia, the Erasmus Destination of the Year</h2>
     <div class="cs-meta-row">
-      <div class="cs-meta-item"><span class="cs-meta-label" data-i18n="cs.lbl.event">Event</span><span class="cs-meta-value" data-i18n="cs4.meta.event">[Event name]</span></div>
-      <div class="cs-meta-item"><span class="cs-meta-label" data-i18n="cs.lbl.location">Location</span><span class="cs-meta-value" data-i18n="cs4.meta.location">[City, venue]</span></div>
-      <div class="cs-meta-item"><span class="cs-meta-label" data-i18n="cs.lbl.dates">Dates</span><span class="cs-meta-value" data-i18n="cs4.meta.dates">[Day – Day Month Year]</span></div>
-      <div class="cs-meta-item"><span class="cs-meta-label" data-i18n="cs.lbl.attendees">Attendees</span><span class="cs-meta-value" data-i18n="cs4.meta.attendees">[Number]</span></div>
+      <div class="cs-meta-item"><span class="cs-meta-label" data-i18n="cs.lbl.client">Client</span><span class="cs-meta-value" data-i18n="cs4.meta.client">[Organisation]</span></div>
+      <div class="cs-meta-item"><span class="cs-meta-label" data-i18n="cs.lbl.role">Role</span><span class="cs-meta-value" data-i18n="cs4.meta.role">Social Media Strategy</span></div>
+      <div class="cs-meta-item"><span class="cs-meta-label" data-i18n="cs.lbl.platform">Platform</span><span class="cs-meta-value" data-i18n="cs4.meta.platform">Instagram, Facebook</span></div>
+      <div class="cs-meta-item"><span class="cs-meta-label" data-i18n="cs.lbl.timeline">Timeline</span><span class="cs-meta-value" data-i18n="cs4.meta.timeline">[Year]</span></div>
     </div>
-    <div class="cs-media-grid" style="grid-template-columns:1fr 1fr;margin-bottom:14px;">
-      <div class="cs-media-item"><div class="cs-hero" data-i18n="cs4.story1">[Story 1 · 9:16]</div></div>
-      <div class="cs-media-item"><div class="cs-hero" data-i18n="cs4.story2">[Story 2 · 9:16]</div></div>
+    <div class="cs-hero" data-i18n="work.c4.cover">[Cover: Nicosia Erasmus Destination of the Year]</div>
+    <div class="cs-info-grid">
+      <div class="cs-info-item"><span class="cs-info-label" data-i18n="cs.lbl.brief">Brief</span><p data-i18n="cs4.brief">[Organisation] wanted to celebrate Nicosia being named Erasmus Destination of the Year and grow awareness among prospective students.</p></div>
+      <div class="cs-info-item"><span class="cs-info-label" data-i18n="cs.lbl.approach">Approach</span><p data-i18n="cs4.approach">[Content pillars, posting schedule and platforms used.]</p></div>
+      <div class="cs-info-item"><span class="cs-info-label" data-i18n="cs.lbl.outcome">Outcome</span><p data-i18n="cs4.outcome">[Engagement growth] · [Reach] · [Follower growth]</p></div>
     </div>
-    <div class="cs-hero" data-i18n="cs4.recap">[Recap reel still or best event photo]</div>
-    <div class="cs-info-grid cs-info-2" style="grid-template-columns:1fr 1fr;">
-      <div class="cs-info-item"><span class="cs-info-label" data-i18n="cs.lbl.brief">The brief</span><p data-i18n="cs4.brief">[Organiser] needed [goal for the coverage, e.g. to bring the event to members who couldn't attend and build buzz for next year].</p></div>
-      <div class="cs-info-item"><span class="cs-info-label" data-i18n="cs.lbl.coverageplan">Coverage plan</span><p data-i18n="cs4.coverageplan">Before the event I prepared [a shot list for each session], [a posting schedule] and [team roles: who filmed, who posted, who moderated].</p></div>
-    </div>
-    <div class="cs-block"><h3 data-i18n="cs4.day.h">On the day</h3></div>
-    <div class="cs-stats-row">
-      <div><span class="cs-stat-num" data-i18n="cs4.s1.num">[X]</span><span class="cs-stat-label" data-i18n="cs4.s1.label">stories published live</span></div>
-      <div><span class="cs-stat-num" data-i18n="cs4.s2.num">[X]</span><span class="cs-stat-label" data-i18n="cs4.s2.label">posts and reels during the event</span></div>
-      <div><span class="cs-stat-num" data-i18n="cs4.s3.num">[24h]</span><span class="cs-stat-label" data-i18n="cs4.s3.label">from closing session to recap reel</span></div>
-      <div><span class="cs-stat-num" data-i18n="cs4.s4.num">[X]</span><span class="cs-stat-label" data-i18n="cs4.s4.label">accounts reached during the event</span></div>
-    </div>
-    <p class="cs-stats-note" data-i18n="cs4.day.note">Also: [story views] · [hashtag uses] · [attendee reshares]</p>
-    <div class="cs-block"><h3 data-i18n="cs4.polished.h">From live to polished</h3></div>
     <div class="cs-media-grid">
-      <div class="cs-media-item"><div class="cs-hero" data-i18n="cs4.m1.cover">[Live story]</div><p data-i18n="cs4.m1.caption">[Why it works: e.g. poll sticker that kept remote members involved]</p></div>
-      <div class="cs-media-item"><div class="cs-hero" data-i18n="cs4.m2.cover">[Speaker moment]</div><p data-i18n="cs4.m2.caption">[Why it works]</p></div>
-      <div class="cs-media-item"><div class="cs-hero" data-i18n="cs4.m3.cover">[Behind the scenes]</div><p data-i18n="cs4.m3.caption">[Why it works]</p></div>
-      <div class="cs-media-item"><div class="cs-hero" data-i18n="cs4.m4.cover">[Recap reel]</div><p data-i18n="cs4.m4.caption">[Why it works]</p></div>
+      <div class="cs-media-item"><div class="cs-hero" data-i18n="cs4.m1">[Post 1]</div></div>
+      <div class="cs-media-item"><div class="cs-hero" data-i18n="cs4.m2">[Post 2]</div></div>
+      <div class="cs-media-item"><div class="cs-hero" data-i18n="cs4.m3">[Post 3]</div></div>
+      <div class="cs-media-item"><div class="cs-hero" data-i18n="cs4.m4">[Post 4]</div></div>
+    </div>
+    <div class="cs-stats-row">
+      <div><span class="cs-stat-num" data-i18n="cs4.s1.num">[X%]</span><span class="cs-stat-label" data-i18n="cs4.s1.label">increase in engagement</span></div>
+      <div><span class="cs-stat-num" data-i18n="cs4.s2.num">[X]</span><span class="cs-stat-label" data-i18n="cs4.s2.label">posts published</span></div>
+      <div><span class="cs-stat-num" data-i18n="cs4.s3.num">[X]</span><span class="cs-stat-label" data-i18n="cs4.s3.label">people reached</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="cs-5" role="dialog" aria-modal="true" aria-labelledby="cs-5-t" data-case-modal>
+  <div class="modal-panel cs-panel">
+    <button class="modal-close" type="button" data-close-modal>Close &times;</button>
+    <div class="cs-tags">
+      <span data-i18n="work.c5.tag1">Social Media Strategy</span>
+      <span data-i18n="work.c5.tag2">Content Series</span>
+      <span data-i18n="work.c5.tag3">Instagram</span>
+    </div>
+    <h2 id="cs-5-t" data-i18n="work.c5.title">Pretty Girls Drink Matcha</h2>
+    <div class="cs-meta-row">
+      <div class="cs-meta-item"><span class="cs-meta-label" data-i18n="cs.lbl.client">Client</span><span class="cs-meta-value" data-i18n="cs5.meta.client">[Client name]</span></div>
+      <div class="cs-meta-item"><span class="cs-meta-label" data-i18n="cs.lbl.role">Role</span><span class="cs-meta-value" data-i18n="cs5.meta.role">Content creation</span></div>
+      <div class="cs-meta-item"><span class="cs-meta-label" data-i18n="cs.lbl.platform">Platform</span><span class="cs-meta-value" data-i18n="cs5.meta.platform">Instagram</span></div>
+      <div class="cs-meta-item"><span class="cs-meta-label" data-i18n="cs.lbl.timeline">Timeline</span><span class="cs-meta-value" data-i18n="cs5.meta.timeline">[Year]</span></div>
+    </div>
+    <div class="cs-hero" data-i18n="work.c5.cover">[Cover: Pretty Girls Drink Matcha]</div>
+    <div class="cs-info-grid">
+      <div class="cs-info-item"><span class="cs-info-label" data-i18n="cs.lbl.brief">Brief</span><p data-i18n="cs5.brief">[Client name] wanted a distinctive, shareable content series that stood out from typical brand posts.</p></div>
+      <div class="cs-info-item"><span class="cs-info-label" data-i18n="cs.lbl.approach">Approach</span><p data-i18n="cs5.approach">[Content format, tone of voice and posting cadence.]</p></div>
+      <div class="cs-info-item"><span class="cs-info-label" data-i18n="cs.lbl.outcome">Outcome</span><p data-i18n="cs5.outcome">[Reach] · [Engagement rate] · [Follower growth]</p></div>
+    </div>
+    <div class="cs-media-grid">
+      <div class="cs-media-item"><div class="cs-hero" data-i18n="cs5.m1">[Post 1]</div></div>
+      <div class="cs-media-item"><div class="cs-hero" data-i18n="cs5.m2">[Post 2]</div></div>
+      <div class="cs-media-item"><div class="cs-hero" data-i18n="cs5.m3">[Post 3]</div></div>
+      <div class="cs-media-item"><div class="cs-hero" data-i18n="cs5.m4">[Post 4]</div></div>
+    </div>
+    <div class="cs-stats-row">
+      <div><span class="cs-stat-num" data-i18n="cs5.s1.num">[X]</span><span class="cs-stat-label" data-i18n="cs5.s1.label">posts in the series</span></div>
+      <div><span class="cs-stat-num" data-i18n="cs5.s2.num">[X%]</span><span class="cs-stat-label" data-i18n="cs5.s2.label">engagement rate</span></div>
+      <div><span class="cs-stat-num" data-i18n="cs5.s3.num">[X]</span><span class="cs-stat-label" data-i18n="cs5.s3.label">people reached</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="cs-6" role="dialog" aria-modal="true" aria-labelledby="cs-6-t" data-case-modal>
+  <div class="modal-panel cs-panel">
+    <button class="modal-close" type="button" data-close-modal>Close &times;</button>
+    <div class="cs-tags">
+      <span data-i18n="work.c6.tag1">Social Media Strategy</span>
+      <span data-i18n="work.c6.tag2">Campaign</span>
+      <span data-i18n="work.c6.tag3">Website Launch</span>
+    </div>
+    <h2 id="cs-6-t" data-i18n="work.c6.title">Launching a new website for Eurodesk Brussels Link</h2>
+    <div class="cs-meta-row">
+      <div class="cs-meta-item"><span class="cs-meta-label" data-i18n="cs.lbl.client">Client</span><span class="cs-meta-value" data-i18n="cs6.meta.client">Eurodesk Brussels Link</span></div>
+      <div class="cs-meta-item"><span class="cs-meta-label" data-i18n="cs.lbl.role">Role</span><span class="cs-meta-value" data-i18n="cs6.meta.role">Social Media Strategy</span></div>
+      <div class="cs-meta-item"><span class="cs-meta-label" data-i18n="cs.lbl.platform">Platform</span><span class="cs-meta-value" data-i18n="cs6.meta.platform">Instagram, LinkedIn</span></div>
+      <div class="cs-meta-item"><span class="cs-meta-label" data-i18n="cs.lbl.timeline">Timeline</span><span class="cs-meta-value" data-i18n="cs6.meta.timeline">[Year]</span></div>
+    </div>
+    <div class="cs-hero" data-i18n="work.c6.cover">[Cover: Eurodesk Brussels Link new website]</div>
+    <div class="cs-info-grid">
+      <div class="cs-info-item"><span class="cs-info-label" data-i18n="cs.lbl.brief">Brief</span><p data-i18n="cs6.brief">Eurodesk Brussels Link needed a social campaign to build anticipation for their new website launch.</p></div>
+      <div class="cs-info-item"><span class="cs-info-label" data-i18n="cs.lbl.approach">Approach</span><p data-i18n="cs6.approach">[Teaser content, launch-day content and platforms used.]</p></div>
+      <div class="cs-info-item"><span class="cs-info-label" data-i18n="cs.lbl.outcome">Outcome</span><p data-i18n="cs6.outcome">[Website traffic increase] · [Reach] · [Campaign engagement]</p></div>
+    </div>
+    <div class="cs-media-grid">
+      <div class="cs-media-item"><div class="cs-hero" data-i18n="cs6.m1">[Post 1]</div></div>
+      <div class="cs-media-item"><div class="cs-hero" data-i18n="cs6.m2">[Post 2]</div></div>
+      <div class="cs-media-item"><div class="cs-hero" data-i18n="cs6.m3">[Post 3]</div></div>
+      <div class="cs-media-item"><div class="cs-hero" data-i18n="cs6.m4">[Post 4]</div></div>
+    </div>
+    <div class="cs-stats-row">
+      <div><span class="cs-stat-num" data-i18n="cs6.s1.num">[X%]</span><span class="cs-stat-label" data-i18n="cs6.s1.label">increase in website traffic</span></div>
+      <div><span class="cs-stat-num" data-i18n="cs6.s2.num">[X]</span><span class="cs-stat-label" data-i18n="cs6.s2.label">launch campaign posts</span></div>
+      <div><span class="cs-stat-num" data-i18n="cs6.s3.num">[X]</span><span class="cs-stat-label" data-i18n="cs6.s3.label">people reached</span></div>
     </div>
   </div>
 </div>
