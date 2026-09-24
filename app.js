@@ -147,6 +147,41 @@
     });
   }
 
+  // Case-study modals (opened from "Read case study" and "Next project")
+  var csModals = document.querySelectorAll(".modal[data-case-modal]");
+  if (csModals.length) {
+    var csLast = null;
+    var csCloseAll = function () {
+      csModals.forEach(function (m) { m.classList.remove("open"); });
+      document.body.classList.remove("modal-open");
+      if (csLast && csLast.focus) csLast.focus();
+    };
+    document.querySelectorAll("[data-open-modal]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var m = document.getElementById(btn.getAttribute("data-open-modal"));
+        if (!m) return;
+        csLast = btn;
+        csModals.forEach(function (mm) { mm.classList.remove("open"); });
+        m.classList.add("open");
+        m.scrollTop = 0;
+        document.body.classList.add("modal-open");
+        var cl = m.querySelector("[data-close-modal]");
+        if (cl) cl.focus();
+      });
+    });
+    csModals.forEach(function (m) {
+      m.addEventListener("click", function (e) {
+        if (e.target === m || (e.target.closest && e.target.closest("[data-close-modal]"))) csCloseAll();
+      });
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key !== "Escape") return;
+      for (var i = 0; i < csModals.length; i++) {
+        if (csModals[i].classList.contains("open")) { csCloseAll(); break; }
+      }
+    });
+  }
+
   // Selected-work filter pills
   var swFilters = document.querySelectorAll(".sw-filter");
   var workCards = document.querySelectorAll(".work-card");
