@@ -15,19 +15,19 @@
     --accent-dark: #E8835A;
     --accent-rgb: 255, 163, 119;
     --secondary: #FFA377;
-    --card-glass: rgba(74, 34, 112, 0.82);
+    --card-glass: rgba(51, 27, 71, 0.82);
     --text: #D8CFE3;
     --heading: #F0EDF3;
     --muted: #B7A9C4;
-    --border: #6A4090;
-    --bg: #5B2A86;
-    --bg-soft: #4A2270;
+    --border: #4C2C66;
+    --bg: #241333;
+    --bg-soft: #331B47;
     --radius: 10px;
-    --card: #4A2270;
-    --nav-bg: rgba(91, 42, 134, 0.85);
-    --on-accent: #2A1338;
+    --card: #331B47;
+    --nav-bg: rgba(36, 19, 51, 0.85);
+    --on-accent: #241333;
     --role-dot: #9B7FB5;
-    --pc-body: #1E1029;
+    --pc-body: #180B20;
   }
 
   html[data-theme="light"] {
@@ -390,7 +390,7 @@
   .service .ico {
     width: 40px;
     height: 40px;
-    color: var(--accent);
+    color: var(--heading);
   }
   .service .ico svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.4; }
   .service h3 {
@@ -642,7 +642,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--accent);
+    color: var(--heading);
     transition: border-color 0.15s ease;
   }
   .c-row .c-ico svg { width: 18px; height: 18px; fill: currentColor; }
@@ -741,7 +741,7 @@
   }
   .talk-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .talk-thumb-icon { display: flex; align-items: center; justify-content: center; }
-  .talk-icon { width: 34px; height: 34px; color: var(--accent); }
+  .talk-icon { width: 34px; height: 34px; color: var(--heading); }
   .talk-icon svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
   .talk-play {
     position: absolute;
@@ -1187,7 +1187,7 @@
     text-transform: uppercase;
     color: var(--heading);
   }
-  .mag-loc svg { width: 14px; height: 14px; fill: var(--accent); flex-shrink: 0; }
+  .mag-loc svg { width: 14px; height: 14px; fill: var(--heading); flex-shrink: 0; }
 
   /* stats */
   .stats {
@@ -1201,7 +1201,7 @@
   }
   .stat { display: flex; align-items: center; gap: 16px; padding: 22px 26px; }
   .stat + .stat { border-left: 1px solid var(--border); }
-  .stat .s-ico { width: 24px; height: 24px; flex-shrink: 0; color: var(--accent); }
+  .stat .s-ico { width: 24px; height: 24px; flex-shrink: 0; color: var(--heading); }
   .stat .s-ico svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.6; }
   .stat .s-num { font-family: 'Lexend', sans-serif; font-size: 21px; font-weight: 700; color: var(--heading); }
   .stat .s-label { font-size: 10px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); }
@@ -1246,7 +1246,7 @@
   .svc-list { display: flex; flex-direction: column; gap: 18px; }
   .svc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px 28px; }
   .svc-item { display: grid; grid-template-columns: 34px 1fr; gap: 14px; align-content: start; }
-  .svc-ico { width: 34px; height: 34px; border-radius: 8px; background: var(--accent); color: var(--on-accent); display: grid; place-items: center; }
+  .svc-ico { width: 34px; height: 34px; border-radius: 8px; background: var(--heading); color: var(--bg); display: grid; place-items: center; }
   .svc-ico svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.7; }
   .svc-item h3 { font-family: 'Lexend', sans-serif; font-size: 14px; font-weight: 700; color: var(--heading); }
   .svc-item p { font-size: 12.5px; color: var(--muted); margin-top: 3px; }
@@ -1365,7 +1365,7 @@
   }
   .mc-list { display: flex; flex-direction: column; gap: 11px; }
   .mc-row { display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--muted); transition: color 0.15s ease; }
-  .mc-row svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.7; color: var(--accent); flex-shrink: 0; }
+  .mc-row svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.7; color: var(--heading); flex-shrink: 0; }
   a.mc-row:hover { color: var(--accent); }
   .mc-connect .mc-label {
     font-size: 11px;
