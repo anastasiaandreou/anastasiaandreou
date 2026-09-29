@@ -120,6 +120,31 @@
     });
   }
 
+  // Text size toggle (cycles Normal -> Large -> Larger -> Normal)
+  var textSizeBtn = document.querySelector(".text-size-toggle");
+  if (textSizeBtn) {
+    var textSizeLabels = [
+      { title: "Increase text size", label: "Increase text size" },
+      { title: "Increase text size further", label: "Increase text size further" },
+      { title: "Reset text size", label: "Reset text size" }
+    ];
+    var syncTextSize = function () {
+      var level = root.getAttribute("data-text-size") || "0";
+      var info = textSizeLabels[parseInt(level, 10)] || textSizeLabels[0];
+      textSizeBtn.setAttribute("title", info.title);
+      textSizeBtn.setAttribute("aria-label", info.label);
+    };
+    syncTextSize();
+    textSizeBtn.addEventListener("click", function () {
+      var level = (parseInt(root.getAttribute("data-text-size"), 10) || 0) + 1;
+      if (level > 2) level = 0;
+      if (level === 0) root.removeAttribute("data-text-size");
+      else root.setAttribute("data-text-size", String(level));
+      try { localStorage.setItem("textSize", String(level)); } catch (e) {}
+      syncTextSize();
+    });
+  }
+
   // About modal
   var modal = document.getElementById("about-modal");
   var aboutOpen = document.getElementById("aboutOpen");

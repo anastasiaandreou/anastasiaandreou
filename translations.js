@@ -1,7 +1,7 @@
 /* Shared translation dictionary for index.html and work.html */
 window.I18N = {
   en: {
-    "banner.text": "🚧 This website is still under construction — feel free to have a look around!",
+    "banner.text": "🚧 This website is still under development — feel free to have a look around!",
     "nav.about": "About Me",
     "nav.work": "My Work",
     "nav.contact": "Contact",
@@ -264,7 +264,7 @@ window.I18N = {
   },
 
   el: {
-    "banner.text": "🚧 Ο ιστότοπος βρίσκεται ακόμη υπό κατασκευή — μη διστάσεις να ρίξεις μια ματιά!",
+    "banner.text": "🚧 Ο ιστότοπος βρίσκεται ακόμη υπό ανάπτυξη — μη διστάσεις να ρίξεις μια ματιά!",
     "nav.about": "Σχετικά",
     "nav.work": "Η Δουλειά μου",
     "nav.contact": "Επικοινωνία",
